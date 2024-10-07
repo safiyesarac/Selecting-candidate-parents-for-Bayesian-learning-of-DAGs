@@ -1,0 +1,4 @@
+gobnilp/scoring/family = "bdeu"
+gobnilp/scoring/bdeuess = 1.0
+gobnilp/localscoring = TRUE
+gobnilp/maxparents = 4
