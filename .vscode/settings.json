@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
         "./pygobnilp"
-    ]
+    ],
+    "C_Cpp.errorSquiggles": "disabled"
 }
