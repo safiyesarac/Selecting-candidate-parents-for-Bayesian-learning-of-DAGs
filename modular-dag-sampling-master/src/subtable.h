@@ -12,6 +12,9 @@ public:
     T& operator()(uint32_t R, uint32_t U) { return data[R][U]; }
     const T& operator()(uint32_t R, uint32_t U) const { return data[R][U]; }
 
+    // Add a public getter for `data`
+    const std::vector<std::vector<T>>& get_data() const { return data; }
+
 private:
     std::vector<std::vector<T>> data;
 };

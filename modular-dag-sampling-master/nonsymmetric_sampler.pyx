@@ -1,6 +1,6 @@
 from libcpp.vector cimport vector
 from libc.stdint cimport uint32_t
-
+import os
 # Import SubTable class and its methods
 cdef extern from "subtable.h":
     cdef cppclass SubTable[T]:
@@ -9,7 +9,6 @@ cdef extern from "subtable.h":
         # Omit the non-const version if not needed
         # T& operator()(uint32_t R, uint32_t U)
         T operator()(uint32_t R, uint32_t U) const
-
 
 # Import function from C++ namespace
 cdef extern from "nonsymmetric.h" namespace "nonsymmetric_":
@@ -45,4 +44,83 @@ def py_calculate_hat_weights(int size, list weights):
 
     return py_result
 
+# Import required C++ structures and functions
+from libcpp.vector cimport vector
+from libc.stdint cimport uint32_t
 
+
+from libcpp.string cimport string  # Import C++ string for conversion
+import logging
+
+# Correctly declare NonSymmetricSampler as an extern class from the header
+cdef extern from "nonsymmetric.h" namespace "nonsymmetric_":
+    cdef cppclass NonSymmetricSampler[T]:
+        NonSymmetricSampler(const char* filename)  # Use const char* instead of std::string
+        vector[int] sample()
+import networkx as nx
+import matplotlib.pyplot as plt
+
+
+
+# Main function to run the sampler with logging and file check
+def py_run_nonsymmetric_sampler(int size, int num_dags, object logger):
+    """
+    Run the nonsymmetric sampler and return sampled DAGs with logging.
+    """
+    cdef NonSymmetricSampler[double]* sampler = NULL
+
+    # Define file path
+    file_path = "modular-dag-sampling-master/scores copy.jkl"
+
+    # Check if file exists
+    if not os.path.exists(file_path):
+        logger.error(f"File not found: {file_path}")
+        raise FileNotFoundError(f"File not found: {file_path}")
+
+    try:
+        logger.info("Initializing nonsymmetric sampler.")
+
+        # Convert file path to UTF-8 encoded bytes first
+        encoded_file_path = file_path.encode('utf-8')
+        sampler = new NonSymmetricSampler[double](<const char*>encoded_file_path)
+
+        py_dags = []
+        for i in range(num_dags):
+            logger.info(f"Sampling DAG {i + 1}/{num_dags}.")
+            try:
+                sampled_dag = sampler.sample()
+                
+            except Exception as e:
+                logger.error(f"Error during sampling of DAG {i + 1}: {e}")
+                continue
+
+            # Convert the sampled DAG to Python list and store it
+            py_dags.append([int(x) for x in sampled_dag])
+            logger.info(f"Sampling DAG {i + 1} completed successfully.")
+     
+
+            # Visualize the DAG if the visualize flag is True
+            if True:
+                G = nx.DiGraph()
+                for node, connections in enumerate(sampled_dag):
+                    for target in range(size):
+                        if (connections >> target) & 1:
+                            G.add_edge(node, target)
+                
+                plt.figure(figsize=(8, 6))
+                nx.draw(G, with_labels=True, node_color='skyblue', edge_color='gray', node_size=1500, font_size=10, font_weight='bold')
+                plt.title(f"DAG Visualization - Sample {i + 1}")
+                plt.show()
+
+
+    except Exception as e:
+        logger.error(f"An error occurred in py_run_nonsymmetric_sampler: {e}")
+        raise
+
+    finally:
+        if sampler is not NULL:
+            logger.info("Cleaning up sampler.")
+            del sampler
+
+    logger.info("Sampling completed successfully.")
+    return py_dags

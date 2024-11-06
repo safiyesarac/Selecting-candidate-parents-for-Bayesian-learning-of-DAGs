@@ -26,6 +26,9 @@ public:
 	static Lognum from_log(double val) {
 		return Lognum(val);
 	}
+	double to_double() const {
+        return std::exp(log_value); // Returns the value in the original scale
+    }
 
 	static Lognum zero() {
 		return Lognum();

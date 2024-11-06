@@ -3,8 +3,30 @@
 #include "common.h"
 #include "lognum.h"
 
+#include <cmath>
+#include <random>
+
 namespace symmetric_ {
 
+
+
+double uniform_rand(double upper_bound) {
+    static std::mt19937 gen{std::random_device{}()};
+    std::uniform_real_distribution<> dist(0.0, upper_bound);
+    return dist(gen);
+}
+
+double powi(double base, int exponent) {
+    return std::pow(base, exponent);
+}
+
+double binomial(int n, int k) {
+    double res = 1.0;
+    for (int i = 1; i <= k; ++i) {
+        res *= (n - i + 1) / static_cast<double>(i);
+    }
+    return res;
+}
 template <class T>
 std::vector<std::vector<T>> calculate_hat_weights(int size, int l_bound, const std::vector<T>& weights) {
     /*
@@ -22,14 +44,14 @@ std::vector<std::vector<T>> calculate_hat_weights(int size, int l_bound, const s
     }
 
 
-    hw[0][0] = T::one();
+    hw[0][0] = T(0);
 
     for(int t = 1; t < size; t++) 
     {
         T sum;
         for(int j = 0; j <= t; j++) 
         {
-            sum = sum+(T::binomial(t, j)*weights[j]);
+            sum = sum+(binomial(t, j)*weights[j]);
         }
         hw[0][t] = sum;
     }
@@ -40,7 +62,7 @@ std::vector<std::vector<T>> calculate_hat_weights(int size, int l_bound, const s
         T sum;
         for(int j = 1; j <= t; j++) 
         {
-            sum = sum+(T::binomial(t-1, j-1)*weights[j]);
+            sum = sum+(binomial(t-1, j-1)*weights[j]);
         }
         hw[1][t] = sum;
     }
@@ -79,12 +101,12 @@ std::vector<std::vector<T>> calc_ru_recursively(int size, int l_bound, std::vect
 
     for (int i = 0; i < bnd+1; i++)
     {
-        rus[i][i] = T::one();
+        rus[i][i] = T(0);
     }
 
     for (int i = 1; i < size+1; i++)
     {
-        rus[0][i] = T::zero();
+        rus[0][i] = T(0);
     }
 
     for (int u = 1; u < size+1; u++) 
@@ -98,9 +120,9 @@ std::vector<std::vector<T>> calc_ru_recursively(int size, int l_bound, std::vect
             for (int r_prime = 1; r_prime <= bnd2; r_prime++) 
             {
                 T temp;
-                temp = hw[r][size-u+r].powi(r_prime);
+                temp = powi(hw[r][size-u+r],r_prime);
 
-                temp = temp*T::binomial(u-r, r_prime);
+                temp = temp*binomial(u-r, r_prime);
                 temp = temp*rus[r_prime][u-r];
                 sum = sum+temp;
             }
@@ -119,8 +141,8 @@ T number_of_compatible_dags(int size, int u, int r, int previous_size,
     */
     
     T weightnumber = hw[previous_size][size-u];
-    weightnumber = weightnumber.powi(r);
-    weightnumber = weightnumber*(rus[r][u]*T::binomial(u, r));
+    weightnumber = powi(weightnumber,r);
+    weightnumber = weightnumber*(rus[r][u]*binomial(u, r));
     return weightnumber;
 }
 
@@ -157,7 +179,7 @@ std::vector<int> sample_partition(int size, int l_bound, const std::vector<std::
             upper_bound = rus[previous_size][previous_size + u];
         }
 
-        T random_number = T::uniform_rand(upper_bound);
+        T random_number = uniform_rand(upper_bound);
 
         bool notfound = true;
 
@@ -231,8 +253,8 @@ std::vector<int> sample_parents(int size, const std::vector<T>& weights, const s
         int current_layer_size = (int) current_layer.size();
 
         std::vector<T> upper_bounds_x(parent_layer_size);
-        upper_bounds_x[0] = T::zero();
-        T total = T::zero();
+        upper_bounds_x[0] = T(0);
+        T total = T(0);
         std::vector<std::vector<int>> pxs;
 
         for(int xi = 0; xi < parent_layer_size; xi++) {
@@ -250,11 +272,11 @@ std::vector<int> sample_parents(int size, const std::vector<T>& weights, const s
         for(int c = 0; c < current_layer_size; c++) {
             int current_node = current_layer[c];
 
-            T random_number1 = T::uniform_rand(total);
+            T random_number1 = uniform_rand(total);
 
             int xi = 0;
 
-            T total2 = T::zero();
+            T total2 = T(0);
 
             for(int i = 0; i < parent_layer_size; i++) {
                 total2 = total2 + upper_bounds_x[i];
@@ -269,12 +291,12 @@ std::vector<int> sample_parents(int size, const std::vector<T>& weights, const s
             int size_of_px = (int) px.size() + 1;
 
             std::vector<T> upper_bounds_size(size_of_px + 1);
-            upper_bounds_size[0] = T::zero();
+            upper_bounds_size[0] = T(0);
             for(int gi = 1; gi <= size_of_px; gi++) {
-                upper_bounds_size[gi] = upper_bounds_size[gi-1] + (T::binomial(size_of_px-1, gi-1)*weights[gi]);
+                upper_bounds_size[gi] = upper_bounds_size[gi-1] + (binomial(size_of_px-1, gi-1)*weights[gi]);
             }
 
-            T random_number2 = T::uniform_rand(upper_bounds_size[size_of_px]);
+            T random_number2 = uniform_rand(upper_bounds_size[size_of_px]);
 
             for(int gi = 1; gi <= size_of_px; gi++) {
                 if(upper_bounds_size[gi] > random_number2) {

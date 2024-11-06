@@ -2,6 +2,7 @@
 #include "nonsymmetric.h"
 #include "symmetric.h"
 #include "readwrite.h"
+#include "lognum.h"
 
 void write_dags(const std::vector<std::vector<int>>& dags) {
     for(const std::vector<int>& dag : dags) {
@@ -53,6 +54,8 @@ void run_sampler(int number_of_dags, typename Sampler::WeightT weights) {
     std::cerr << "Precomputation: " << pre_elapsed_secs << "s\n";
     std::cerr << "Per DAG: " << samp_elapsed_secs / number_of_dags << "s\n";
 }
+
+
 
 void usage() {
     std::cerr << "Usage:\n";
