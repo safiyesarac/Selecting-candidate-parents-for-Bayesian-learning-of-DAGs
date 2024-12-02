@@ -62,6 +62,24 @@ import matplotlib.pyplot as plt
 
 
 
+def write_dags(dags):
+    """
+    Write the DAGs to the console.
+    """
+    for dag in dags:
+        size = len(dag)
+        dag_strings = []
+        for i in range(size):
+            bitmask = dag[i]
+            parents = []
+            for j in range(size):
+                if bitmask & (1 << j):
+                    parents.append(j)
+            parent_str = ', '.join(map(str, parents))
+            dag_strings.append(f"{i} <- {{{parent_str}}}")
+        print(', '.join(dag_strings))
+
+
 # Main function to run the sampler with logging and file check
 def py_run_nonsymmetric_sampler(int size, int num_dags, object logger):
     """
@@ -70,7 +88,7 @@ def py_run_nonsymmetric_sampler(int size, int num_dags, object logger):
     cdef NonSymmetricSampler[double]* sampler = NULL
 
     # Define file path
-    file_path = "modular-dag-sampling-master/scores copy.jkl"
+    file_path = "/home/gulce/Downloads/thesis/scores.jkl"
 
     # Check if file exists
     if not os.path.exists(file_path):
@@ -112,6 +130,7 @@ def py_run_nonsymmetric_sampler(int size, int num_dags, object logger):
                 plt.title(f"DAG Visualization - Sample {i + 1}")
                 plt.show()
 
+        write_dags(py_dags)
 
     except Exception as e:
         logger.error(f"An error occurred in py_run_nonsymmetric_sampler: {e}")

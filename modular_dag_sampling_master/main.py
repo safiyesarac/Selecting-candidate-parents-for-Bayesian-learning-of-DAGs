@@ -41,7 +41,7 @@ def parse_jkl_scores(file_path, max_rows=8):
     return scores
 
 # Use the function and print results for debugging
-jkl_scores = parse_jkl_scores('modular-dag-sampling-master/scores.jkl')
+jkl_scores = parse_jkl_scores('/home/gulce/Downloads/thesis/scores.jkl')
 #print("Parsed JKL scores (as list of lists):", jkl_scores)  # Verify the format before passing to the sampler
 
 import logging
@@ -62,7 +62,7 @@ logger.addHandler(handler)
 
 # Run the sampler with the logger
 dag_size = len(jkl_scores)
-num_samples = 1
+num_samples = 4
 sampled_dags = py_run_nonsymmetric_sampler(dag_size, num_samples, logger)
 print("Sampled DAGs:", sampled_dags)
 

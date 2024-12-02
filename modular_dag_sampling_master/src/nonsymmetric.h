@@ -12,6 +12,7 @@
 #include "symmetric.h"
 #include "readwrite.h"
 
+
 namespace nonsymmetric_ {
     double uniform_rand(double upper_bound) {
     static std::mt19937 gen{std::random_device{}()};

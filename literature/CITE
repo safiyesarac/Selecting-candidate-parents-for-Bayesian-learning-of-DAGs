@@ -1,0 +1,163 @@
+Bayesian networks represent the joint probabilities of variables using a structured approach, with a Directed Acyclic Graph (DAG) capturing the dependencies and conditional independencies among variables (Koivisto,2004).
+
+Research in Bayesian structure learning has proposed many algorithms since foundational works, but the exponential growth of possible structures with increasing variables often renders exact computations impractical (Koivisto,2004).
+ Generic heuristic methods such as stochastic local search and genetic algorithms are commonly used to identify suitable network structures, but their outcomes lack guarantees of quality (Koivisto,2004).
+
+Summing over variable orders can be simplified by considering separate layers of variables, where the computation reduces to a product of smaller sums for each layer(Koivisto,2004).
+
+ The computational complexity of exact Bayesian learning arises from both evaluating local dependency structures in the data and exploring all possible graph configurations(Koivisto,2004).
+
+The study emphasizes the use of efficient proxy measures for likelihood estimation to address computational constraints, especially in partitioned or layered Bayesian networks(Koivisto,2004).
+
+Bayesian networks use a structured representation to model the joint probabilities of random variables, where a directed acyclic graph (DAG) encodes the conditional independencies among these variables (Brown, 2004).
+
+ The Sparse Candidate (SC) algorithm restricts the set of possible parents for each variable to a predefined candidate set of limited size, reducing the complexity of structure learning(Brown, 2004).
+
+ Overestimating the number of candidate parents increases computational time, while underestimating it can lead to suboptimal network structures(Brown, 2004).
+
+ The MMPC algorithm reliably estimates a superset of the actual parents, significantly improving computational efficiency by requiring fewer iterations than SC (Brown, 2004).
+
+SC estimates candidate sets using various heuristics that rank variables based on their contribution to improving the network's Bayesian score(Brown, 2004).
+
+ Algorithm performance is assessed using the BDeu score, which measures network likelihood, and structural error counts, which track deviations from the true network(Brown, 2004).
+
+The increasing size of datasets, often with thousands of variables, necessitates the development of efficient algorithms that can scale beyond the current limitations of a few hundred variables(Brown, 2004).
+
+ SC relies on heuristic-based candidate set estimation, which can fail to identify the true parent sets and may require multiple iterations to approximate them effectively(Brown, 2004).
+
+The MMHC algorithm's accuracy in candidate set estimation minimizes computational demands, requiring only a single iteration to achieve results superior to SC(Brown, 2004).
+
+MMPC guarantees the identification of a unique set of parents and children within Bayesian networks faithful to the joint probability distribution(Brown, 2004).
+
+ Structural errors, such as incorrect edge additions, deletions, or reversals, are key metrics when assessing algorithms for causal discovery tasks(Brown, 2004).
+
+ The hill-climbing process iteratively modifies the network by adding, deleting, or reversing edges, constrained to candidate parents C(X)(Brown, 2004).
+
+  MMHC outperforms SC by producing structures that align better with the true network and data distribution, while also eliminating the need to predefine the parameter k(Brown, 2004).
+
+
+ Bayesian networks offer a robust framework for causal reasoning, with broad implications for advancing biological knowledge discovery(Brown, 2004).
+
+
+ The Sparse Candidate algorithm limits the parent set for each variable to a predefined candidate set of maximum size kk, significantly reducing computational complexity(Brown, 2004).
+
+
+     The MMHC algorithm efficiently estimates candidate parent sets with such accuracy that a single iteration suffices, outperforming SC in computational requirements(Brown, 2004).
+
+ While theoretically, any subset of nodes can be a parent set, practical scenarios often involve restricting each node to smaller candidate parent sets for computational feasibility(Vinikka,2020).
+: Candidate parent sets may be constrained by a maximum indegree KK or predefined candidate subsets for each node(Vinikka,2020).
+
+
+ Order-MCMC, introduced by Friedman and Koller, samples node orderings to encompass a broad range of DAGs, improving the mixing properties of the Markov chain(Vinikka,2020).
+
+    Partition-MCMC necessitates evaluating millions of potential parent sets per node, which is computationally demanding, especially for larger networks(Vinikka,2020).
+
+The layering-MCMC method optimizes Bayesian learning by reducing the computational complexity of state space sampling through layerings while preserving effective mixing(Vinikka,2020).
+
+ Adjusting the layer size parameter MM balances computational cost by managing the scale of potential parent sets, determined by the network size and maximum indegree(Vinikka,2020).
+
+ The set of all DAGs is defined by the parent constraints Gv, ensuring each node's parent set adheres to predefined restrictions(Vinikka,2020).
+
+ Partition-MCMC uses the Metropolis-Hastings algorithm to simulate Markov chains, aiming for a stationary distribution based on the posterior π(R)(Vinikka,2020).
+
+Partition-MCMC's computational cost is driven by the need to evaluate all potential parent sets for each node at every step(Vinikka,2020).
+
+The dynamic programming algorithm calculates layering posterior probabilities efficiently by adjusting the layer size parameter(Vinikka,2020).
+
+Within a given partition, the parent sets of nodes are independent, simplifying summation over their respective constraints(Vinikka,2020).
+
+By reducing the sampling space to layerings, mixing properties in the Markov chain improve substantially, facilitating faster convergence(Vinikka,2020).
+
+Computational trade-offs allow summation over all partitions aligned with a given layering to calculate posterior probabilities more effectively(Vinikka,2020).
+
+
+The layering-MCMC method optimizes posterior evaluation by introducing constraints on layer sizes, acting as a computational proxy(Vinikka,2020).
+
+For larger networks, heuristic methods can effectively prune potential parent sets, reducing computational complexity(Vinikka,2020).
+
+The Sparse Candidate (SC) heuristic limits candidate parent sets for each variable by selecting them through a preliminary statistical evaluation of pairwise dependencies(Vinikka,2020).
+
+Parent set pruning heuristics rely on statistical ranking of variables, focusing on the highest-ranked candidates to reduce the search space(Vinikka,2020).
+
+ Layering creates hierarchical groupings of nodes, aiding heuristic methods in selecting candidate parents efficiently by leveraging compatibility within layers(Vinikka,2020).
+
+     Heuristic techniques like splitting or merging subsets enhance Partition-MCMC by improving its ability to navigate the search space(Vinikka,2020).
+
+    Heuristic methods commonly use statistical metrics like mutual information and conditional independence tests to identify candidate parents(Vinikka,2020).
+
+ Heuristics balance computational efficiency with the potential drawback of excluding true parent nodes from the candidate set(Vinikka,2020).
+
+ Heuristic approaches for parent set pruning are typically iterative, adjusting selections dynamically based on data analysis(Vinikka,2020).
+
+Heuristics play a vital role in large networks by reducing candidate parent sets efficiently while striving to maintain structural accuracy(Vinikka,2020).
+
+Layering heuristics optimize efficiency by limiting parent searches to specific layers, at the expense of exploring the full parent set space(Vinikka,2020).
+
+Efficient heuristics evaluate candidate parent sets individually for each node, often starting with simple or pre-constructed setsVinikka,2020).
+ Among tested heuristics, the greedy approach performs best and approaches optimal performance as the size K increases(Vinikka,2020).
+
+ Layering-MCMC heuristics prioritize parent sets that enhance Bayesian scores, serving as proxies to simplify posterior computation(Vinikka,2020).
+
+A Bayesian network (BN) consists of a Directed Acyclic Graph (DAG) representing conditional independencies among random variables and a parameter set specifying their distributions(Koller,2003).
+
+Candidate parent sets for each node are limited to a maximum size mm, predefined before each selection or query step(Koller,2003).
+
+Constraining candidate parents to a limited set significantly reduces the computational complexity involved in evaluating possible Bayesian network structures(Koller,2003).
+
+    Heuristics often prioritize candidate parents based on metrics like mutual information, selecting the variables most strongly related to the target variable(Koller,2003).
+
+ SC leverages pairwise statistical measures to identify a scalable set of candidate parents, balancing computational feasibility and accuracy(Koller,2003).
+
+ Bayesian updates refine the posterior distribution of structures, with heuristic pruning employed to enhance computational efficiency(Koller,2003).
+
+A predefined loss function evaluates the quality of parent set distributions, assisting in selecting optimal candidates while minimizing errors(Koller,2003).
+
+     Heuristic approaches balance reducing computational costs with the possibility of omitting critical true parents, affecting the final structure's accuracy(Koller,2003).
+
+ Active learning integrates heuristic refinement by leveraging both interventional and observational data to dynamically optimize parent set selection(Koller,2003).
+
+Limiting candidate parent sets addresses computational complexity without significantly compromising the learned structure's fidelity.(Koller,2003)
+
+Proxies like mutual information serve as efficient alternatives to exhaustive computations, enabling scalability for large datasets(Koller,2003).
+
+
+Bayesian sampling iteratively updates candidate parent sets, leveraging observed data to focus on high-probability structures(Koller,2003).
+
+ Greedy heuristics prioritize parent candidates by their Bayesian score contributions, retaining the variables deemed most informative(Koller,2003).
+
+Heuristic strategies evolve with incoming data, ensuring that parent set selections align with updated posterior distributions(Koller,2003).
+
+Active learning integrates heuristics to target uncertain or high-impact relationships, refining the Bayesian network structure with focused queries(Koller,2003).
+
+ The limitations of heuristics include the potential to overlook true parents when the metric used for ranking does not adequately account for indirect relationships(Koller,2003).
+
+ Statistical tests such as conditional independence and correlation are commonly used to define candidate parent sets in heuristic methods(Koller,2003).
+
+ The challenge lies in identifying suitable candidate parent sets that are computationally scalable for networks with hundreds of nodes (Viinikka et al ,2020).
+
+    Heuristic methods aim to approximate optimal candidate parent sets by maximizing posterior coverage without the computational expense of exact solutions(Viinikka et al ,2020).
+
+Various heuristics for selecting candidate parents range from advanced methods using Markov equivalence classes to simpler, node-specific approaches(Viinikka et al ,2020).
+
+ The goal is to maximize the mean posterior coverage of candidate parent sets while restricting their size to K or less(Viinikka et al ,2020).
+
+     Efficient heuristics evaluate candidate parent sets individually for each node, often starting with simple or pre-constructed sets(Viinikka et al ,2020).
+
+
+    Among tested heuristics, the greedy approach performs best and approaches optimal performance as the size K increases. (Viinikka et al ,2020)
+
+
+The candidate selection process can be treated as an optimization problem, with exact solutions feasible for smaller networks(Viinikka et al ,2020).
+
+
+While larger candidate parent sets increase DAG coverage, they come with exponential growth in memory requirements, necessitating a balance between size and feasibility(Viinikka et al ,2020).
+
+The proposed methods enable scalable comparisons of Bayesian and non-Bayesian approaches in high-dimensional settings(Viinikka et al ,2020).
+
+
+
+    Methods such as greedy addition and iterative refinements are particularly effective for selecting candidate parents in large datasets(Viinikka et al ,2020).
+
+
+
+
