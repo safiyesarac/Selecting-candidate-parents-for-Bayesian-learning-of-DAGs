@@ -143,3 +143,1990 @@
 2024-11-06 09:12:35,512 - INFO - Sampling DAG 1 completed successfully.
 2024-11-06 09:12:58,955 - INFO - Cleaning up sampler.
 2024-11-06 09:12:58,956 - INFO - Sampling completed successfully.
+2024-11-06 11:59:46,758 - INFO - Initializing nonsymmetric sampler.
+2024-11-06 11:59:47,932 - INFO - Sampling DAG 1/1.
+2024-11-06 11:59:47,988 - INFO - Sampling DAG 1 completed successfully.
+2024-11-06 12:02:15,065 - INFO - Cleaning up sampler.
+2024-11-06 12:02:15,066 - INFO - Sampling completed successfully.
+2024-11-06 12:02:16,572 - INFO - Initializing nonsymmetric sampler.
+2024-11-06 12:02:17,663 - INFO - Sampling DAG 1/4.
+2024-11-06 12:02:17,671 - INFO - Sampling DAG 1 completed successfully.
+2024-11-06 12:02:21,419 - INFO - Sampling DAG 2/4.
+2024-11-06 12:02:21,426 - INFO - Sampling DAG 2 completed successfully.
+2024-11-06 12:02:22,990 - INFO - Sampling DAG 3/4.
+2024-11-06 12:02:22,998 - INFO - Sampling DAG 3 completed successfully.
+2024-11-06 12:02:24,259 - INFO - Sampling DAG 4/4.
+2024-11-06 12:02:24,267 - INFO - Sampling DAG 4 completed successfully.
+2024-11-06 12:02:27,632 - INFO - Cleaning up sampler.
+2024-11-06 12:02:27,633 - INFO - Sampling completed successfully.
+2024-11-06 12:13:16,498 - INFO - Initializing nonsymmetric sampler.
+2024-11-06 12:13:18,487 - INFO - Sampling DAG 1/4.
+2024-11-06 12:13:18,495 - INFO - Sampling DAG 1 completed successfully.
+2024-11-06 12:13:22,970 - INFO - Sampling DAG 2/4.
+2024-11-06 12:13:22,982 - INFO - Sampling DAG 2 completed successfully.
+2024-11-06 12:14:04,440 - INFO - Sampling DAG 3/4.
+2024-11-06 12:14:04,454 - INFO - Sampling DAG 3 completed successfully.
+2024-11-06 12:14:14,430 - INFO - Sampling DAG 4/4.
+2024-11-06 12:14:14,438 - INFO - Sampling DAG 4 completed successfully.
+2024-11-06 12:14:24,741 - INFO - Cleaning up sampler.
+2024-11-06 12:14:24,743 - INFO - Sampling completed successfully.
+2024-11-19 19:44:27,806 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:49:21,743 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:49:21,743 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:06,214 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:06,214 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:06,214 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:07,688 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:07,688 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:07,688 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:07,688 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:09,695 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:09,695 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:09,695 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:09,695 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:51:09,695 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:53:57,647 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:53:57,647 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:53:57,647 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:53:57,647 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:53:57,647 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:53:57,647 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:54:16,424 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:54:16,424 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:54:16,424 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:54:16,424 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:54:16,424 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:54:16,424 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:54:16,424 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:04,980 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:04,980 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:04,980 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:04,980 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:04,980 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:04,980 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:04,980 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:04,980 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:09,883 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:09,883 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:09,883 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:09,883 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:09,883 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:09,883 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:09,883 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:09,883 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:09,883 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:19,840 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:19,840 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:19,840 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:19,840 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:19,840 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:19,840 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:19,840 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:19,840 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:19,840 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:19,840 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:48,785 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:48,785 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:48,785 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:48,785 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:48,785 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:48,785 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:48,785 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:48,785 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:48,785 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:48,785 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:48,785 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:50,831 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:51,610 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:55:52,036 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:56:40,468 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:03,720 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:14,198 - ERROR - File not found: modular-dag-sampling-master/scores copy.jkl
+2024-11-19 19:58:51,252 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 19:58:51,254 - INFO - Sampling DAG 1/4.
+2024-11-19 19:58:51,255 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 19:58:51,883 - INFO - Sampling DAG 2/4.
+2024-11-19 19:58:51,885 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 19:58:52,317 - INFO - Sampling DAG 3/4.
+2024-11-19 19:58:52,319 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 19:58:52,876 - INFO - Sampling DAG 4/4.
+2024-11-19 19:58:52,878 - INFO - Sampling DAG 4 completed successfully.
+2024-11-19 19:58:53,369 - INFO - Cleaning up sampler.
+2024-11-19 19:58:53,369 - INFO - Sampling completed successfully.
+2024-11-19 20:07:42,603 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:07:42,603 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:07:42,604 - INFO - Sampling DAG 1/4.
+2024-11-19 20:07:42,604 - INFO - Sampling DAG 1/4.
+2024-11-19 20:07:42,605 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:07:42,605 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:07:42,912 - INFO - Sampling DAG 2/4.
+2024-11-19 20:07:42,912 - INFO - Sampling DAG 2/4.
+2024-11-19 20:07:42,914 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:07:42,914 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:07:43,373 - INFO - Sampling DAG 3/4.
+2024-11-19 20:07:43,373 - INFO - Sampling DAG 3/4.
+2024-11-19 20:07:43,375 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:07:43,375 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:07:43,811 - INFO - Sampling DAG 4/4.
+2024-11-19 20:07:43,811 - INFO - Sampling DAG 4/4.
+2024-11-19 20:07:43,813 - INFO - Sampling DAG 4 completed successfully.
+2024-11-19 20:07:43,813 - INFO - Sampling DAG 4 completed successfully.
+2024-11-19 20:07:44,225 - INFO - Cleaning up sampler.
+2024-11-19 20:07:44,225 - INFO - Cleaning up sampler.
+2024-11-19 20:07:44,227 - INFO - Sampling completed successfully.
+2024-11-19 20:07:44,227 - INFO - Sampling completed successfully.
+2024-11-19 20:09:33,108 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:09:33,108 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:09:33,108 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:12:56,751 - INFO - Cleaning up sampler.
+2024-11-19 20:12:56,751 - INFO - Cleaning up sampler.
+2024-11-19 20:12:56,751 - INFO - Cleaning up sampler.
+2024-11-19 20:14:40,856 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:05,804 - INFO - Cleaning up sampler.
+2024-11-19 20:22:08,921 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:08,921 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:08,945 - INFO - Sampling DAG 1/1.
+2024-11-19 20:22:08,945 - INFO - Sampling DAG 1/1.
+2024-11-19 20:22:08,947 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:08,947 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:09,391 - INFO - Cleaning up sampler.
+2024-11-19 20:22:09,391 - INFO - Cleaning up sampler.
+2024-11-19 20:22:09,392 - INFO - Sampling completed successfully.
+2024-11-19 20:22:09,392 - INFO - Sampling completed successfully.
+2024-11-19 20:22:12,762 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:12,762 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:12,762 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:12,799 - INFO - Sampling DAG 1/1.
+2024-11-19 20:22:12,799 - INFO - Sampling DAG 1/1.
+2024-11-19 20:22:12,799 - INFO - Sampling DAG 1/1.
+2024-11-19 20:22:12,799 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:12,799 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:12,799 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:13,192 - INFO - Cleaning up sampler.
+2024-11-19 20:22:13,192 - INFO - Cleaning up sampler.
+2024-11-19 20:22:13,192 - INFO - Cleaning up sampler.
+2024-11-19 20:22:13,194 - INFO - Sampling completed successfully.
+2024-11-19 20:22:13,194 - INFO - Sampling completed successfully.
+2024-11-19 20:22:13,194 - INFO - Sampling completed successfully.
+2024-11-19 20:22:22,145 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:22,145 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:22,145 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:22,145 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:22,178 - INFO - Sampling DAG 1/2.
+2024-11-19 20:22:22,178 - INFO - Sampling DAG 1/2.
+2024-11-19 20:22:22,178 - INFO - Sampling DAG 1/2.
+2024-11-19 20:22:22,178 - INFO - Sampling DAG 1/2.
+2024-11-19 20:22:22,179 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:22,179 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:22,179 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:22,179 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:22,619 - INFO - Sampling DAG 2/2.
+2024-11-19 20:22:22,619 - INFO - Sampling DAG 2/2.
+2024-11-19 20:22:22,619 - INFO - Sampling DAG 2/2.
+2024-11-19 20:22:22,619 - INFO - Sampling DAG 2/2.
+2024-11-19 20:22:22,623 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:22,623 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:22,623 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:22,623 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:22,975 - INFO - Cleaning up sampler.
+2024-11-19 20:22:22,975 - INFO - Cleaning up sampler.
+2024-11-19 20:22:22,975 - INFO - Cleaning up sampler.
+2024-11-19 20:22:22,975 - INFO - Cleaning up sampler.
+2024-11-19 20:22:22,976 - INFO - Sampling completed successfully.
+2024-11-19 20:22:22,976 - INFO - Sampling completed successfully.
+2024-11-19 20:22:22,976 - INFO - Sampling completed successfully.
+2024-11-19 20:22:22,976 - INFO - Sampling completed successfully.
+2024-11-19 20:22:43,915 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:43,915 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:43,915 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:43,915 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:43,915 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:43,946 - INFO - Sampling DAG 1/3.
+2024-11-19 20:22:43,946 - INFO - Sampling DAG 1/3.
+2024-11-19 20:22:43,946 - INFO - Sampling DAG 1/3.
+2024-11-19 20:22:43,946 - INFO - Sampling DAG 1/3.
+2024-11-19 20:22:43,946 - INFO - Sampling DAG 1/3.
+2024-11-19 20:22:43,948 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:43,948 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:43,948 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:43,948 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:43,948 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:44,388 - INFO - Sampling DAG 2/3.
+2024-11-19 20:22:44,388 - INFO - Sampling DAG 2/3.
+2024-11-19 20:22:44,388 - INFO - Sampling DAG 2/3.
+2024-11-19 20:22:44,388 - INFO - Sampling DAG 2/3.
+2024-11-19 20:22:44,388 - INFO - Sampling DAG 2/3.
+2024-11-19 20:22:44,391 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:44,391 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:44,391 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:44,391 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:44,391 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:44,952 - INFO - Sampling DAG 3/3.
+2024-11-19 20:22:44,952 - INFO - Sampling DAG 3/3.
+2024-11-19 20:22:44,952 - INFO - Sampling DAG 3/3.
+2024-11-19 20:22:44,952 - INFO - Sampling DAG 3/3.
+2024-11-19 20:22:44,952 - INFO - Sampling DAG 3/3.
+2024-11-19 20:22:44,960 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:22:44,960 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:22:44,960 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:22:44,960 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:22:44,960 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:22:45,381 - INFO - Cleaning up sampler.
+2024-11-19 20:22:45,381 - INFO - Cleaning up sampler.
+2024-11-19 20:22:45,381 - INFO - Cleaning up sampler.
+2024-11-19 20:22:45,381 - INFO - Cleaning up sampler.
+2024-11-19 20:22:45,381 - INFO - Cleaning up sampler.
+2024-11-19 20:22:45,386 - INFO - Sampling completed successfully.
+2024-11-19 20:22:45,386 - INFO - Sampling completed successfully.
+2024-11-19 20:22:45,386 - INFO - Sampling completed successfully.
+2024-11-19 20:22:45,386 - INFO - Sampling completed successfully.
+2024-11-19 20:22:45,386 - INFO - Sampling completed successfully.
+2024-11-19 20:22:56,925 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:56,925 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:56,925 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:56,925 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:56,925 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:56,925 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:22:56,945 - INFO - Sampling DAG 1/3.
+2024-11-19 20:22:56,945 - INFO - Sampling DAG 1/3.
+2024-11-19 20:22:56,945 - INFO - Sampling DAG 1/3.
+2024-11-19 20:22:56,945 - INFO - Sampling DAG 1/3.
+2024-11-19 20:22:56,945 - INFO - Sampling DAG 1/3.
+2024-11-19 20:22:56,945 - INFO - Sampling DAG 1/3.
+2024-11-19 20:22:56,946 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:56,946 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:56,946 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:56,946 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:56,946 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:56,946 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:22:57,254 - INFO - Sampling DAG 2/3.
+2024-11-19 20:22:57,254 - INFO - Sampling DAG 2/3.
+2024-11-19 20:22:57,254 - INFO - Sampling DAG 2/3.
+2024-11-19 20:22:57,254 - INFO - Sampling DAG 2/3.
+2024-11-19 20:22:57,254 - INFO - Sampling DAG 2/3.
+2024-11-19 20:22:57,254 - INFO - Sampling DAG 2/3.
+2024-11-19 20:22:57,258 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:57,258 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:57,258 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:57,258 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:57,258 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:57,258 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:22:57,779 - INFO - Sampling DAG 3/3.
+2024-11-19 20:22:57,779 - INFO - Sampling DAG 3/3.
+2024-11-19 20:22:57,779 - INFO - Sampling DAG 3/3.
+2024-11-19 20:22:57,779 - INFO - Sampling DAG 3/3.
+2024-11-19 20:22:57,779 - INFO - Sampling DAG 3/3.
+2024-11-19 20:22:57,779 - INFO - Sampling DAG 3/3.
+2024-11-19 20:22:57,782 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:22:57,782 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:22:57,782 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:22:57,782 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:22:57,782 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:22:57,782 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:22:58,357 - INFO - Cleaning up sampler.
+2024-11-19 20:22:58,357 - INFO - Cleaning up sampler.
+2024-11-19 20:22:58,357 - INFO - Cleaning up sampler.
+2024-11-19 20:22:58,357 - INFO - Cleaning up sampler.
+2024-11-19 20:22:58,357 - INFO - Cleaning up sampler.
+2024-11-19 20:22:58,357 - INFO - Cleaning up sampler.
+2024-11-19 20:22:58,360 - INFO - Sampling completed successfully.
+2024-11-19 20:22:58,360 - INFO - Sampling completed successfully.
+2024-11-19 20:22:58,360 - INFO - Sampling completed successfully.
+2024-11-19 20:22:58,360 - INFO - Sampling completed successfully.
+2024-11-19 20:22:58,360 - INFO - Sampling completed successfully.
+2024-11-19 20:22:58,360 - INFO - Sampling completed successfully.
+2024-11-19 20:23:13,792 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:23:13,792 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:23:13,792 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:23:13,792 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:23:13,792 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:23:13,792 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:23:13,792 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:23:13,810 - INFO - Sampling DAG 1/3.
+2024-11-19 20:23:13,810 - INFO - Sampling DAG 1/3.
+2024-11-19 20:23:13,810 - INFO - Sampling DAG 1/3.
+2024-11-19 20:23:13,810 - INFO - Sampling DAG 1/3.
+2024-11-19 20:23:13,810 - INFO - Sampling DAG 1/3.
+2024-11-19 20:23:13,810 - INFO - Sampling DAG 1/3.
+2024-11-19 20:23:13,810 - INFO - Sampling DAG 1/3.
+2024-11-19 20:23:13,811 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:23:13,811 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:23:13,811 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:23:13,811 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:23:13,811 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:23:13,811 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:23:13,811 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:23:14,125 - INFO - Sampling DAG 2/3.
+2024-11-19 20:23:14,125 - INFO - Sampling DAG 2/3.
+2024-11-19 20:23:14,125 - INFO - Sampling DAG 2/3.
+2024-11-19 20:23:14,125 - INFO - Sampling DAG 2/3.
+2024-11-19 20:23:14,125 - INFO - Sampling DAG 2/3.
+2024-11-19 20:23:14,125 - INFO - Sampling DAG 2/3.
+2024-11-19 20:23:14,125 - INFO - Sampling DAG 2/3.
+2024-11-19 20:23:14,127 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:23:14,127 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:23:14,127 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:23:14,127 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:23:14,127 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:23:14,127 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:23:14,127 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:23:14,506 - INFO - Sampling DAG 3/3.
+2024-11-19 20:23:14,506 - INFO - Sampling DAG 3/3.
+2024-11-19 20:23:14,506 - INFO - Sampling DAG 3/3.
+2024-11-19 20:23:14,506 - INFO - Sampling DAG 3/3.
+2024-11-19 20:23:14,506 - INFO - Sampling DAG 3/3.
+2024-11-19 20:23:14,506 - INFO - Sampling DAG 3/3.
+2024-11-19 20:23:14,506 - INFO - Sampling DAG 3/3.
+2024-11-19 20:23:14,508 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:23:14,508 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:23:14,508 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:23:14,508 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:23:14,508 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:23:14,508 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:23:14,508 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:23:14,919 - INFO - Cleaning up sampler.
+2024-11-19 20:23:14,919 - INFO - Cleaning up sampler.
+2024-11-19 20:23:14,919 - INFO - Cleaning up sampler.
+2024-11-19 20:23:14,919 - INFO - Cleaning up sampler.
+2024-11-19 20:23:14,919 - INFO - Cleaning up sampler.
+2024-11-19 20:23:14,919 - INFO - Cleaning up sampler.
+2024-11-19 20:23:14,919 - INFO - Cleaning up sampler.
+2024-11-19 20:23:14,922 - INFO - Sampling completed successfully.
+2024-11-19 20:23:14,922 - INFO - Sampling completed successfully.
+2024-11-19 20:23:14,922 - INFO - Sampling completed successfully.
+2024-11-19 20:23:14,922 - INFO - Sampling completed successfully.
+2024-11-19 20:23:14,922 - INFO - Sampling completed successfully.
+2024-11-19 20:23:14,922 - INFO - Sampling completed successfully.
+2024-11-19 20:23:14,922 - INFO - Sampling completed successfully.
+2024-11-19 20:23:30,244 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:23:59,279 - INFO - Cleaning up sampler.
+2024-11-19 20:24:02,125 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:24:02,125 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:24:02,150 - INFO - Sampling DAG 1/3.
+2024-11-19 20:24:02,150 - INFO - Sampling DAG 1/3.
+2024-11-19 20:24:02,153 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:24:02,153 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:24:02,597 - INFO - Sampling DAG 2/3.
+2024-11-19 20:24:02,597 - INFO - Sampling DAG 2/3.
+2024-11-19 20:24:02,598 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:24:02,598 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:24:03,090 - INFO - Sampling DAG 3/3.
+2024-11-19 20:24:03,090 - INFO - Sampling DAG 3/3.
+2024-11-19 20:24:03,092 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:24:03,092 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:24:03,481 - INFO - Cleaning up sampler.
+2024-11-19 20:24:03,481 - INFO - Cleaning up sampler.
+2024-11-19 20:24:03,486 - INFO - Sampling completed successfully.
+2024-11-19 20:24:03,486 - INFO - Sampling completed successfully.
+2024-11-19 20:26:38,981 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:36,220 - INFO - Cleaning up sampler.
+2024-11-19 20:29:37,766 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:37,766 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:37,793 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:37,793 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:37,796 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:37,796 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:38,266 - INFO - Cleaning up sampler.
+2024-11-19 20:29:38,266 - INFO - Cleaning up sampler.
+2024-11-19 20:29:38,268 - INFO - Sampling completed successfully.
+2024-11-19 20:29:38,268 - INFO - Sampling completed successfully.
+2024-11-19 20:29:42,610 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:42,610 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:42,610 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:42,633 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:42,633 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:42,633 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:42,634 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:42,634 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:42,634 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:43,176 - INFO - Cleaning up sampler.
+2024-11-19 20:29:43,176 - INFO - Cleaning up sampler.
+2024-11-19 20:29:43,176 - INFO - Cleaning up sampler.
+2024-11-19 20:29:43,179 - INFO - Sampling completed successfully.
+2024-11-19 20:29:43,179 - INFO - Sampling completed successfully.
+2024-11-19 20:29:43,179 - INFO - Sampling completed successfully.
+2024-11-19 20:29:44,208 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:44,208 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:44,208 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:44,208 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:44,239 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:44,239 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:44,239 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:44,239 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:44,240 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:44,240 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:44,240 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:44,240 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:44,531 - INFO - Cleaning up sampler.
+2024-11-19 20:29:44,531 - INFO - Cleaning up sampler.
+2024-11-19 20:29:44,531 - INFO - Cleaning up sampler.
+2024-11-19 20:29:44,531 - INFO - Cleaning up sampler.
+2024-11-19 20:29:44,533 - INFO - Sampling completed successfully.
+2024-11-19 20:29:44,533 - INFO - Sampling completed successfully.
+2024-11-19 20:29:44,533 - INFO - Sampling completed successfully.
+2024-11-19 20:29:44,533 - INFO - Sampling completed successfully.
+2024-11-19 20:29:45,262 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:45,262 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:45,262 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:45,262 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:45,262 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:29:45,286 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:45,286 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:45,286 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:45,286 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:45,286 - INFO - Sampling DAG 1/1.
+2024-11-19 20:29:45,287 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:45,287 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:45,287 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:45,287 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:45,287 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:29:45,688 - INFO - Cleaning up sampler.
+2024-11-19 20:29:45,688 - INFO - Cleaning up sampler.
+2024-11-19 20:29:45,688 - INFO - Cleaning up sampler.
+2024-11-19 20:29:45,688 - INFO - Cleaning up sampler.
+2024-11-19 20:29:45,688 - INFO - Cleaning up sampler.
+2024-11-19 20:29:45,694 - INFO - Sampling completed successfully.
+2024-11-19 20:29:45,694 - INFO - Sampling completed successfully.
+2024-11-19 20:29:45,694 - INFO - Sampling completed successfully.
+2024-11-19 20:29:45,694 - INFO - Sampling completed successfully.
+2024-11-19 20:29:45,694 - INFO - Sampling completed successfully.
+2024-11-19 20:30:13,817 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:30:13,817 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:30:13,817 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:30:13,817 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:30:13,817 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:30:13,817 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:30:13,841 - INFO - Sampling DAG 1/3.
+2024-11-19 20:30:13,841 - INFO - Sampling DAG 1/3.
+2024-11-19 20:30:13,841 - INFO - Sampling DAG 1/3.
+2024-11-19 20:30:13,841 - INFO - Sampling DAG 1/3.
+2024-11-19 20:30:13,841 - INFO - Sampling DAG 1/3.
+2024-11-19 20:30:13,841 - INFO - Sampling DAG 1/3.
+2024-11-19 20:30:13,842 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:30:13,842 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:30:13,842 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:30:13,842 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:30:13,842 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:30:13,842 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:30:14,326 - INFO - Sampling DAG 2/3.
+2024-11-19 20:30:14,326 - INFO - Sampling DAG 2/3.
+2024-11-19 20:30:14,326 - INFO - Sampling DAG 2/3.
+2024-11-19 20:30:14,326 - INFO - Sampling DAG 2/3.
+2024-11-19 20:30:14,326 - INFO - Sampling DAG 2/3.
+2024-11-19 20:30:14,326 - INFO - Sampling DAG 2/3.
+2024-11-19 20:30:14,333 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:30:14,333 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:30:14,333 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:30:14,333 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:30:14,333 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:30:14,333 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:30:14,842 - INFO - Sampling DAG 3/3.
+2024-11-19 20:30:14,842 - INFO - Sampling DAG 3/3.
+2024-11-19 20:30:14,842 - INFO - Sampling DAG 3/3.
+2024-11-19 20:30:14,842 - INFO - Sampling DAG 3/3.
+2024-11-19 20:30:14,842 - INFO - Sampling DAG 3/3.
+2024-11-19 20:30:14,842 - INFO - Sampling DAG 3/3.
+2024-11-19 20:30:14,848 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:30:14,848 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:30:14,848 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:30:14,848 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:30:14,848 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:30:14,848 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:30:15,304 - INFO - Cleaning up sampler.
+2024-11-19 20:30:15,304 - INFO - Cleaning up sampler.
+2024-11-19 20:30:15,304 - INFO - Cleaning up sampler.
+2024-11-19 20:30:15,304 - INFO - Cleaning up sampler.
+2024-11-19 20:30:15,304 - INFO - Cleaning up sampler.
+2024-11-19 20:30:15,304 - INFO - Cleaning up sampler.
+2024-11-19 20:30:15,307 - INFO - Sampling completed successfully.
+2024-11-19 20:30:15,307 - INFO - Sampling completed successfully.
+2024-11-19 20:30:15,307 - INFO - Sampling completed successfully.
+2024-11-19 20:30:15,307 - INFO - Sampling completed successfully.
+2024-11-19 20:30:15,307 - INFO - Sampling completed successfully.
+2024-11-19 20:30:15,307 - INFO - Sampling completed successfully.
+2024-11-19 20:43:52,443 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:44:16,607 - INFO - Cleaning up sampler.
+2024-11-19 20:44:19,364 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:44:19,364 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:44:19,396 - INFO - Sampling DAG 1/3.
+2024-11-19 20:44:19,396 - INFO - Sampling DAG 1/3.
+2024-11-19 20:44:19,397 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:44:19,397 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:44:19,848 - INFO - Sampling DAG 2/3.
+2024-11-19 20:44:19,848 - INFO - Sampling DAG 2/3.
+2024-11-19 20:44:19,850 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:44:19,850 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:44:20,158 - INFO - Sampling DAG 3/3.
+2024-11-19 20:44:20,158 - INFO - Sampling DAG 3/3.
+2024-11-19 20:44:20,160 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:44:20,160 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:44:20,510 - ERROR - An error occurred in py_run_nonsymmetric_sampler: 'int' object is not iterable
+2024-11-19 20:44:20,510 - ERROR - An error occurred in py_run_nonsymmetric_sampler: 'int' object is not iterable
+2024-11-19 20:44:20,511 - INFO - Cleaning up sampler.
+2024-11-19 20:44:20,511 - INFO - Cleaning up sampler.
+2024-11-19 20:44:50,025 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:44:50,025 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:44:50,025 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:44:50,069 - INFO - Sampling DAG 1/1.
+2024-11-19 20:44:50,069 - INFO - Sampling DAG 1/1.
+2024-11-19 20:44:50,069 - INFO - Sampling DAG 1/1.
+2024-11-19 20:44:50,070 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:44:50,070 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:44:50,070 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:44:50,690 - ERROR - An error occurred in py_run_nonsymmetric_sampler: 'int' object is not iterable
+2024-11-19 20:44:50,690 - ERROR - An error occurred in py_run_nonsymmetric_sampler: 'int' object is not iterable
+2024-11-19 20:44:50,690 - ERROR - An error occurred in py_run_nonsymmetric_sampler: 'int' object is not iterable
+2024-11-19 20:44:50,691 - INFO - Cleaning up sampler.
+2024-11-19 20:44:50,691 - INFO - Cleaning up sampler.
+2024-11-19 20:44:50,691 - INFO - Cleaning up sampler.
+2024-11-19 20:45:06,365 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:48:11,836 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:48:13,971 - INFO - Sampling DAG 1/4.
+2024-11-19 20:48:13,974 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:48:17,947 - INFO - Sampling DAG 2/4.
+2024-11-19 20:48:17,957 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:48:20,512 - INFO - Sampling DAG 3/4.
+2024-11-19 20:48:20,524 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:48:23,658 - INFO - Sampling DAG 4/4.
+2024-11-19 20:48:23,673 - INFO - Sampling DAG 4 completed successfully.
+2024-11-19 20:48:25,581 - ERROR - An error occurred in py_run_nonsymmetric_sampler: 'int' object is not iterable
+2024-11-19 20:48:25,582 - INFO - Cleaning up sampler.
+2024-11-19 20:49:02,069 - INFO - Cleaning up sampler.
+2024-11-19 20:50:34,502 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:50:35,820 - INFO - Sampling DAG 1/4.
+2024-11-19 20:50:35,826 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:50:38,720 - INFO - Sampling DAG 2/4.
+2024-11-19 20:50:38,733 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:50:40,531 - INFO - Sampling DAG 3/4.
+2024-11-19 20:50:40,539 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:50:41,619 - INFO - Sampling DAG 4/4.
+2024-11-19 20:50:41,632 - INFO - Sampling DAG 4 completed successfully.
+2024-11-19 20:50:42,991 - INFO - Cleaning up sampler.
+2024-11-19 20:50:42,993 - INFO - Sampling completed successfully.
+2024-11-19 20:52:31,328 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:52:31,328 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:52:31,360 - INFO - Sampling DAG 1/1.
+2024-11-19 20:52:31,360 - INFO - Sampling DAG 1/1.
+2024-11-19 20:52:31,363 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:52:31,363 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:52:31,919 - ERROR - An error occurred in py_run_nonsymmetric_sampler: 'int' object is not iterable
+2024-11-19 20:52:31,919 - ERROR - An error occurred in py_run_nonsymmetric_sampler: 'int' object is not iterable
+2024-11-19 20:52:31,921 - INFO - Cleaning up sampler.
+2024-11-19 20:52:31,921 - INFO - Cleaning up sampler.
+2024-11-19 20:52:47,808 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:53:52,469 - INFO - Cleaning up sampler.
+2024-11-19 20:53:54,959 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:53:54,959 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:53:55,008 - INFO - Sampling DAG 1/1.
+2024-11-19 20:53:55,008 - INFO - Sampling DAG 1/1.
+2024-11-19 20:53:55,009 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:53:55,009 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:53:55,472 - INFO - Cleaning up sampler.
+2024-11-19 20:53:55,472 - INFO - Cleaning up sampler.
+2024-11-19 20:53:55,473 - INFO - Sampling completed successfully.
+2024-11-19 20:53:55,473 - INFO - Sampling completed successfully.
+2024-11-19 20:58:02,526 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:58:02,526 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:58:02,526 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:58:02,571 - INFO - Sampling DAG 1/2.
+2024-11-19 20:58:02,571 - INFO - Sampling DAG 1/2.
+2024-11-19 20:58:02,571 - INFO - Sampling DAG 1/2.
+2024-11-19 20:58:02,573 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:58:02,573 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:58:02,573 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:58:03,387 - INFO - Sampling DAG 2/2.
+2024-11-19 20:58:03,387 - INFO - Sampling DAG 2/2.
+2024-11-19 20:58:03,387 - INFO - Sampling DAG 2/2.
+2024-11-19 20:58:03,395 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:58:03,395 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:58:03,395 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:58:04,196 - INFO - Cleaning up sampler.
+2024-11-19 20:58:04,196 - INFO - Cleaning up sampler.
+2024-11-19 20:58:04,196 - INFO - Cleaning up sampler.
+2024-11-19 20:58:04,201 - INFO - Sampling completed successfully.
+2024-11-19 20:58:04,201 - INFO - Sampling completed successfully.
+2024-11-19 20:58:04,201 - INFO - Sampling completed successfully.
+2024-11-19 20:58:16,472 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:58:16,472 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:58:16,472 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:58:16,472 - INFO - Initializing nonsymmetric sampler.
+2024-11-19 20:58:16,508 - INFO - Sampling DAG 1/10.
+2024-11-19 20:58:16,508 - INFO - Sampling DAG 1/10.
+2024-11-19 20:58:16,508 - INFO - Sampling DAG 1/10.
+2024-11-19 20:58:16,508 - INFO - Sampling DAG 1/10.
+2024-11-19 20:58:16,510 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:58:16,510 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:58:16,510 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:58:16,510 - INFO - Sampling DAG 1 completed successfully.
+2024-11-19 20:58:17,277 - INFO - Sampling DAG 2/10.
+2024-11-19 20:58:17,277 - INFO - Sampling DAG 2/10.
+2024-11-19 20:58:17,277 - INFO - Sampling DAG 2/10.
+2024-11-19 20:58:17,277 - INFO - Sampling DAG 2/10.
+2024-11-19 20:58:17,286 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:58:17,286 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:58:17,286 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:58:17,286 - INFO - Sampling DAG 2 completed successfully.
+2024-11-19 20:58:17,839 - INFO - Sampling DAG 3/10.
+2024-11-19 20:58:17,839 - INFO - Sampling DAG 3/10.
+2024-11-19 20:58:17,839 - INFO - Sampling DAG 3/10.
+2024-11-19 20:58:17,839 - INFO - Sampling DAG 3/10.
+2024-11-19 20:58:17,842 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:58:17,842 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:58:17,842 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:58:17,842 - INFO - Sampling DAG 3 completed successfully.
+2024-11-19 20:58:18,277 - INFO - Sampling DAG 4/10.
+2024-11-19 20:58:18,277 - INFO - Sampling DAG 4/10.
+2024-11-19 20:58:18,277 - INFO - Sampling DAG 4/10.
+2024-11-19 20:58:18,277 - INFO - Sampling DAG 4/10.
+2024-11-19 20:58:18,285 - INFO - Sampling DAG 4 completed successfully.
+2024-11-19 20:58:18,285 - INFO - Sampling DAG 4 completed successfully.
+2024-11-19 20:58:18,285 - INFO - Sampling DAG 4 completed successfully.
+2024-11-19 20:58:18,285 - INFO - Sampling DAG 4 completed successfully.
+2024-11-19 20:58:19,093 - INFO - Sampling DAG 5/10.
+2024-11-19 20:58:19,093 - INFO - Sampling DAG 5/10.
+2024-11-19 20:58:19,093 - INFO - Sampling DAG 5/10.
+2024-11-19 20:58:19,093 - INFO - Sampling DAG 5/10.
+2024-11-19 20:58:19,096 - INFO - Sampling DAG 5 completed successfully.
+2024-11-19 20:58:19,096 - INFO - Sampling DAG 5 completed successfully.
+2024-11-19 20:58:19,096 - INFO - Sampling DAG 5 completed successfully.
+2024-11-19 20:58:19,096 - INFO - Sampling DAG 5 completed successfully.
+2024-11-19 20:58:19,779 - INFO - Sampling DAG 6/10.
+2024-11-19 20:58:19,779 - INFO - Sampling DAG 6/10.
+2024-11-19 20:58:19,779 - INFO - Sampling DAG 6/10.
+2024-11-19 20:58:19,779 - INFO - Sampling DAG 6/10.
+2024-11-19 20:58:19,783 - INFO - Sampling DAG 6 completed successfully.
+2024-11-19 20:58:19,783 - INFO - Sampling DAG 6 completed successfully.
+2024-11-19 20:58:19,783 - INFO - Sampling DAG 6 completed successfully.
+2024-11-19 20:58:19,783 - INFO - Sampling DAG 6 completed successfully.
+2024-11-19 20:58:20,371 - INFO - Sampling DAG 7/10.
+2024-11-19 20:58:20,371 - INFO - Sampling DAG 7/10.
+2024-11-19 20:58:20,371 - INFO - Sampling DAG 7/10.
+2024-11-19 20:58:20,371 - INFO - Sampling DAG 7/10.
+2024-11-19 20:58:20,376 - INFO - Sampling DAG 7 completed successfully.
+2024-11-19 20:58:20,376 - INFO - Sampling DAG 7 completed successfully.
+2024-11-19 20:58:20,376 - INFO - Sampling DAG 7 completed successfully.
+2024-11-19 20:58:20,376 - INFO - Sampling DAG 7 completed successfully.
+2024-11-19 20:58:21,098 - INFO - Sampling DAG 8/10.
+2024-11-19 20:58:21,098 - INFO - Sampling DAG 8/10.
+2024-11-19 20:58:21,098 - INFO - Sampling DAG 8/10.
+2024-11-19 20:58:21,098 - INFO - Sampling DAG 8/10.
+2024-11-19 20:58:21,102 - INFO - Sampling DAG 8 completed successfully.
+2024-11-19 20:58:21,102 - INFO - Sampling DAG 8 completed successfully.
+2024-11-19 20:58:21,102 - INFO - Sampling DAG 8 completed successfully.
+2024-11-19 20:58:21,102 - INFO - Sampling DAG 8 completed successfully.
+2024-11-19 20:58:21,626 - INFO - Sampling DAG 9/10.
+2024-11-19 20:58:21,626 - INFO - Sampling DAG 9/10.
+2024-11-19 20:58:21,626 - INFO - Sampling DAG 9/10.
+2024-11-19 20:58:21,626 - INFO - Sampling DAG 9/10.
+2024-11-19 20:58:21,633 - INFO - Sampling DAG 9 completed successfully.
+2024-11-19 20:58:21,633 - INFO - Sampling DAG 9 completed successfully.
+2024-11-19 20:58:21,633 - INFO - Sampling DAG 9 completed successfully.
+2024-11-19 20:58:21,633 - INFO - Sampling DAG 9 completed successfully.
+2024-11-19 20:58:22,362 - INFO - Sampling DAG 10/10.
+2024-11-19 20:58:22,362 - INFO - Sampling DAG 10/10.
+2024-11-19 20:58:22,362 - INFO - Sampling DAG 10/10.
+2024-11-19 20:58:22,362 - INFO - Sampling DAG 10/10.
+2024-11-19 20:58:22,369 - INFO - Sampling DAG 10 completed successfully.
+2024-11-19 20:58:22,369 - INFO - Sampling DAG 10 completed successfully.
+2024-11-19 20:58:22,369 - INFO - Sampling DAG 10 completed successfully.
+2024-11-19 20:58:22,369 - INFO - Sampling DAG 10 completed successfully.
+2024-11-19 20:58:22,952 - INFO - Cleaning up sampler.
+2024-11-19 20:58:22,952 - INFO - Cleaning up sampler.
+2024-11-19 20:58:22,952 - INFO - Cleaning up sampler.
+2024-11-19 20:58:22,952 - INFO - Cleaning up sampler.
+2024-11-19 20:58:22,957 - INFO - Sampling completed successfully.
+2024-11-19 20:58:22,957 - INFO - Sampling completed successfully.
+2024-11-19 20:58:22,957 - INFO - Sampling completed successfully.
+2024-11-19 20:58:22,957 - INFO - Sampling completed successfully.
+2024-11-20 00:57:49,312 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 00:57:49,312 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 00:57:49,312 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 00:57:49,312 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 00:57:49,312 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 00:57:49,350 - INFO - Sampling DAG 1/20.
+2024-11-20 00:57:49,350 - INFO - Sampling DAG 1/20.
+2024-11-20 00:57:49,350 - INFO - Sampling DAG 1/20.
+2024-11-20 00:57:49,350 - INFO - Sampling DAG 1/20.
+2024-11-20 00:57:49,350 - INFO - Sampling DAG 1/20.
+2024-11-20 00:57:49,355 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 00:57:49,355 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 00:57:49,355 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 00:57:49,355 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 00:57:49,355 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 00:57:49,697 - INFO - Sampling DAG 2/20.
+2024-11-20 00:57:49,697 - INFO - Sampling DAG 2/20.
+2024-11-20 00:57:49,697 - INFO - Sampling DAG 2/20.
+2024-11-20 00:57:49,697 - INFO - Sampling DAG 2/20.
+2024-11-20 00:57:49,697 - INFO - Sampling DAG 2/20.
+2024-11-20 00:57:49,702 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 00:57:49,702 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 00:57:49,702 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 00:57:49,702 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 00:57:49,702 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 00:57:50,482 - INFO - Sampling DAG 3/20.
+2024-11-20 00:57:50,482 - INFO - Sampling DAG 3/20.
+2024-11-20 00:57:50,482 - INFO - Sampling DAG 3/20.
+2024-11-20 00:57:50,482 - INFO - Sampling DAG 3/20.
+2024-11-20 00:57:50,482 - INFO - Sampling DAG 3/20.
+2024-11-20 00:57:50,486 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 00:57:50,486 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 00:57:50,486 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 00:57:50,486 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 00:57:50,486 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 00:57:51,053 - INFO - Sampling DAG 4/20.
+2024-11-20 00:57:51,053 - INFO - Sampling DAG 4/20.
+2024-11-20 00:57:51,053 - INFO - Sampling DAG 4/20.
+2024-11-20 00:57:51,053 - INFO - Sampling DAG 4/20.
+2024-11-20 00:57:51,053 - INFO - Sampling DAG 4/20.
+2024-11-20 00:57:51,057 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 00:57:51,057 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 00:57:51,057 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 00:57:51,057 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 00:57:51,057 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 00:57:51,536 - INFO - Sampling DAG 5/20.
+2024-11-20 00:57:51,536 - INFO - Sampling DAG 5/20.
+2024-11-20 00:57:51,536 - INFO - Sampling DAG 5/20.
+2024-11-20 00:57:51,536 - INFO - Sampling DAG 5/20.
+2024-11-20 00:57:51,536 - INFO - Sampling DAG 5/20.
+2024-11-20 00:57:51,539 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 00:57:51,539 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 00:57:51,539 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 00:57:51,539 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 00:57:51,539 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 00:57:52,067 - INFO - Sampling DAG 6/20.
+2024-11-20 00:57:52,067 - INFO - Sampling DAG 6/20.
+2024-11-20 00:57:52,067 - INFO - Sampling DAG 6/20.
+2024-11-20 00:57:52,067 - INFO - Sampling DAG 6/20.
+2024-11-20 00:57:52,067 - INFO - Sampling DAG 6/20.
+2024-11-20 00:57:52,071 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 00:57:52,071 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 00:57:52,071 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 00:57:52,071 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 00:57:52,071 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 00:57:52,484 - INFO - Sampling DAG 7/20.
+2024-11-20 00:57:52,484 - INFO - Sampling DAG 7/20.
+2024-11-20 00:57:52,484 - INFO - Sampling DAG 7/20.
+2024-11-20 00:57:52,484 - INFO - Sampling DAG 7/20.
+2024-11-20 00:57:52,484 - INFO - Sampling DAG 7/20.
+2024-11-20 00:57:52,486 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 00:57:52,486 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 00:57:52,486 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 00:57:52,486 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 00:57:52,486 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 00:57:52,991 - INFO - Sampling DAG 8/20.
+2024-11-20 00:57:52,991 - INFO - Sampling DAG 8/20.
+2024-11-20 00:57:52,991 - INFO - Sampling DAG 8/20.
+2024-11-20 00:57:52,991 - INFO - Sampling DAG 8/20.
+2024-11-20 00:57:52,991 - INFO - Sampling DAG 8/20.
+2024-11-20 00:57:52,998 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 00:57:52,998 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 00:57:52,998 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 00:57:52,998 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 00:57:52,998 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 00:57:53,520 - INFO - Sampling DAG 9/20.
+2024-11-20 00:57:53,520 - INFO - Sampling DAG 9/20.
+2024-11-20 00:57:53,520 - INFO - Sampling DAG 9/20.
+2024-11-20 00:57:53,520 - INFO - Sampling DAG 9/20.
+2024-11-20 00:57:53,520 - INFO - Sampling DAG 9/20.
+2024-11-20 00:57:53,524 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 00:57:53,524 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 00:57:53,524 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 00:57:53,524 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 00:57:53,524 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 00:57:54,066 - INFO - Sampling DAG 10/20.
+2024-11-20 00:57:54,066 - INFO - Sampling DAG 10/20.
+2024-11-20 00:57:54,066 - INFO - Sampling DAG 10/20.
+2024-11-20 00:57:54,066 - INFO - Sampling DAG 10/20.
+2024-11-20 00:57:54,066 - INFO - Sampling DAG 10/20.
+2024-11-20 00:57:54,069 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 00:57:54,069 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 00:57:54,069 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 00:57:54,069 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 00:57:54,069 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 00:57:54,633 - INFO - Sampling DAG 11/20.
+2024-11-20 00:57:54,633 - INFO - Sampling DAG 11/20.
+2024-11-20 00:57:54,633 - INFO - Sampling DAG 11/20.
+2024-11-20 00:57:54,633 - INFO - Sampling DAG 11/20.
+2024-11-20 00:57:54,633 - INFO - Sampling DAG 11/20.
+2024-11-20 00:57:54,636 - INFO - Sampling DAG 11 completed successfully.
+2024-11-20 00:57:54,636 - INFO - Sampling DAG 11 completed successfully.
+2024-11-20 00:57:54,636 - INFO - Sampling DAG 11 completed successfully.
+2024-11-20 00:57:54,636 - INFO - Sampling DAG 11 completed successfully.
+2024-11-20 00:57:54,636 - INFO - Sampling DAG 11 completed successfully.
+2024-11-20 00:57:55,430 - INFO - Sampling DAG 12/20.
+2024-11-20 00:57:55,430 - INFO - Sampling DAG 12/20.
+2024-11-20 00:57:55,430 - INFO - Sampling DAG 12/20.
+2024-11-20 00:57:55,430 - INFO - Sampling DAG 12/20.
+2024-11-20 00:57:55,430 - INFO - Sampling DAG 12/20.
+2024-11-20 00:57:55,445 - INFO - Sampling DAG 12 completed successfully.
+2024-11-20 00:57:55,445 - INFO - Sampling DAG 12 completed successfully.
+2024-11-20 00:57:55,445 - INFO - Sampling DAG 12 completed successfully.
+2024-11-20 00:57:55,445 - INFO - Sampling DAG 12 completed successfully.
+2024-11-20 00:57:55,445 - INFO - Sampling DAG 12 completed successfully.
+2024-11-20 00:57:56,009 - INFO - Sampling DAG 13/20.
+2024-11-20 00:57:56,009 - INFO - Sampling DAG 13/20.
+2024-11-20 00:57:56,009 - INFO - Sampling DAG 13/20.
+2024-11-20 00:57:56,009 - INFO - Sampling DAG 13/20.
+2024-11-20 00:57:56,009 - INFO - Sampling DAG 13/20.
+2024-11-20 00:57:56,014 - INFO - Sampling DAG 13 completed successfully.
+2024-11-20 00:57:56,014 - INFO - Sampling DAG 13 completed successfully.
+2024-11-20 00:57:56,014 - INFO - Sampling DAG 13 completed successfully.
+2024-11-20 00:57:56,014 - INFO - Sampling DAG 13 completed successfully.
+2024-11-20 00:57:56,014 - INFO - Sampling DAG 13 completed successfully.
+2024-11-20 00:57:56,449 - INFO - Sampling DAG 14/20.
+2024-11-20 00:57:56,449 - INFO - Sampling DAG 14/20.
+2024-11-20 00:57:56,449 - INFO - Sampling DAG 14/20.
+2024-11-20 00:57:56,449 - INFO - Sampling DAG 14/20.
+2024-11-20 00:57:56,449 - INFO - Sampling DAG 14/20.
+2024-11-20 00:57:56,452 - INFO - Sampling DAG 14 completed successfully.
+2024-11-20 00:57:56,452 - INFO - Sampling DAG 14 completed successfully.
+2024-11-20 00:57:56,452 - INFO - Sampling DAG 14 completed successfully.
+2024-11-20 00:57:56,452 - INFO - Sampling DAG 14 completed successfully.
+2024-11-20 00:57:56,452 - INFO - Sampling DAG 14 completed successfully.
+2024-11-20 00:57:56,865 - INFO - Sampling DAG 15/20.
+2024-11-20 00:57:56,865 - INFO - Sampling DAG 15/20.
+2024-11-20 00:57:56,865 - INFO - Sampling DAG 15/20.
+2024-11-20 00:57:56,865 - INFO - Sampling DAG 15/20.
+2024-11-20 00:57:56,865 - INFO - Sampling DAG 15/20.
+2024-11-20 00:57:56,868 - INFO - Sampling DAG 15 completed successfully.
+2024-11-20 00:57:56,868 - INFO - Sampling DAG 15 completed successfully.
+2024-11-20 00:57:56,868 - INFO - Sampling DAG 15 completed successfully.
+2024-11-20 00:57:56,868 - INFO - Sampling DAG 15 completed successfully.
+2024-11-20 00:57:56,868 - INFO - Sampling DAG 15 completed successfully.
+2024-11-20 00:57:57,353 - INFO - Sampling DAG 16/20.
+2024-11-20 00:57:57,353 - INFO - Sampling DAG 16/20.
+2024-11-20 00:57:57,353 - INFO - Sampling DAG 16/20.
+2024-11-20 00:57:57,353 - INFO - Sampling DAG 16/20.
+2024-11-20 00:57:57,353 - INFO - Sampling DAG 16/20.
+2024-11-20 00:57:57,364 - INFO - Sampling DAG 16 completed successfully.
+2024-11-20 00:57:57,364 - INFO - Sampling DAG 16 completed successfully.
+2024-11-20 00:57:57,364 - INFO - Sampling DAG 16 completed successfully.
+2024-11-20 00:57:57,364 - INFO - Sampling DAG 16 completed successfully.
+2024-11-20 00:57:57,364 - INFO - Sampling DAG 16 completed successfully.
+2024-11-20 00:57:57,819 - INFO - Sampling DAG 17/20.
+2024-11-20 00:57:57,819 - INFO - Sampling DAG 17/20.
+2024-11-20 00:57:57,819 - INFO - Sampling DAG 17/20.
+2024-11-20 00:57:57,819 - INFO - Sampling DAG 17/20.
+2024-11-20 00:57:57,819 - INFO - Sampling DAG 17/20.
+2024-11-20 00:57:57,825 - INFO - Sampling DAG 17 completed successfully.
+2024-11-20 00:57:57,825 - INFO - Sampling DAG 17 completed successfully.
+2024-11-20 00:57:57,825 - INFO - Sampling DAG 17 completed successfully.
+2024-11-20 00:57:57,825 - INFO - Sampling DAG 17 completed successfully.
+2024-11-20 00:57:57,825 - INFO - Sampling DAG 17 completed successfully.
+2024-11-20 00:57:58,395 - INFO - Sampling DAG 18/20.
+2024-11-20 00:57:58,395 - INFO - Sampling DAG 18/20.
+2024-11-20 00:57:58,395 - INFO - Sampling DAG 18/20.
+2024-11-20 00:57:58,395 - INFO - Sampling DAG 18/20.
+2024-11-20 00:57:58,395 - INFO - Sampling DAG 18/20.
+2024-11-20 00:57:58,399 - INFO - Sampling DAG 18 completed successfully.
+2024-11-20 00:57:58,399 - INFO - Sampling DAG 18 completed successfully.
+2024-11-20 00:57:58,399 - INFO - Sampling DAG 18 completed successfully.
+2024-11-20 00:57:58,399 - INFO - Sampling DAG 18 completed successfully.
+2024-11-20 00:57:58,399 - INFO - Sampling DAG 18 completed successfully.
+2024-11-20 00:57:58,961 - INFO - Sampling DAG 19/20.
+2024-11-20 00:57:58,961 - INFO - Sampling DAG 19/20.
+2024-11-20 00:57:58,961 - INFO - Sampling DAG 19/20.
+2024-11-20 00:57:58,961 - INFO - Sampling DAG 19/20.
+2024-11-20 00:57:58,961 - INFO - Sampling DAG 19/20.
+2024-11-20 00:57:58,964 - INFO - Sampling DAG 19 completed successfully.
+2024-11-20 00:57:58,964 - INFO - Sampling DAG 19 completed successfully.
+2024-11-20 00:57:58,964 - INFO - Sampling DAG 19 completed successfully.
+2024-11-20 00:57:58,964 - INFO - Sampling DAG 19 completed successfully.
+2024-11-20 00:57:58,964 - INFO - Sampling DAG 19 completed successfully.
+2024-11-20 00:57:59,447 - INFO - Sampling DAG 20/20.
+2024-11-20 00:57:59,447 - INFO - Sampling DAG 20/20.
+2024-11-20 00:57:59,447 - INFO - Sampling DAG 20/20.
+2024-11-20 00:57:59,447 - INFO - Sampling DAG 20/20.
+2024-11-20 00:57:59,447 - INFO - Sampling DAG 20/20.
+2024-11-20 00:57:59,450 - INFO - Sampling DAG 20 completed successfully.
+2024-11-20 00:57:59,450 - INFO - Sampling DAG 20 completed successfully.
+2024-11-20 00:57:59,450 - INFO - Sampling DAG 20 completed successfully.
+2024-11-20 00:57:59,450 - INFO - Sampling DAG 20 completed successfully.
+2024-11-20 00:57:59,450 - INFO - Sampling DAG 20 completed successfully.
+2024-11-20 00:58:00,113 - INFO - Cleaning up sampler.
+2024-11-20 00:58:00,113 - INFO - Cleaning up sampler.
+2024-11-20 00:58:00,113 - INFO - Cleaning up sampler.
+2024-11-20 00:58:00,113 - INFO - Cleaning up sampler.
+2024-11-20 00:58:00,113 - INFO - Cleaning up sampler.
+2024-11-20 00:58:00,117 - INFO - Sampling completed successfully.
+2024-11-20 00:58:00,117 - INFO - Sampling completed successfully.
+2024-11-20 00:58:00,117 - INFO - Sampling completed successfully.
+2024-11-20 00:58:00,117 - INFO - Sampling completed successfully.
+2024-11-20 00:58:00,117 - INFO - Sampling completed successfully.
+2024-11-20 00:58:33,060 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 00:58:33,060 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 00:58:33,060 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 00:58:33,060 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 00:58:33,060 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 00:58:33,060 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 00:58:33,084 - INFO - Sampling DAG 1/20.
+2024-11-20 00:58:33,084 - INFO - Sampling DAG 1/20.
+2024-11-20 00:58:33,084 - INFO - Sampling DAG 1/20.
+2024-11-20 00:58:33,084 - INFO - Sampling DAG 1/20.
+2024-11-20 00:58:33,084 - INFO - Sampling DAG 1/20.
+2024-11-20 00:58:33,084 - INFO - Sampling DAG 1/20.
+2024-11-20 00:58:33,086 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 00:58:33,086 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 00:58:33,086 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 00:58:33,086 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 00:58:33,086 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 00:58:33,086 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 00:58:33,383 - INFO - Sampling DAG 2/20.
+2024-11-20 00:58:33,383 - INFO - Sampling DAG 2/20.
+2024-11-20 00:58:33,383 - INFO - Sampling DAG 2/20.
+2024-11-20 00:58:33,383 - INFO - Sampling DAG 2/20.
+2024-11-20 00:58:33,383 - INFO - Sampling DAG 2/20.
+2024-11-20 00:58:33,383 - INFO - Sampling DAG 2/20.
+2024-11-20 00:58:33,384 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 00:58:33,384 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 00:58:33,384 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 00:58:33,384 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 00:58:33,384 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 00:58:33,384 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 00:58:34,107 - INFO - Sampling DAG 3/20.
+2024-11-20 00:58:34,107 - INFO - Sampling DAG 3/20.
+2024-11-20 00:58:34,107 - INFO - Sampling DAG 3/20.
+2024-11-20 00:58:34,107 - INFO - Sampling DAG 3/20.
+2024-11-20 00:58:34,107 - INFO - Sampling DAG 3/20.
+2024-11-20 00:58:34,107 - INFO - Sampling DAG 3/20.
+2024-11-20 00:58:34,113 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 00:58:34,113 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 00:58:34,113 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 00:58:34,113 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 00:58:34,113 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 00:58:34,113 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 00:58:34,548 - INFO - Sampling DAG 4/20.
+2024-11-20 00:58:34,548 - INFO - Sampling DAG 4/20.
+2024-11-20 00:58:34,548 - INFO - Sampling DAG 4/20.
+2024-11-20 00:58:34,548 - INFO - Sampling DAG 4/20.
+2024-11-20 00:58:34,548 - INFO - Sampling DAG 4/20.
+2024-11-20 00:58:34,548 - INFO - Sampling DAG 4/20.
+2024-11-20 00:58:34,551 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 00:58:34,551 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 00:58:34,551 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 00:58:34,551 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 00:58:34,551 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 00:58:34,551 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 00:58:35,083 - INFO - Sampling DAG 5/20.
+2024-11-20 00:58:35,083 - INFO - Sampling DAG 5/20.
+2024-11-20 00:58:35,083 - INFO - Sampling DAG 5/20.
+2024-11-20 00:58:35,083 - INFO - Sampling DAG 5/20.
+2024-11-20 00:58:35,083 - INFO - Sampling DAG 5/20.
+2024-11-20 00:58:35,083 - INFO - Sampling DAG 5/20.
+2024-11-20 00:58:35,087 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 00:58:35,087 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 00:58:35,087 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 00:58:35,087 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 00:58:35,087 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 00:58:35,087 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 00:58:35,590 - INFO - Sampling DAG 6/20.
+2024-11-20 00:58:35,590 - INFO - Sampling DAG 6/20.
+2024-11-20 00:58:35,590 - INFO - Sampling DAG 6/20.
+2024-11-20 00:58:35,590 - INFO - Sampling DAG 6/20.
+2024-11-20 00:58:35,590 - INFO - Sampling DAG 6/20.
+2024-11-20 00:58:35,590 - INFO - Sampling DAG 6/20.
+2024-11-20 00:58:35,599 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 00:58:35,599 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 00:58:35,599 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 00:58:35,599 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 00:58:35,599 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 00:58:35,599 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 00:58:36,032 - INFO - Sampling DAG 7/20.
+2024-11-20 00:58:36,032 - INFO - Sampling DAG 7/20.
+2024-11-20 00:58:36,032 - INFO - Sampling DAG 7/20.
+2024-11-20 00:58:36,032 - INFO - Sampling DAG 7/20.
+2024-11-20 00:58:36,032 - INFO - Sampling DAG 7/20.
+2024-11-20 00:58:36,032 - INFO - Sampling DAG 7/20.
+2024-11-20 00:58:36,035 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 00:58:36,035 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 00:58:36,035 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 00:58:36,035 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 00:58:36,035 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 00:58:36,035 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 00:58:36,403 - INFO - Sampling DAG 8/20.
+2024-11-20 00:58:36,403 - INFO - Sampling DAG 8/20.
+2024-11-20 00:58:36,403 - INFO - Sampling DAG 8/20.
+2024-11-20 00:58:36,403 - INFO - Sampling DAG 8/20.
+2024-11-20 00:58:36,403 - INFO - Sampling DAG 8/20.
+2024-11-20 00:58:36,403 - INFO - Sampling DAG 8/20.
+2024-11-20 00:58:36,406 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 00:58:36,406 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 00:58:36,406 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 00:58:36,406 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 00:58:36,406 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 00:58:36,406 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 00:58:36,750 - INFO - Sampling DAG 9/20.
+2024-11-20 00:58:36,750 - INFO - Sampling DAG 9/20.
+2024-11-20 00:58:36,750 - INFO - Sampling DAG 9/20.
+2024-11-20 00:58:36,750 - INFO - Sampling DAG 9/20.
+2024-11-20 00:58:36,750 - INFO - Sampling DAG 9/20.
+2024-11-20 00:58:36,750 - INFO - Sampling DAG 9/20.
+2024-11-20 00:58:36,753 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 00:58:36,753 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 00:58:36,753 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 00:58:36,753 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 00:58:36,753 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 00:58:36,753 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 00:58:37,143 - INFO - Sampling DAG 10/20.
+2024-11-20 00:58:37,143 - INFO - Sampling DAG 10/20.
+2024-11-20 00:58:37,143 - INFO - Sampling DAG 10/20.
+2024-11-20 00:58:37,143 - INFO - Sampling DAG 10/20.
+2024-11-20 00:58:37,143 - INFO - Sampling DAG 10/20.
+2024-11-20 00:58:37,143 - INFO - Sampling DAG 10/20.
+2024-11-20 00:58:37,147 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 00:58:37,147 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 00:58:37,147 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 00:58:37,147 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 00:58:37,147 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 00:58:37,147 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 00:58:37,573 - INFO - Sampling DAG 11/20.
+2024-11-20 00:58:37,573 - INFO - Sampling DAG 11/20.
+2024-11-20 00:58:37,573 - INFO - Sampling DAG 11/20.
+2024-11-20 00:58:37,573 - INFO - Sampling DAG 11/20.
+2024-11-20 00:58:37,573 - INFO - Sampling DAG 11/20.
+2024-11-20 00:58:37,573 - INFO - Sampling DAG 11/20.
+2024-11-20 00:58:37,578 - INFO - Sampling DAG 11 completed successfully.
+2024-11-20 00:58:37,578 - INFO - Sampling DAG 11 completed successfully.
+2024-11-20 00:58:37,578 - INFO - Sampling DAG 11 completed successfully.
+2024-11-20 00:58:37,578 - INFO - Sampling DAG 11 completed successfully.
+2024-11-20 00:58:37,578 - INFO - Sampling DAG 11 completed successfully.
+2024-11-20 00:58:37,578 - INFO - Sampling DAG 11 completed successfully.
+2024-11-20 00:58:37,983 - INFO - Sampling DAG 12/20.
+2024-11-20 00:58:37,983 - INFO - Sampling DAG 12/20.
+2024-11-20 00:58:37,983 - INFO - Sampling DAG 12/20.
+2024-11-20 00:58:37,983 - INFO - Sampling DAG 12/20.
+2024-11-20 00:58:37,983 - INFO - Sampling DAG 12/20.
+2024-11-20 00:58:37,983 - INFO - Sampling DAG 12/20.
+2024-11-20 00:58:37,985 - INFO - Sampling DAG 12 completed successfully.
+2024-11-20 00:58:37,985 - INFO - Sampling DAG 12 completed successfully.
+2024-11-20 00:58:37,985 - INFO - Sampling DAG 12 completed successfully.
+2024-11-20 00:58:37,985 - INFO - Sampling DAG 12 completed successfully.
+2024-11-20 00:58:37,985 - INFO - Sampling DAG 12 completed successfully.
+2024-11-20 00:58:37,985 - INFO - Sampling DAG 12 completed successfully.
+2024-11-20 00:58:38,333 - INFO - Sampling DAG 13/20.
+2024-11-20 00:58:38,333 - INFO - Sampling DAG 13/20.
+2024-11-20 00:58:38,333 - INFO - Sampling DAG 13/20.
+2024-11-20 00:58:38,333 - INFO - Sampling DAG 13/20.
+2024-11-20 00:58:38,333 - INFO - Sampling DAG 13/20.
+2024-11-20 00:58:38,333 - INFO - Sampling DAG 13/20.
+2024-11-20 00:58:38,336 - INFO - Sampling DAG 13 completed successfully.
+2024-11-20 00:58:38,336 - INFO - Sampling DAG 13 completed successfully.
+2024-11-20 00:58:38,336 - INFO - Sampling DAG 13 completed successfully.
+2024-11-20 00:58:38,336 - INFO - Sampling DAG 13 completed successfully.
+2024-11-20 00:58:38,336 - INFO - Sampling DAG 13 completed successfully.
+2024-11-20 00:58:38,336 - INFO - Sampling DAG 13 completed successfully.
+2024-11-20 00:58:38,757 - INFO - Sampling DAG 14/20.
+2024-11-20 00:58:38,757 - INFO - Sampling DAG 14/20.
+2024-11-20 00:58:38,757 - INFO - Sampling DAG 14/20.
+2024-11-20 00:58:38,757 - INFO - Sampling DAG 14/20.
+2024-11-20 00:58:38,757 - INFO - Sampling DAG 14/20.
+2024-11-20 00:58:38,757 - INFO - Sampling DAG 14/20.
+2024-11-20 00:58:38,764 - INFO - Sampling DAG 14 completed successfully.
+2024-11-20 00:58:38,764 - INFO - Sampling DAG 14 completed successfully.
+2024-11-20 00:58:38,764 - INFO - Sampling DAG 14 completed successfully.
+2024-11-20 00:58:38,764 - INFO - Sampling DAG 14 completed successfully.
+2024-11-20 00:58:38,764 - INFO - Sampling DAG 14 completed successfully.
+2024-11-20 00:58:38,764 - INFO - Sampling DAG 14 completed successfully.
+2024-11-20 00:58:39,146 - INFO - Sampling DAG 15/20.
+2024-11-20 00:58:39,146 - INFO - Sampling DAG 15/20.
+2024-11-20 00:58:39,146 - INFO - Sampling DAG 15/20.
+2024-11-20 00:58:39,146 - INFO - Sampling DAG 15/20.
+2024-11-20 00:58:39,146 - INFO - Sampling DAG 15/20.
+2024-11-20 00:58:39,146 - INFO - Sampling DAG 15/20.
+2024-11-20 00:58:39,153 - INFO - Sampling DAG 15 completed successfully.
+2024-11-20 00:58:39,153 - INFO - Sampling DAG 15 completed successfully.
+2024-11-20 00:58:39,153 - INFO - Sampling DAG 15 completed successfully.
+2024-11-20 00:58:39,153 - INFO - Sampling DAG 15 completed successfully.
+2024-11-20 00:58:39,153 - INFO - Sampling DAG 15 completed successfully.
+2024-11-20 00:58:39,153 - INFO - Sampling DAG 15 completed successfully.
+2024-11-20 00:58:39,916 - INFO - Sampling DAG 16/20.
+2024-11-20 00:58:39,916 - INFO - Sampling DAG 16/20.
+2024-11-20 00:58:39,916 - INFO - Sampling DAG 16/20.
+2024-11-20 00:58:39,916 - INFO - Sampling DAG 16/20.
+2024-11-20 00:58:39,916 - INFO - Sampling DAG 16/20.
+2024-11-20 00:58:39,916 - INFO - Sampling DAG 16/20.
+2024-11-20 00:58:39,921 - INFO - Sampling DAG 16 completed successfully.
+2024-11-20 00:58:39,921 - INFO - Sampling DAG 16 completed successfully.
+2024-11-20 00:58:39,921 - INFO - Sampling DAG 16 completed successfully.
+2024-11-20 00:58:39,921 - INFO - Sampling DAG 16 completed successfully.
+2024-11-20 00:58:39,921 - INFO - Sampling DAG 16 completed successfully.
+2024-11-20 00:58:39,921 - INFO - Sampling DAG 16 completed successfully.
+2024-11-20 00:58:40,293 - INFO - Sampling DAG 17/20.
+2024-11-20 00:58:40,293 - INFO - Sampling DAG 17/20.
+2024-11-20 00:58:40,293 - INFO - Sampling DAG 17/20.
+2024-11-20 00:58:40,293 - INFO - Sampling DAG 17/20.
+2024-11-20 00:58:40,293 - INFO - Sampling DAG 17/20.
+2024-11-20 00:58:40,293 - INFO - Sampling DAG 17/20.
+2024-11-20 00:58:40,301 - INFO - Sampling DAG 17 completed successfully.
+2024-11-20 00:58:40,301 - INFO - Sampling DAG 17 completed successfully.
+2024-11-20 00:58:40,301 - INFO - Sampling DAG 17 completed successfully.
+2024-11-20 00:58:40,301 - INFO - Sampling DAG 17 completed successfully.
+2024-11-20 00:58:40,301 - INFO - Sampling DAG 17 completed successfully.
+2024-11-20 00:58:40,301 - INFO - Sampling DAG 17 completed successfully.
+2024-11-20 00:58:40,739 - INFO - Sampling DAG 18/20.
+2024-11-20 00:58:40,739 - INFO - Sampling DAG 18/20.
+2024-11-20 00:58:40,739 - INFO - Sampling DAG 18/20.
+2024-11-20 00:58:40,739 - INFO - Sampling DAG 18/20.
+2024-11-20 00:58:40,739 - INFO - Sampling DAG 18/20.
+2024-11-20 00:58:40,739 - INFO - Sampling DAG 18/20.
+2024-11-20 00:58:40,744 - INFO - Sampling DAG 18 completed successfully.
+2024-11-20 00:58:40,744 - INFO - Sampling DAG 18 completed successfully.
+2024-11-20 00:58:40,744 - INFO - Sampling DAG 18 completed successfully.
+2024-11-20 00:58:40,744 - INFO - Sampling DAG 18 completed successfully.
+2024-11-20 00:58:40,744 - INFO - Sampling DAG 18 completed successfully.
+2024-11-20 00:58:40,744 - INFO - Sampling DAG 18 completed successfully.
+2024-11-20 00:58:41,184 - INFO - Sampling DAG 19/20.
+2024-11-20 00:58:41,184 - INFO - Sampling DAG 19/20.
+2024-11-20 00:58:41,184 - INFO - Sampling DAG 19/20.
+2024-11-20 00:58:41,184 - INFO - Sampling DAG 19/20.
+2024-11-20 00:58:41,184 - INFO - Sampling DAG 19/20.
+2024-11-20 00:58:41,184 - INFO - Sampling DAG 19/20.
+2024-11-20 00:58:41,187 - INFO - Sampling DAG 19 completed successfully.
+2024-11-20 00:58:41,187 - INFO - Sampling DAG 19 completed successfully.
+2024-11-20 00:58:41,187 - INFO - Sampling DAG 19 completed successfully.
+2024-11-20 00:58:41,187 - INFO - Sampling DAG 19 completed successfully.
+2024-11-20 00:58:41,187 - INFO - Sampling DAG 19 completed successfully.
+2024-11-20 00:58:41,187 - INFO - Sampling DAG 19 completed successfully.
+2024-11-20 00:58:41,812 - INFO - Sampling DAG 20/20.
+2024-11-20 00:58:41,812 - INFO - Sampling DAG 20/20.
+2024-11-20 00:58:41,812 - INFO - Sampling DAG 20/20.
+2024-11-20 00:58:41,812 - INFO - Sampling DAG 20/20.
+2024-11-20 00:58:41,812 - INFO - Sampling DAG 20/20.
+2024-11-20 00:58:41,812 - INFO - Sampling DAG 20/20.
+2024-11-20 00:58:41,822 - INFO - Sampling DAG 20 completed successfully.
+2024-11-20 00:58:41,822 - INFO - Sampling DAG 20 completed successfully.
+2024-11-20 00:58:41,822 - INFO - Sampling DAG 20 completed successfully.
+2024-11-20 00:58:41,822 - INFO - Sampling DAG 20 completed successfully.
+2024-11-20 00:58:41,822 - INFO - Sampling DAG 20 completed successfully.
+2024-11-20 00:58:41,822 - INFO - Sampling DAG 20 completed successfully.
+2024-11-20 00:58:42,350 - INFO - Cleaning up sampler.
+2024-11-20 00:58:42,350 - INFO - Cleaning up sampler.
+2024-11-20 00:58:42,350 - INFO - Cleaning up sampler.
+2024-11-20 00:58:42,350 - INFO - Cleaning up sampler.
+2024-11-20 00:58:42,350 - INFO - Cleaning up sampler.
+2024-11-20 00:58:42,350 - INFO - Cleaning up sampler.
+2024-11-20 00:58:42,353 - INFO - Sampling completed successfully.
+2024-11-20 00:58:42,353 - INFO - Sampling completed successfully.
+2024-11-20 00:58:42,353 - INFO - Sampling completed successfully.
+2024-11-20 00:58:42,353 - INFO - Sampling completed successfully.
+2024-11-20 00:58:42,353 - INFO - Sampling completed successfully.
+2024-11-20 00:58:42,353 - INFO - Sampling completed successfully.
+2024-11-20 09:57:48,773 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 09:58:43,553 - INFO - Cleaning up sampler.
+2024-11-20 09:58:46,137 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 09:58:46,137 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 09:58:46,181 - INFO - Sampling DAG 1/5.
+2024-11-20 09:58:46,181 - INFO - Sampling DAG 1/5.
+2024-11-20 09:58:46,185 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 09:58:46,185 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 09:58:46,840 - INFO - Sampling DAG 2/5.
+2024-11-20 09:58:46,840 - INFO - Sampling DAG 2/5.
+2024-11-20 09:58:46,842 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 09:58:46,842 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 09:58:47,343 - INFO - Sampling DAG 3/5.
+2024-11-20 09:58:47,343 - INFO - Sampling DAG 3/5.
+2024-11-20 09:58:47,345 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 09:58:47,345 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 09:58:47,986 - INFO - Sampling DAG 4/5.
+2024-11-20 09:58:47,986 - INFO - Sampling DAG 4/5.
+2024-11-20 09:58:47,989 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 09:58:47,989 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 09:58:48,591 - INFO - Sampling DAG 5/5.
+2024-11-20 09:58:48,591 - INFO - Sampling DAG 5/5.
+2024-11-20 09:58:48,593 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 09:58:48,593 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 09:58:49,079 - INFO - Cleaning up sampler.
+2024-11-20 09:58:49,079 - INFO - Cleaning up sampler.
+2024-11-20 09:58:49,083 - INFO - Sampling completed successfully.
+2024-11-20 09:58:49,083 - INFO - Sampling completed successfully.
+2024-11-20 10:56:23,676 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 10:56:35,591 - INFO - Cleaning up sampler.
+2024-11-20 10:56:43,340 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 10:56:43,340 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 10:56:43,376 - INFO - Sampling DAG 1/5.
+2024-11-20 10:56:43,376 - INFO - Sampling DAG 1/5.
+2024-11-20 10:56:43,377 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 10:56:43,377 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 10:56:43,777 - INFO - Sampling DAG 2/5.
+2024-11-20 10:56:43,777 - INFO - Sampling DAG 2/5.
+2024-11-20 10:56:43,778 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 10:56:43,778 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 10:56:43,988 - INFO - Cleaning up sampler.
+2024-11-20 10:56:43,988 - INFO - Cleaning up sampler.
+2024-11-20 10:56:50,931 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 10:56:50,931 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 10:56:50,931 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 10:56:50,966 - INFO - Sampling DAG 1/5.
+2024-11-20 10:56:50,966 - INFO - Sampling DAG 1/5.
+2024-11-20 10:56:50,966 - INFO - Sampling DAG 1/5.
+2024-11-20 10:56:50,968 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 10:56:50,968 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 10:56:50,968 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 10:56:51,337 - INFO - Sampling DAG 2/5.
+2024-11-20 10:56:51,337 - INFO - Sampling DAG 2/5.
+2024-11-20 10:56:51,337 - INFO - Sampling DAG 2/5.
+2024-11-20 10:56:51,340 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 10:56:51,340 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 10:56:51,340 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 10:56:51,722 - INFO - Sampling DAG 3/5.
+2024-11-20 10:56:51,722 - INFO - Sampling DAG 3/5.
+2024-11-20 10:56:51,722 - INFO - Sampling DAG 3/5.
+2024-11-20 10:56:51,726 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 10:56:51,726 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 10:56:51,726 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 10:56:52,077 - INFO - Sampling DAG 4/5.
+2024-11-20 10:56:52,077 - INFO - Sampling DAG 4/5.
+2024-11-20 10:56:52,077 - INFO - Sampling DAG 4/5.
+2024-11-20 10:56:52,078 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 10:56:52,078 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 10:56:52,078 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 10:56:52,465 - INFO - Sampling DAG 5/5.
+2024-11-20 10:56:52,465 - INFO - Sampling DAG 5/5.
+2024-11-20 10:56:52,465 - INFO - Sampling DAG 5/5.
+2024-11-20 10:56:52,467 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 10:56:52,467 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 10:56:52,467 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 10:56:52,845 - INFO - Cleaning up sampler.
+2024-11-20 10:56:52,845 - INFO - Cleaning up sampler.
+2024-11-20 10:56:52,845 - INFO - Cleaning up sampler.
+2024-11-20 10:56:52,847 - INFO - Sampling completed successfully.
+2024-11-20 10:56:52,847 - INFO - Sampling completed successfully.
+2024-11-20 10:56:52,847 - INFO - Sampling completed successfully.
+2024-11-20 12:16:10,694 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:16:10,694 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:16:10,694 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:16:10,694 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:16:10,730 - INFO - Sampling DAG 1/5.
+2024-11-20 12:16:10,730 - INFO - Sampling DAG 1/5.
+2024-11-20 12:16:10,730 - INFO - Sampling DAG 1/5.
+2024-11-20 12:16:10,730 - INFO - Sampling DAG 1/5.
+2024-11-20 12:16:10,733 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:16:10,733 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:16:10,733 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:16:10,733 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:16:11,177 - INFO - Sampling DAG 2/5.
+2024-11-20 12:16:11,177 - INFO - Sampling DAG 2/5.
+2024-11-20 12:16:11,177 - INFO - Sampling DAG 2/5.
+2024-11-20 12:16:11,177 - INFO - Sampling DAG 2/5.
+2024-11-20 12:16:11,180 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:16:11,180 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:16:11,180 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:16:11,180 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:16:11,585 - INFO - Sampling DAG 3/5.
+2024-11-20 12:16:11,585 - INFO - Sampling DAG 3/5.
+2024-11-20 12:16:11,585 - INFO - Sampling DAG 3/5.
+2024-11-20 12:16:11,585 - INFO - Sampling DAG 3/5.
+2024-11-20 12:16:11,592 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:16:11,592 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:16:11,592 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:16:11,592 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:16:11,911 - INFO - Sampling DAG 4/5.
+2024-11-20 12:16:11,911 - INFO - Sampling DAG 4/5.
+2024-11-20 12:16:11,911 - INFO - Sampling DAG 4/5.
+2024-11-20 12:16:11,911 - INFO - Sampling DAG 4/5.
+2024-11-20 12:16:11,913 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:16:11,913 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:16:11,913 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:16:11,913 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:16:12,267 - INFO - Sampling DAG 5/5.
+2024-11-20 12:16:12,267 - INFO - Sampling DAG 5/5.
+2024-11-20 12:16:12,267 - INFO - Sampling DAG 5/5.
+2024-11-20 12:16:12,267 - INFO - Sampling DAG 5/5.
+2024-11-20 12:16:12,272 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:16:12,272 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:16:12,272 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:16:12,272 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:16:12,609 - INFO - Cleaning up sampler.
+2024-11-20 12:16:12,609 - INFO - Cleaning up sampler.
+2024-11-20 12:16:12,609 - INFO - Cleaning up sampler.
+2024-11-20 12:16:12,609 - INFO - Cleaning up sampler.
+2024-11-20 12:16:12,611 - INFO - Sampling completed successfully.
+2024-11-20 12:16:12,611 - INFO - Sampling completed successfully.
+2024-11-20 12:16:12,611 - INFO - Sampling completed successfully.
+2024-11-20 12:16:12,611 - INFO - Sampling completed successfully.
+2024-11-20 12:16:15,983 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:16:15,983 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:16:15,983 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:16:15,983 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:16:15,983 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:16:16,036 - INFO - Sampling DAG 1/5.
+2024-11-20 12:16:16,036 - INFO - Sampling DAG 1/5.
+2024-11-20 12:16:16,036 - INFO - Sampling DAG 1/5.
+2024-11-20 12:16:16,036 - INFO - Sampling DAG 1/5.
+2024-11-20 12:16:16,036 - INFO - Sampling DAG 1/5.
+2024-11-20 12:16:16,038 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:16:16,038 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:16:16,038 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:16:16,038 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:16:16,038 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:16:16,423 - INFO - Sampling DAG 2/5.
+2024-11-20 12:16:16,423 - INFO - Sampling DAG 2/5.
+2024-11-20 12:16:16,423 - INFO - Sampling DAG 2/5.
+2024-11-20 12:16:16,423 - INFO - Sampling DAG 2/5.
+2024-11-20 12:16:16,423 - INFO - Sampling DAG 2/5.
+2024-11-20 12:16:16,428 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:16:16,428 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:16:16,428 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:16:16,428 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:16:16,428 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:16:16,888 - INFO - Sampling DAG 3/5.
+2024-11-20 12:16:16,888 - INFO - Sampling DAG 3/5.
+2024-11-20 12:16:16,888 - INFO - Sampling DAG 3/5.
+2024-11-20 12:16:16,888 - INFO - Sampling DAG 3/5.
+2024-11-20 12:16:16,888 - INFO - Sampling DAG 3/5.
+2024-11-20 12:16:16,893 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:16:16,893 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:16:16,893 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:16:16,893 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:16:16,893 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:16:17,502 - INFO - Sampling DAG 4/5.
+2024-11-20 12:16:17,502 - INFO - Sampling DAG 4/5.
+2024-11-20 12:16:17,502 - INFO - Sampling DAG 4/5.
+2024-11-20 12:16:17,502 - INFO - Sampling DAG 4/5.
+2024-11-20 12:16:17,502 - INFO - Sampling DAG 4/5.
+2024-11-20 12:16:17,505 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:16:17,505 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:16:17,505 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:16:17,505 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:16:17,505 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:16:17,832 - INFO - Sampling DAG 5/5.
+2024-11-20 12:16:17,832 - INFO - Sampling DAG 5/5.
+2024-11-20 12:16:17,832 - INFO - Sampling DAG 5/5.
+2024-11-20 12:16:17,832 - INFO - Sampling DAG 5/5.
+2024-11-20 12:16:17,832 - INFO - Sampling DAG 5/5.
+2024-11-20 12:16:17,835 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:16:17,835 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:16:17,835 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:16:17,835 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:16:17,835 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:16:18,279 - INFO - Cleaning up sampler.
+2024-11-20 12:16:18,279 - INFO - Cleaning up sampler.
+2024-11-20 12:16:18,279 - INFO - Cleaning up sampler.
+2024-11-20 12:16:18,279 - INFO - Cleaning up sampler.
+2024-11-20 12:16:18,279 - INFO - Cleaning up sampler.
+2024-11-20 12:16:18,282 - INFO - Sampling completed successfully.
+2024-11-20 12:16:18,282 - INFO - Sampling completed successfully.
+2024-11-20 12:16:18,282 - INFO - Sampling completed successfully.
+2024-11-20 12:16:18,282 - INFO - Sampling completed successfully.
+2024-11-20 12:16:18,282 - INFO - Sampling completed successfully.
+2024-11-20 12:20:53,004 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:20:53,004 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:20:53,004 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:20:53,004 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:20:53,004 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:20:53,004 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:20:53,036 - INFO - Sampling DAG 1/5.
+2024-11-20 12:20:53,036 - INFO - Sampling DAG 1/5.
+2024-11-20 12:20:53,036 - INFO - Sampling DAG 1/5.
+2024-11-20 12:20:53,036 - INFO - Sampling DAG 1/5.
+2024-11-20 12:20:53,036 - INFO - Sampling DAG 1/5.
+2024-11-20 12:20:53,036 - INFO - Sampling DAG 1/5.
+2024-11-20 12:20:53,039 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:20:53,039 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:20:53,039 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:20:53,039 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:20:53,039 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:20:53,039 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:20:53,388 - INFO - Sampling DAG 2/5.
+2024-11-20 12:20:53,388 - INFO - Sampling DAG 2/5.
+2024-11-20 12:20:53,388 - INFO - Sampling DAG 2/5.
+2024-11-20 12:20:53,388 - INFO - Sampling DAG 2/5.
+2024-11-20 12:20:53,388 - INFO - Sampling DAG 2/5.
+2024-11-20 12:20:53,388 - INFO - Sampling DAG 2/5.
+2024-11-20 12:20:53,393 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:20:53,393 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:20:53,393 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:20:53,393 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:20:53,393 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:20:53,393 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:20:53,731 - INFO - Sampling DAG 3/5.
+2024-11-20 12:20:53,731 - INFO - Sampling DAG 3/5.
+2024-11-20 12:20:53,731 - INFO - Sampling DAG 3/5.
+2024-11-20 12:20:53,731 - INFO - Sampling DAG 3/5.
+2024-11-20 12:20:53,731 - INFO - Sampling DAG 3/5.
+2024-11-20 12:20:53,731 - INFO - Sampling DAG 3/5.
+2024-11-20 12:20:53,734 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:20:53,734 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:20:53,734 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:20:53,734 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:20:53,734 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:20:53,734 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:20:54,134 - INFO - Sampling DAG 4/5.
+2024-11-20 12:20:54,134 - INFO - Sampling DAG 4/5.
+2024-11-20 12:20:54,134 - INFO - Sampling DAG 4/5.
+2024-11-20 12:20:54,134 - INFO - Sampling DAG 4/5.
+2024-11-20 12:20:54,134 - INFO - Sampling DAG 4/5.
+2024-11-20 12:20:54,134 - INFO - Sampling DAG 4/5.
+2024-11-20 12:20:54,137 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:20:54,137 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:20:54,137 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:20:54,137 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:20:54,137 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:20:54,137 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:20:54,562 - INFO - Sampling DAG 5/5.
+2024-11-20 12:20:54,562 - INFO - Sampling DAG 5/5.
+2024-11-20 12:20:54,562 - INFO - Sampling DAG 5/5.
+2024-11-20 12:20:54,562 - INFO - Sampling DAG 5/5.
+2024-11-20 12:20:54,562 - INFO - Sampling DAG 5/5.
+2024-11-20 12:20:54,562 - INFO - Sampling DAG 5/5.
+2024-11-20 12:20:54,564 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:20:54,564 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:20:54,564 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:20:54,564 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:20:54,564 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:20:54,564 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:20:54,918 - INFO - Cleaning up sampler.
+2024-11-20 12:20:54,918 - INFO - Cleaning up sampler.
+2024-11-20 12:20:54,918 - INFO - Cleaning up sampler.
+2024-11-20 12:20:54,918 - INFO - Cleaning up sampler.
+2024-11-20 12:20:54,918 - INFO - Cleaning up sampler.
+2024-11-20 12:20:54,918 - INFO - Cleaning up sampler.
+2024-11-20 12:20:54,920 - INFO - Sampling completed successfully.
+2024-11-20 12:20:54,920 - INFO - Sampling completed successfully.
+2024-11-20 12:20:54,920 - INFO - Sampling completed successfully.
+2024-11-20 12:20:54,920 - INFO - Sampling completed successfully.
+2024-11-20 12:20:54,920 - INFO - Sampling completed successfully.
+2024-11-20 12:20:54,920 - INFO - Sampling completed successfully.
+2024-11-20 12:21:35,526 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:21:35,526 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:21:35,526 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:21:35,526 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:21:35,526 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:21:35,526 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:21:35,526 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:21:35,581 - INFO - Sampling DAG 1/10.
+2024-11-20 12:21:35,581 - INFO - Sampling DAG 1/10.
+2024-11-20 12:21:35,581 - INFO - Sampling DAG 1/10.
+2024-11-20 12:21:35,581 - INFO - Sampling DAG 1/10.
+2024-11-20 12:21:35,581 - INFO - Sampling DAG 1/10.
+2024-11-20 12:21:35,581 - INFO - Sampling DAG 1/10.
+2024-11-20 12:21:35,581 - INFO - Sampling DAG 1/10.
+2024-11-20 12:21:35,585 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:21:35,585 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:21:35,585 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:21:35,585 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:21:35,585 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:21:35,585 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:21:35,585 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:21:36,185 - INFO - Sampling DAG 2/10.
+2024-11-20 12:21:36,185 - INFO - Sampling DAG 2/10.
+2024-11-20 12:21:36,185 - INFO - Sampling DAG 2/10.
+2024-11-20 12:21:36,185 - INFO - Sampling DAG 2/10.
+2024-11-20 12:21:36,185 - INFO - Sampling DAG 2/10.
+2024-11-20 12:21:36,185 - INFO - Sampling DAG 2/10.
+2024-11-20 12:21:36,185 - INFO - Sampling DAG 2/10.
+2024-11-20 12:21:36,188 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:21:36,188 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:21:36,188 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:21:36,188 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:21:36,188 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:21:36,188 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:21:36,188 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:21:36,634 - INFO - Sampling DAG 3/10.
+2024-11-20 12:21:36,634 - INFO - Sampling DAG 3/10.
+2024-11-20 12:21:36,634 - INFO - Sampling DAG 3/10.
+2024-11-20 12:21:36,634 - INFO - Sampling DAG 3/10.
+2024-11-20 12:21:36,634 - INFO - Sampling DAG 3/10.
+2024-11-20 12:21:36,634 - INFO - Sampling DAG 3/10.
+2024-11-20 12:21:36,634 - INFO - Sampling DAG 3/10.
+2024-11-20 12:21:36,636 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:21:36,636 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:21:36,636 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:21:36,636 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:21:36,636 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:21:36,636 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:21:36,636 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:21:36,978 - INFO - Sampling DAG 4/10.
+2024-11-20 12:21:36,978 - INFO - Sampling DAG 4/10.
+2024-11-20 12:21:36,978 - INFO - Sampling DAG 4/10.
+2024-11-20 12:21:36,978 - INFO - Sampling DAG 4/10.
+2024-11-20 12:21:36,978 - INFO - Sampling DAG 4/10.
+2024-11-20 12:21:36,978 - INFO - Sampling DAG 4/10.
+2024-11-20 12:21:36,978 - INFO - Sampling DAG 4/10.
+2024-11-20 12:21:36,982 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:21:36,982 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:21:36,982 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:21:36,982 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:21:36,982 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:21:36,982 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:21:36,982 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:21:37,358 - INFO - Sampling DAG 5/10.
+2024-11-20 12:21:37,358 - INFO - Sampling DAG 5/10.
+2024-11-20 12:21:37,358 - INFO - Sampling DAG 5/10.
+2024-11-20 12:21:37,358 - INFO - Sampling DAG 5/10.
+2024-11-20 12:21:37,358 - INFO - Sampling DAG 5/10.
+2024-11-20 12:21:37,358 - INFO - Sampling DAG 5/10.
+2024-11-20 12:21:37,358 - INFO - Sampling DAG 5/10.
+2024-11-20 12:21:37,364 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:21:37,364 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:21:37,364 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:21:37,364 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:21:37,364 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:21:37,364 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:21:37,364 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:21:37,730 - INFO - Sampling DAG 6/10.
+2024-11-20 12:21:37,730 - INFO - Sampling DAG 6/10.
+2024-11-20 12:21:37,730 - INFO - Sampling DAG 6/10.
+2024-11-20 12:21:37,730 - INFO - Sampling DAG 6/10.
+2024-11-20 12:21:37,730 - INFO - Sampling DAG 6/10.
+2024-11-20 12:21:37,730 - INFO - Sampling DAG 6/10.
+2024-11-20 12:21:37,730 - INFO - Sampling DAG 6/10.
+2024-11-20 12:21:37,733 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:21:37,733 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:21:37,733 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:21:37,733 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:21:37,733 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:21:37,733 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:21:37,733 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:21:38,047 - INFO - Sampling DAG 7/10.
+2024-11-20 12:21:38,047 - INFO - Sampling DAG 7/10.
+2024-11-20 12:21:38,047 - INFO - Sampling DAG 7/10.
+2024-11-20 12:21:38,047 - INFO - Sampling DAG 7/10.
+2024-11-20 12:21:38,047 - INFO - Sampling DAG 7/10.
+2024-11-20 12:21:38,047 - INFO - Sampling DAG 7/10.
+2024-11-20 12:21:38,047 - INFO - Sampling DAG 7/10.
+2024-11-20 12:21:38,050 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:21:38,050 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:21:38,050 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:21:38,050 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:21:38,050 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:21:38,050 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:21:38,050 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:21:38,385 - INFO - Sampling DAG 8/10.
+2024-11-20 12:21:38,385 - INFO - Sampling DAG 8/10.
+2024-11-20 12:21:38,385 - INFO - Sampling DAG 8/10.
+2024-11-20 12:21:38,385 - INFO - Sampling DAG 8/10.
+2024-11-20 12:21:38,385 - INFO - Sampling DAG 8/10.
+2024-11-20 12:21:38,385 - INFO - Sampling DAG 8/10.
+2024-11-20 12:21:38,385 - INFO - Sampling DAG 8/10.
+2024-11-20 12:21:38,388 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:21:38,388 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:21:38,388 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:21:38,388 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:21:38,388 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:21:38,388 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:21:38,388 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:21:38,714 - INFO - Sampling DAG 9/10.
+2024-11-20 12:21:38,714 - INFO - Sampling DAG 9/10.
+2024-11-20 12:21:38,714 - INFO - Sampling DAG 9/10.
+2024-11-20 12:21:38,714 - INFO - Sampling DAG 9/10.
+2024-11-20 12:21:38,714 - INFO - Sampling DAG 9/10.
+2024-11-20 12:21:38,714 - INFO - Sampling DAG 9/10.
+2024-11-20 12:21:38,714 - INFO - Sampling DAG 9/10.
+2024-11-20 12:21:38,716 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:21:38,716 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:21:38,716 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:21:38,716 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:21:38,716 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:21:38,716 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:21:38,716 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:21:39,069 - INFO - Sampling DAG 10/10.
+2024-11-20 12:21:39,069 - INFO - Sampling DAG 10/10.
+2024-11-20 12:21:39,069 - INFO - Sampling DAG 10/10.
+2024-11-20 12:21:39,069 - INFO - Sampling DAG 10/10.
+2024-11-20 12:21:39,069 - INFO - Sampling DAG 10/10.
+2024-11-20 12:21:39,069 - INFO - Sampling DAG 10/10.
+2024-11-20 12:21:39,069 - INFO - Sampling DAG 10/10.
+2024-11-20 12:21:39,072 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:21:39,072 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:21:39,072 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:21:39,072 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:21:39,072 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:21:39,072 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:21:39,072 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:21:39,421 - INFO - Cleaning up sampler.
+2024-11-20 12:21:39,421 - INFO - Cleaning up sampler.
+2024-11-20 12:21:39,421 - INFO - Cleaning up sampler.
+2024-11-20 12:21:39,421 - INFO - Cleaning up sampler.
+2024-11-20 12:21:39,421 - INFO - Cleaning up sampler.
+2024-11-20 12:21:39,421 - INFO - Cleaning up sampler.
+2024-11-20 12:21:39,421 - INFO - Cleaning up sampler.
+2024-11-20 12:21:39,424 - INFO - Sampling completed successfully.
+2024-11-20 12:21:39,424 - INFO - Sampling completed successfully.
+2024-11-20 12:21:39,424 - INFO - Sampling completed successfully.
+2024-11-20 12:21:39,424 - INFO - Sampling completed successfully.
+2024-11-20 12:21:39,424 - INFO - Sampling completed successfully.
+2024-11-20 12:21:39,424 - INFO - Sampling completed successfully.
+2024-11-20 12:21:39,424 - INFO - Sampling completed successfully.
+2024-11-20 12:22:38,300 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:22:38,300 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:22:38,300 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:22:38,300 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:22:38,300 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:22:38,300 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:22:38,300 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:22:38,300 - INFO - Initializing nonsymmetric sampler.
+2024-11-20 12:22:38,335 - INFO - Sampling DAG 1/10.
+2024-11-20 12:22:38,335 - INFO - Sampling DAG 1/10.
+2024-11-20 12:22:38,335 - INFO - Sampling DAG 1/10.
+2024-11-20 12:22:38,335 - INFO - Sampling DAG 1/10.
+2024-11-20 12:22:38,335 - INFO - Sampling DAG 1/10.
+2024-11-20 12:22:38,335 - INFO - Sampling DAG 1/10.
+2024-11-20 12:22:38,335 - INFO - Sampling DAG 1/10.
+2024-11-20 12:22:38,335 - INFO - Sampling DAG 1/10.
+2024-11-20 12:22:38,339 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:22:38,339 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:22:38,339 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:22:38,339 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:22:38,339 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:22:38,339 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:22:38,339 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:22:38,339 - INFO - Sampling DAG 1 completed successfully.
+2024-11-20 12:22:38,700 - INFO - Sampling DAG 2/10.
+2024-11-20 12:22:38,700 - INFO - Sampling DAG 2/10.
+2024-11-20 12:22:38,700 - INFO - Sampling DAG 2/10.
+2024-11-20 12:22:38,700 - INFO - Sampling DAG 2/10.
+2024-11-20 12:22:38,700 - INFO - Sampling DAG 2/10.
+2024-11-20 12:22:38,700 - INFO - Sampling DAG 2/10.
+2024-11-20 12:22:38,700 - INFO - Sampling DAG 2/10.
+2024-11-20 12:22:38,700 - INFO - Sampling DAG 2/10.
+2024-11-20 12:22:38,703 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:22:38,703 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:22:38,703 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:22:38,703 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:22:38,703 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:22:38,703 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:22:38,703 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:22:38,703 - INFO - Sampling DAG 2 completed successfully.
+2024-11-20 12:22:39,075 - INFO - Sampling DAG 3/10.
+2024-11-20 12:22:39,075 - INFO - Sampling DAG 3/10.
+2024-11-20 12:22:39,075 - INFO - Sampling DAG 3/10.
+2024-11-20 12:22:39,075 - INFO - Sampling DAG 3/10.
+2024-11-20 12:22:39,075 - INFO - Sampling DAG 3/10.
+2024-11-20 12:22:39,075 - INFO - Sampling DAG 3/10.
+2024-11-20 12:22:39,075 - INFO - Sampling DAG 3/10.
+2024-11-20 12:22:39,075 - INFO - Sampling DAG 3/10.
+2024-11-20 12:22:39,081 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:22:39,081 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:22:39,081 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:22:39,081 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:22:39,081 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:22:39,081 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:22:39,081 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:22:39,081 - INFO - Sampling DAG 3 completed successfully.
+2024-11-20 12:22:39,416 - INFO - Sampling DAG 4/10.
+2024-11-20 12:22:39,416 - INFO - Sampling DAG 4/10.
+2024-11-20 12:22:39,416 - INFO - Sampling DAG 4/10.
+2024-11-20 12:22:39,416 - INFO - Sampling DAG 4/10.
+2024-11-20 12:22:39,416 - INFO - Sampling DAG 4/10.
+2024-11-20 12:22:39,416 - INFO - Sampling DAG 4/10.
+2024-11-20 12:22:39,416 - INFO - Sampling DAG 4/10.
+2024-11-20 12:22:39,416 - INFO - Sampling DAG 4/10.
+2024-11-20 12:22:39,419 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:22:39,419 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:22:39,419 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:22:39,419 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:22:39,419 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:22:39,419 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:22:39,419 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:22:39,419 - INFO - Sampling DAG 4 completed successfully.
+2024-11-20 12:22:39,823 - INFO - Sampling DAG 5/10.
+2024-11-20 12:22:39,823 - INFO - Sampling DAG 5/10.
+2024-11-20 12:22:39,823 - INFO - Sampling DAG 5/10.
+2024-11-20 12:22:39,823 - INFO - Sampling DAG 5/10.
+2024-11-20 12:22:39,823 - INFO - Sampling DAG 5/10.
+2024-11-20 12:22:39,823 - INFO - Sampling DAG 5/10.
+2024-11-20 12:22:39,823 - INFO - Sampling DAG 5/10.
+2024-11-20 12:22:39,823 - INFO - Sampling DAG 5/10.
+2024-11-20 12:22:39,828 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:22:39,828 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:22:39,828 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:22:39,828 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:22:39,828 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:22:39,828 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:22:39,828 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:22:39,828 - INFO - Sampling DAG 5 completed successfully.
+2024-11-20 12:22:40,231 - INFO - Sampling DAG 6/10.
+2024-11-20 12:22:40,231 - INFO - Sampling DAG 6/10.
+2024-11-20 12:22:40,231 - INFO - Sampling DAG 6/10.
+2024-11-20 12:22:40,231 - INFO - Sampling DAG 6/10.
+2024-11-20 12:22:40,231 - INFO - Sampling DAG 6/10.
+2024-11-20 12:22:40,231 - INFO - Sampling DAG 6/10.
+2024-11-20 12:22:40,231 - INFO - Sampling DAG 6/10.
+2024-11-20 12:22:40,231 - INFO - Sampling DAG 6/10.
+2024-11-20 12:22:40,234 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:22:40,234 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:22:40,234 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:22:40,234 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:22:40,234 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:22:40,234 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:22:40,234 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:22:40,234 - INFO - Sampling DAG 6 completed successfully.
+2024-11-20 12:22:40,707 - INFO - Sampling DAG 7/10.
+2024-11-20 12:22:40,707 - INFO - Sampling DAG 7/10.
+2024-11-20 12:22:40,707 - INFO - Sampling DAG 7/10.
+2024-11-20 12:22:40,707 - INFO - Sampling DAG 7/10.
+2024-11-20 12:22:40,707 - INFO - Sampling DAG 7/10.
+2024-11-20 12:22:40,707 - INFO - Sampling DAG 7/10.
+2024-11-20 12:22:40,707 - INFO - Sampling DAG 7/10.
+2024-11-20 12:22:40,707 - INFO - Sampling DAG 7/10.
+2024-11-20 12:22:40,712 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:22:40,712 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:22:40,712 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:22:40,712 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:22:40,712 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:22:40,712 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:22:40,712 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:22:40,712 - INFO - Sampling DAG 7 completed successfully.
+2024-11-20 12:22:41,082 - INFO - Sampling DAG 8/10.
+2024-11-20 12:22:41,082 - INFO - Sampling DAG 8/10.
+2024-11-20 12:22:41,082 - INFO - Sampling DAG 8/10.
+2024-11-20 12:22:41,082 - INFO - Sampling DAG 8/10.
+2024-11-20 12:22:41,082 - INFO - Sampling DAG 8/10.
+2024-11-20 12:22:41,082 - INFO - Sampling DAG 8/10.
+2024-11-20 12:22:41,082 - INFO - Sampling DAG 8/10.
+2024-11-20 12:22:41,082 - INFO - Sampling DAG 8/10.
+2024-11-20 12:22:41,085 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:22:41,085 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:22:41,085 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:22:41,085 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:22:41,085 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:22:41,085 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:22:41,085 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:22:41,085 - INFO - Sampling DAG 8 completed successfully.
+2024-11-20 12:22:41,420 - INFO - Sampling DAG 9/10.
+2024-11-20 12:22:41,420 - INFO - Sampling DAG 9/10.
+2024-11-20 12:22:41,420 - INFO - Sampling DAG 9/10.
+2024-11-20 12:22:41,420 - INFO - Sampling DAG 9/10.
+2024-11-20 12:22:41,420 - INFO - Sampling DAG 9/10.
+2024-11-20 12:22:41,420 - INFO - Sampling DAG 9/10.
+2024-11-20 12:22:41,420 - INFO - Sampling DAG 9/10.
+2024-11-20 12:22:41,420 - INFO - Sampling DAG 9/10.
+2024-11-20 12:22:41,422 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:22:41,422 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:22:41,422 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:22:41,422 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:22:41,422 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:22:41,422 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:22:41,422 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:22:41,422 - INFO - Sampling DAG 9 completed successfully.
+2024-11-20 12:22:41,769 - INFO - Sampling DAG 10/10.
+2024-11-20 12:22:41,769 - INFO - Sampling DAG 10/10.
+2024-11-20 12:22:41,769 - INFO - Sampling DAG 10/10.
+2024-11-20 12:22:41,769 - INFO - Sampling DAG 10/10.
+2024-11-20 12:22:41,769 - INFO - Sampling DAG 10/10.
+2024-11-20 12:22:41,769 - INFO - Sampling DAG 10/10.
+2024-11-20 12:22:41,769 - INFO - Sampling DAG 10/10.
+2024-11-20 12:22:41,769 - INFO - Sampling DAG 10/10.
+2024-11-20 12:22:41,772 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:22:41,772 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:22:41,772 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:22:41,772 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:22:41,772 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:22:41,772 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:22:41,772 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:22:41,772 - INFO - Sampling DAG 10 completed successfully.
+2024-11-20 12:22:42,118 - INFO - Cleaning up sampler.
+2024-11-20 12:22:42,118 - INFO - Cleaning up sampler.
+2024-11-20 12:22:42,118 - INFO - Cleaning up sampler.
+2024-11-20 12:22:42,118 - INFO - Cleaning up sampler.
+2024-11-20 12:22:42,118 - INFO - Cleaning up sampler.
+2024-11-20 12:22:42,118 - INFO - Cleaning up sampler.
+2024-11-20 12:22:42,118 - INFO - Cleaning up sampler.
+2024-11-20 12:22:42,118 - INFO - Cleaning up sampler.
+2024-11-20 12:22:42,120 - INFO - Sampling completed successfully.
+2024-11-20 12:22:42,120 - INFO - Sampling completed successfully.
+2024-11-20 12:22:42,120 - INFO - Sampling completed successfully.
+2024-11-20 12:22:42,120 - INFO - Sampling completed successfully.
+2024-11-20 12:22:42,120 - INFO - Sampling completed successfully.
+2024-11-20 12:22:42,120 - INFO - Sampling completed successfully.
+2024-11-20 12:22:42,120 - INFO - Sampling completed successfully.
+2024-11-20 12:22:42,120 - INFO - Sampling completed successfully.
+2024-12-02 19:29:07,926 - INFO - Initializing nonsymmetric sampler.
+2024-12-02 19:29:12,089 - INFO - Cleaning up sampler.
+2024-12-02 19:30:45,279 - INFO - Initializing nonsymmetric sampler.
+2024-12-02 19:30:45,279 - INFO - Initializing nonsymmetric sampler.
+2024-12-02 19:30:45,301 - INFO - Sampling DAG 1/10.
+2024-12-02 19:30:45,301 - INFO - Sampling DAG 1/10.
+2024-12-02 19:30:45,303 - INFO - Sampling DAG 1 completed successfully.
+2024-12-02 19:30:45,303 - INFO - Sampling DAG 1 completed successfully.
+2024-12-02 19:30:45,610 - INFO - Sampling DAG 2/10.
+2024-12-02 19:30:45,610 - INFO - Sampling DAG 2/10.
+2024-12-02 19:30:45,613 - INFO - Sampling DAG 2 completed successfully.
+2024-12-02 19:30:45,613 - INFO - Sampling DAG 2 completed successfully.
+2024-12-02 19:30:46,092 - INFO - Sampling DAG 3/10.
+2024-12-02 19:30:46,092 - INFO - Sampling DAG 3/10.
+2024-12-02 19:30:46,094 - INFO - Sampling DAG 3 completed successfully.
+2024-12-02 19:30:46,094 - INFO - Sampling DAG 3 completed successfully.
+2024-12-02 19:30:46,441 - INFO - Sampling DAG 4/10.
+2024-12-02 19:30:46,441 - INFO - Sampling DAG 4/10.
+2024-12-02 19:30:46,441 - INFO - Sampling DAG 4 completed successfully.
+2024-12-02 19:30:46,441 - INFO - Sampling DAG 4 completed successfully.
+2024-12-02 19:30:46,992 - INFO - Sampling DAG 5/10.
+2024-12-02 19:30:46,992 - INFO - Sampling DAG 5/10.
+2024-12-02 19:30:46,996 - INFO - Sampling DAG 5 completed successfully.
+2024-12-02 19:30:46,996 - INFO - Sampling DAG 5 completed successfully.
+2024-12-02 19:30:47,534 - INFO - Sampling DAG 6/10.
+2024-12-02 19:30:47,534 - INFO - Sampling DAG 6/10.
+2024-12-02 19:30:47,536 - INFO - Sampling DAG 6 completed successfully.
+2024-12-02 19:30:47,536 - INFO - Sampling DAG 6 completed successfully.
+2024-12-02 19:30:48,021 - INFO - Sampling DAG 7/10.
+2024-12-02 19:30:48,021 - INFO - Sampling DAG 7/10.
+2024-12-02 19:30:48,024 - INFO - Sampling DAG 7 completed successfully.
+2024-12-02 19:30:48,024 - INFO - Sampling DAG 7 completed successfully.
+2024-12-02 19:30:48,519 - INFO - Sampling DAG 8/10.
+2024-12-02 19:30:48,519 - INFO - Sampling DAG 8/10.
+2024-12-02 19:30:48,521 - INFO - Sampling DAG 8 completed successfully.
+2024-12-02 19:30:48,521 - INFO - Sampling DAG 8 completed successfully.
+2024-12-02 19:30:49,085 - INFO - Sampling DAG 9/10.
+2024-12-02 19:30:49,085 - INFO - Sampling DAG 9/10.
+2024-12-02 19:30:49,087 - INFO - Sampling DAG 9 completed successfully.
+2024-12-02 19:30:49,087 - INFO - Sampling DAG 9 completed successfully.
+2024-12-02 19:30:49,649 - INFO - Sampling DAG 10/10.
+2024-12-02 19:30:49,649 - INFO - Sampling DAG 10/10.
+2024-12-02 19:30:49,652 - INFO - Sampling DAG 10 completed successfully.
+2024-12-02 19:30:49,652 - INFO - Sampling DAG 10 completed successfully.
+2024-12-02 19:30:50,200 - INFO - Cleaning up sampler.
+2024-12-02 19:30:50,200 - INFO - Cleaning up sampler.
+2024-12-02 19:30:50,204 - INFO - Sampling completed successfully.
+2024-12-02 19:30:50,204 - INFO - Sampling completed successfully.
+2024-12-02 19:45:14,281 - INFO - Initializing nonsymmetric sampler.
+2024-12-02 19:45:14,281 - INFO - Initializing nonsymmetric sampler.
+2024-12-02 19:45:14,281 - INFO - Initializing nonsymmetric sampler.
+2024-12-02 19:45:14,307 - INFO - Sampling DAG 1/10.
+2024-12-02 19:45:14,307 - INFO - Sampling DAG 1/10.
+2024-12-02 19:45:14,307 - INFO - Sampling DAG 1/10.
+2024-12-02 19:45:14,308 - INFO - Sampling DAG 1 completed successfully.
+2024-12-02 19:45:14,308 - INFO - Sampling DAG 1 completed successfully.
+2024-12-02 19:45:14,308 - INFO - Sampling DAG 1 completed successfully.
+2024-12-02 19:45:14,876 - INFO - Sampling DAG 2/10.
+2024-12-02 19:45:14,876 - INFO - Sampling DAG 2/10.
+2024-12-02 19:45:14,876 - INFO - Sampling DAG 2/10.
+2024-12-02 19:45:14,880 - INFO - Sampling DAG 2 completed successfully.
+2024-12-02 19:45:14,880 - INFO - Sampling DAG 2 completed successfully.
+2024-12-02 19:45:14,880 - INFO - Sampling DAG 2 completed successfully.
+2024-12-02 19:45:15,475 - INFO - Sampling DAG 3/10.
+2024-12-02 19:45:15,475 - INFO - Sampling DAG 3/10.
+2024-12-02 19:45:15,475 - INFO - Sampling DAG 3/10.
+2024-12-02 19:45:15,479 - INFO - Sampling DAG 3 completed successfully.
+2024-12-02 19:45:15,479 - INFO - Sampling DAG 3 completed successfully.
+2024-12-02 19:45:15,479 - INFO - Sampling DAG 3 completed successfully.
+2024-12-02 19:45:16,180 - INFO - Sampling DAG 4/10.
+2024-12-02 19:45:16,180 - INFO - Sampling DAG 4/10.
+2024-12-02 19:45:16,180 - INFO - Sampling DAG 4/10.
+2024-12-02 19:45:16,181 - INFO - Sampling DAG 4 completed successfully.
+2024-12-02 19:45:16,181 - INFO - Sampling DAG 4 completed successfully.
+2024-12-02 19:45:16,181 - INFO - Sampling DAG 4 completed successfully.
+2024-12-02 19:45:16,842 - INFO - Sampling DAG 5/10.
+2024-12-02 19:45:16,842 - INFO - Sampling DAG 5/10.
+2024-12-02 19:45:16,842 - INFO - Sampling DAG 5/10.
+2024-12-02 19:45:16,847 - INFO - Sampling DAG 5 completed successfully.
+2024-12-02 19:45:16,847 - INFO - Sampling DAG 5 completed successfully.
+2024-12-02 19:45:16,847 - INFO - Sampling DAG 5 completed successfully.
+2024-12-02 19:45:17,599 - INFO - Sampling DAG 6/10.
+2024-12-02 19:45:17,599 - INFO - Sampling DAG 6/10.
+2024-12-02 19:45:17,599 - INFO - Sampling DAG 6/10.
+2024-12-02 19:45:17,604 - INFO - Sampling DAG 6 completed successfully.
+2024-12-02 19:45:17,604 - INFO - Sampling DAG 6 completed successfully.
+2024-12-02 19:45:17,604 - INFO - Sampling DAG 6 completed successfully.
+2024-12-02 19:45:18,148 - INFO - Sampling DAG 7/10.
+2024-12-02 19:45:18,148 - INFO - Sampling DAG 7/10.
+2024-12-02 19:45:18,148 - INFO - Sampling DAG 7/10.
+2024-12-02 19:45:18,149 - INFO - Sampling DAG 7 completed successfully.
+2024-12-02 19:45:18,149 - INFO - Sampling DAG 7 completed successfully.
+2024-12-02 19:45:18,149 - INFO - Sampling DAG 7 completed successfully.
+2024-12-02 19:45:18,702 - INFO - Sampling DAG 8/10.
+2024-12-02 19:45:18,702 - INFO - Sampling DAG 8/10.
+2024-12-02 19:45:18,702 - INFO - Sampling DAG 8/10.
+2024-12-02 19:45:18,704 - INFO - Sampling DAG 8 completed successfully.
+2024-12-02 19:45:18,704 - INFO - Sampling DAG 8 completed successfully.
+2024-12-02 19:45:18,704 - INFO - Sampling DAG 8 completed successfully.
+2024-12-02 19:45:19,261 - INFO - Sampling DAG 9/10.
+2024-12-02 19:45:19,261 - INFO - Sampling DAG 9/10.
+2024-12-02 19:45:19,261 - INFO - Sampling DAG 9/10.
+2024-12-02 19:45:19,264 - INFO - Sampling DAG 9 completed successfully.
+2024-12-02 19:45:19,264 - INFO - Sampling DAG 9 completed successfully.
+2024-12-02 19:45:19,264 - INFO - Sampling DAG 9 completed successfully.
+2024-12-02 19:45:19,771 - INFO - Sampling DAG 10/10.
+2024-12-02 19:45:19,771 - INFO - Sampling DAG 10/10.
+2024-12-02 19:45:19,771 - INFO - Sampling DAG 10/10.
+2024-12-02 19:45:19,776 - INFO - Sampling DAG 10 completed successfully.
+2024-12-02 19:45:19,776 - INFO - Sampling DAG 10 completed successfully.
+2024-12-02 19:45:19,776 - INFO - Sampling DAG 10 completed successfully.
+2024-12-02 19:45:20,393 - INFO - Cleaning up sampler.
+2024-12-02 19:45:20,393 - INFO - Cleaning up sampler.
+2024-12-02 19:45:20,393 - INFO - Cleaning up sampler.
+2024-12-02 19:45:20,397 - INFO - Sampling completed successfully.
+2024-12-02 19:45:20,397 - INFO - Sampling completed successfully.
+2024-12-02 19:45:20,397 - INFO - Sampling completed successfully.
