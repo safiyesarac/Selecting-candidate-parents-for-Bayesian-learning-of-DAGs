@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Iterative Score-Greedy Pruning (ISGP) Algorithm for Candidate Parent Selection}
+\author{}
+\date{}
+\maketitle
+
+\section*{Abstract}
+The Iterative Score-Greedy Pruning (ISGP) algorithm is a heuristic approach for selecting candidate parent sets in Bayesian Network structure learning. Combining greedy selection and iterative pruning, ISGP balances computational efficiency with theoretical rigor. While inspired by established methods, ISGP introduces a unique framework for efficient candidate generation.
+
+\section*{Algorithm Description}
+\begin{algorithm}[h]
+\caption{Iterative Score-Greedy Pruning (ISGP)}
+\begin{algorithmic}[1]
+\REQUIRE Dataset \( D \), scoring function \( S(v, P) \), maximum iterations \( T \), number of top subsets \( K \).
+\ENSURE Pruned candidate parent sets \( \{ C_v \}_{v \in V} \).
+
+\FOR{each variable \( v \in V \)}
+    \STATE Initialize \( C_v \gets V \setminus \{v\} \)
+\ENDFOR
+
+\FOR{iteration \( t = 1, 2, \dots, T \)}
+    \FOR{each variable \( v \in V \)}
+        \STATE Compute scores \( S(v, P) \) for all subsets \( P \subseteq C_v \).
+        \STATE Select top \( K \) subsets with the highest scores.
+        \STATE Prune \( C_v \) to include only nodes appearing in the selected subsets.
+    \ENDFOR
+    \IF{\( C_v \) stabilizes for all \( v \)}
+        \STATE \textbf{Break}.
+    \ENDIF
+\ENDFOR
+
+\RETURN \( \{ C_v \}_{v \in V} \).
+\end{algorithmic}
+\end{algorithm}
+
+\section*{Theoretical Background}
+
+The ISGP algorithm builds on well-established principles in Bayesian Network structure learning:
+
+\subsection*{Greedy Search and Pruning}
+The idea of iteratively selecting or pruning based on scores is inspired by greedy search algorithms. Greedy approaches like the Greedy Equivalence Search (GES) operate globally, but ISGP applies a similar greedy strategy locally to each variable.
+
+\textbf{Reference:} Chickering, D. M. (2002). "Optimal Structure Identification with Greedy Search." \textit{Journal of Machine Learning Research}, 3: 507–554.
+
+\subsection*{Marginal Contribution in Parent Selection}
+Using marginal score contributions to evaluate candidate parents borrows concepts from methods like the Sparse Candidate Algorithm.
+
+\textbf{Reference:} Friedman, N., Nachman, I., \& Pe'er, D. (1999). "Learning Bayesian Network Structure from Massive Datasets: The 'Sparse Candidate' Algorithm." \textit{Proceedings of the Fifteenth Conference on Uncertainty in Artificial Intelligence (UAI)}.
+
+\subsection*{Score-based Parent Set Learning}
+The emphasis on local scores aligns with work on score-based Bayesian Network structure learning, including score optimization over parent sets.
+
+\textbf{Reference:} Tsamardinos, I., Brown, L. E., \& Aliferis, C. F. (2006). "The Max-Min Hill-Climbing Bayesian Network Structure Learning Algorithm." \textit{Machine Learning}, 65(1): 31–78.
+
+\subsection*{Hybrid and Heuristic Methods}
+The algorithm's hybrid nature (greedy selection + pruning) is similar in spirit to heuristic-based approaches that combine multiple strategies for efficient candidate generation.
+
+\textbf{Reference:} Scutari, M. (2010). "Learning Bayesian Networks with the bnlearn R Package." \textit{Journal of Statistical Software}, 35(3).
+
+\section*{Distinction from Existing Literature}
+Unlike GES or Sparse Candidate, ISGP explicitly focuses on iterative local pruning based on marginal score contributions, making it simpler and computationally efficient for candidate selection rather than full structure learning. While marginal contribution heuristics and pruning techniques are common, this exact combination for candidate parent set generation has not been explicitly named or implemented in major works.
+
+\section*{Suggested Citation}
+If you use the ISGP algorithm in your work, please cite it as follows:
+\begin{quote}
+"The Iterative Score-Greedy Pruning (ISGP) algorithm combines greedy selection and iterative pruning to refine candidate parent sets in Bayesian Network structure learning. Inspired by GES and regularization principles, ISGP balances computational efficiency and theoretical rigor."
+\end{quote}
+
+\section*{References}
+\begin{itemize}
+    \item Chickering, D. M. (2002). "Optimal Structure Identification with Greedy Search." \textit{Journal of Machine Learning Research}, 3: 507–554.
+    \item Friedman, N., Nachman, I., \& Pe'er, D. (1999). "Learning Bayesian Network Structure from Massive Datasets: The 'Sparse Candidate' Algorithm." \textit{Proceedings of the Fifteenth Conference on Uncertainty in Artificial Intelligence (UAI)}.
+    \item Tsamardinos, I., Brown, L. E., \& Aliferis, C. F. (2006). "The Max-Min Hill-Climbing Bayesian Network Structure Learning Algorithm." \textit{Machine Learning}, 65(1): 31–78.
+    \item Scutari, M. (2010). "Learning Bayesian Networks with the bnlearn R Package." \textit{Journal of Statistical Software}, 35(3).
+\end{itemize}
+
+\end{document}
+

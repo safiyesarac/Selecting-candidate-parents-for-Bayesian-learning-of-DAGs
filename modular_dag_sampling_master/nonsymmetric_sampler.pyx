@@ -88,7 +88,7 @@ def py_run_nonsymmetric_sampler(int size, int num_dags, object logger):
     cdef NonSymmetricSampler[double]* sampler = NULL
 
     # Define file path
-    file_path = "/home/gulce/Downloads/thesis/scores.jkl"
+    file_path = "/home/gulce/Downloads/thesis/asia_scores.jkl"
 
     # Check if file exists
     if not os.path.exists(file_path):
@@ -118,17 +118,7 @@ def py_run_nonsymmetric_sampler(int size, int num_dags, object logger):
      
 
             # Visualize the DAG if the visualize flag is True
-            if True:
-                G = nx.DiGraph()
-                for node, connections in enumerate(sampled_dag):
-                    for target in range(size):
-                        if (connections >> target) & 1:
-                            G.add_edge(node, target)
-                
-                plt.figure(figsize=(8, 6))
-                nx.draw(G, with_labels=True, node_color='skyblue', edge_color='gray', node_size=1500, font_size=10, font_weight='bold')
-                plt.title(f"DAG Visualization - Sample {i + 1}")
-                plt.show()
+         
 
         write_dags(py_dags)
 
