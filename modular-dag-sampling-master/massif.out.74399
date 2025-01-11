@@ -1,0 +1,865 @@
+desc: (none)
+cmd: ./sampler nonsymmetric ../data/hailfinder_scores.jkl 1
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=281487757
+mem_heap_B=81614
+mem_heap_extra_B=90
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=653166373
+mem_heap_B=81887
+mem_heap_extra_B=153
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=1070607565
+mem_heap_B=82046
+mem_heap_extra_B=186
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=1373633455
+mem_heap_B=82190
+mem_heap_extra_B=218
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=1796129309
+mem_heap_B=82535
+mem_heap_extra_B=297
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=2085046904
+mem_heap_B=82622
+mem_heap_extra_B=314
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=2270780735
+mem_heap_B=82823
+mem_heap_extra_B=361
+mem_stacks_B=0
+heap_tree=detailed
+n4: 82823 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x490CA69: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B99: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011CA0: call_init (dl-init.c:30)
+    n1: 72704 0x4011CA0: _dl_init (dl-init.c:119)
+     n1: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFEFFF90A: ???
+        n1: 72704 0x1FFEFFF914: ???
+         n1: 72704 0x1FFEFFF921: ???
+          n0: 72704 0x1FFEFFF93F: ???
+ n1: 8192 0x4971D33: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 8192 0x4975F96: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+   n1: 8192 0x110460: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+    n0: 8192 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 1368 0x10FFC6: std::_Rb_tree_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>&&, std::tuple<>&&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 1368 0x110B6A: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 1368 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 559 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=8
+#-----------
+time=2599479367
+mem_heap_B=82910
+mem_heap_extra_B=378
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=3011135428
+mem_heap_B=83183
+mem_heap_extra_B=441
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=3265301715
+mem_heap_B=83270
+mem_heap_extra_B=458
+mem_stacks_B=0
+heap_tree=detailed
+n4: 83270 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x490CA69: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B99: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011CA0: call_init (dl-init.c:30)
+    n1: 72704 0x4011CA0: _dl_init (dl-init.c:119)
+     n1: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFEFFF90A: ???
+        n1: 72704 0x1FFEFFF914: ???
+         n1: 72704 0x1FFEFFF921: ???
+          n0: 72704 0x1FFEFFF93F: ???
+ n1: 8192 0x4971D33: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 8192 0x4975F96: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+   n1: 8192 0x110460: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+    n0: 8192 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 1872 0x10FFC6: std::_Rb_tree_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>&&, std::tuple<>&&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 1872 0x110B6A: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 1872 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 502 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=11
+#-----------
+time=3547709309
+mem_heap_B=83486
+mem_heap_extra_B=506
+mem_stacks_B=0
+heap_tree=detailed
+n4: 83486 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x490CA69: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B99: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011CA0: call_init (dl-init.c:30)
+    n1: 72704 0x4011CA0: _dl_init (dl-init.c:119)
+     n1: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFEFFF90A: ???
+        n1: 72704 0x1FFEFFF914: ???
+         n1: 72704 0x1FFEFFF921: ???
+          n0: 72704 0x1FFEFFF93F: ???
+ n1: 8192 0x4971D33: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 8192 0x4975F96: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+   n1: 8192 0x110460: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+    n0: 8192 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 2088 0x10FFC6: std::_Rb_tree_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>&&, std::tuple<>&&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 2088 0x110B6A: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 2088 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 502 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=12
+#-----------
+time=3830676311
+mem_heap_B=83630
+mem_heap_extra_B=538
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=4056599352
+mem_heap_B=83774
+mem_heap_extra_B=570
+mem_stacks_B=0
+heap_tree=detailed
+n4: 83774 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x490CA69: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B99: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011CA0: call_init (dl-init.c:30)
+    n1: 72704 0x4011CA0: _dl_init (dl-init.c:119)
+     n1: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFEFFF90A: ???
+        n1: 72704 0x1FFEFFF914: ???
+         n1: 72704 0x1FFEFFF921: ???
+          n0: 72704 0x1FFEFFF93F: ???
+ n1: 8192 0x4971D33: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 8192 0x4975F96: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+   n1: 8192 0x110460: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+    n0: 8192 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 2376 0x10FFC6: std::_Rb_tree_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>&&, std::tuple<>&&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 2376 0x110B6A: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 2376 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 502 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=14
+#-----------
+time=4337731486
+mem_heap_B=83975
+mem_heap_extra_B=617
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=4618010616
+mem_heap_B=84062
+mem_heap_extra_B=634
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=4842231395
+mem_heap_B=84206
+mem_heap_extra_B=666
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=5086873526
+mem_heap_B=84407
+mem_heap_extra_B=713
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=5311094217
+mem_heap_B=84494
+mem_heap_extra_B=730
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=5535316959
+mem_heap_B=84638
+mem_heap_extra_B=762
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=5871651456
+mem_heap_B=84782
+mem_heap_extra_B=794
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=6285763576
+mem_heap_B=85127
+mem_heap_extra_B=873
+mem_stacks_B=0
+heap_tree=detailed
+n4: 85127 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x490CA69: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B99: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011CA0: call_init (dl-init.c:30)
+    n1: 72704 0x4011CA0: _dl_init (dl-init.c:119)
+     n1: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFEFFF90A: ???
+        n1: 72704 0x1FFEFFF914: ???
+         n1: 72704 0x1FFEFFF921: ???
+          n0: 72704 0x1FFEFFF93F: ???
+ n1: 8192 0x4971D33: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 8192 0x4975F96: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+   n1: 8192 0x110460: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+    n0: 8192 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 3672 0x10FFC6: std::_Rb_tree_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > std::_Rb_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::_Select1st<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::piecewise_construct_t const&, std::tuple<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>&&, std::tuple<>&&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 3672 0x110B6A: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 3672 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 559 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=22
+#-----------
+time=6622095064
+mem_heap_B=85214
+mem_heap_extra_B=890
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=6902371999
+mem_heap_B=85358
+mem_heap_extra_B=922
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=7279896487
+mem_heap_B=1634631
+mem_heap_extra_B=696913
+mem_stacks_B=0
+heap_tree=detailed
+n4: 1634631 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1043640 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 1043640 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 502368 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 502368 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 502368 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 72704 0x490CA69: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B99: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011CA0: call_init (dl-init.c:30)
+    n1: 72704 0x4011CA0: _dl_init (dl-init.c:119)
+     n1: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFEFFF90A: ???
+        n1: 72704 0x1FFEFFF914: ???
+         n1: 72704 0x1FFEFFF921: ???
+          n0: 72704 0x1FFEFFF93F: ???
+ n0: 15919 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=25
+#-----------
+time=7682280203
+mem_heap_B=4345430
+mem_heap_extra_B=1860514
+mem_stacks_B=0
+heap_tree=detailed
+n4: 4345430 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 2788608 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 2788608 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 1468256 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 1468256 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 1468256 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 72704 0x490CA69: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+  n1: 72704 0x4011B99: call_init.part.0 (dl-init.c:72)
+   n1: 72704 0x4011CA0: call_init (dl-init.c:30)
+    n1: 72704 0x4011CA0: _dl_init (dl-init.c:119)
+     n1: 72704 0x4001139: ??? (in /usr/lib/x86_64-linux-gnu/ld-2.31.so)
+      n1: 72704 0x3: ???
+       n1: 72704 0x1FFEFFF90A: ???
+        n1: 72704 0x1FFEFFF914: ???
+         n1: 72704 0x1FFEFFF921: ???
+          n0: 72704 0x1FFEFFF93F: ???
+ n0: 15862 in 6 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=26
+#-----------
+time=7988847661
+mem_heap_B=6351366
+mem_heap_extra_B=2749538
+mem_stacks_B=0
+heap_tree=detailed
+n3: 6351366 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 4121856 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 4121856 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 2140944 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 2140944 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 2140944 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=27
+#-----------
+time=8380352198
+mem_heap_B=9112774
+mem_heap_extra_B=3889218
+mem_stacks_B=0
+heap_tree=detailed
+n3: 9112774 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 5831088 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 5831088 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 3193120 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 3193120 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 3193120 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=28
+#-----------
+time=8628398205
+mem_heap_B=10613030
+mem_heap_extra_B=4610562
+mem_stacks_B=0
+heap_tree=detailed
+n3: 10613030 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 6912816 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 6912816 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 3611648 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 3611648 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 3611648 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=29
+#-----------
+time=8993615241
+mem_heap_B=13124646
+mem_heap_extra_B=5667314
+mem_stacks_B=0
+heap_tree=detailed
+n3: 13124646 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 8497584 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 8497584 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 4538496 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 4538496 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 4538496 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=30
+#-----------
+time=9242001537
+mem_heap_B=14624902
+mem_heap_extra_B=6388674
+mem_stacks_B=0
+heap_tree=detailed
+n3: 14624902 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 9579312 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 9579312 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 4957024 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 4957024 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 4957024 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=31
+#-----------
+time=9436442565
+mem_heap_B=15729799
+mem_heap_extra_B=6955905
+mem_stacks_B=0
+heap_tree=detailed
+n3: 15729799 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 10429992 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 10429992 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 5211184 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 5211184 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 5211184 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88623 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=32
+#-----------
+time=9758916242
+mem_heap_B=18139486
+mem_heap_extra_B=7889938
+mem_stacks_B=0
+heap_tree=detailed
+n3: 18139486 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 11830704 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 11830704 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 6220216 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 6220216 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 6220216 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=33
+#-----------
+time=10156271470
+mem_heap_B=20460711
+mem_heap_extra_B=9045153
+mem_stacks_B=0
+heap_tree=detailed
+n3: 20460711 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 13563024 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 13563024 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 6809064 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 6809064 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 6809064 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88623 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=34
+#-----------
+time=10371785382
+mem_heap_B=22151358
+mem_heap_extra_B=9668034
+mem_stacks_B=0
+heap_tree=detailed
+n3: 22151358 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 14497200 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 14497200 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 7565592 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 7565592 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 7565592 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=35
+#-----------
+time=10678300376
+mem_heap_B=24157294
+mem_heap_extra_B=10557074
+mem_stacks_B=0
+heap_tree=detailed
+n3: 24157294 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 15830448 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 15830448 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 8238280 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 8238280 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 8238280 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=36
+#-----------
+time=10831632909
+mem_heap_B=25160262
+mem_heap_extra_B=11001586
+mem_stacks_B=0
+heap_tree=detailed
+n3: 25160262 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 16497072 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 16497072 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 8574624 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 8574624 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 8574624 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=37
+#-----------
+time=11204829830
+mem_heap_B=27413694
+mem_heap_extra_B=12084466
+mem_stacks_B=0
+heap_tree=detailed
+n3: 27413694 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 18120960 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 18120960 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 9204168 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 9204168 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 9204168 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=38
+#-----------
+time=11444736695
+mem_heap_B=29172134
+mem_heap_extra_B=12779634
+mem_stacks_B=0
+heap_tree=detailed
+n3: 29172134 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 19163568 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 19163568 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 9920000 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 9920000 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 9920000 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=39
+#-----------
+time=11751346950
+mem_heap_B=31178070
+mem_heap_extra_B=13668658
+mem_stacks_B=0
+heap_tree=detailed
+n3: 31178070 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 20496816 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 20496816 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 10592688 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 10592688 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 10592688 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=40
+#-----------
+time=12057716137
+mem_heap_B=33184006
+mem_heap_extra_B=14557682
+mem_stacks_B=0
+heap_tree=detailed
+n3: 33184006 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 21830064 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 21830064 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 11265376 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 11265376 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 11265376 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=41
+#-----------
+time=12393428759
+mem_heap_B=35149399
+mem_heap_extra_B=15530321
+mem_stacks_B=0
+heap_tree=detailed
+n3: 35149399 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 23288736 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 23288736 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 11772040 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 11772040 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 11772040 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88623 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=42
+#-----------
+time=12612850001
+mem_heap_B=36690198
+mem_heap_extra_B=16168050
+mem_stacks_B=0
+heap_tree=detailed
+n3: 36690198 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 24245040 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 24245040 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 12356592 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 12356592 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 12356592 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=43
+#-----------
+time=12920029152
+mem_heap_B=38696134
+mem_heap_extra_B=17057074
+mem_stacks_B=0
+heap_tree=detailed
+n3: 38696134 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 25578288 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 25578288 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 13029280 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 13029280 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 13029280 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=44
+#-----------
+time=13130060392
+mem_heap_B=40204782
+mem_heap_extra_B=17669266
+mem_stacks_B=0
+heap_tree=detailed
+n3: 40204782 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 26496432 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 26496432 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 13619784 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 13619784 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 13619784 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=45
+#-----------
+time=13435224219
+mem_heap_B=42210718
+mem_heap_extra_B=18558290
+mem_stacks_B=0
+heap_tree=detailed
+n3: 42210718 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 27829680 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 27829680 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 14292472 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 14292472 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 14292472 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=46
+#-----------
+time=13741553638
+mem_heap_B=44216654
+mem_heap_extra_B=19447314
+mem_stacks_B=0
+heap_tree=detailed
+n3: 44216654 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 29162928 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 29162928 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 14965160 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 14965160 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 14965160 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=47
+#-----------
+time=14142956977
+mem_heap_B=46719878
+mem_heap_extra_B=20613170
+mem_stacks_B=0
+heap_tree=detailed
+n3: 46719878 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 30911280 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 30911280 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 15720032 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 15720032 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 15720032 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=48
+#-----------
+time=14448241228
+mem_heap_B=48725814
+mem_heap_extra_B=21502194
+mem_stacks_B=0
+heap_tree=detailed
+n3: 48725814 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 32244528 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 32244528 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 16392720 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 16392720 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 16392720 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=49
+#-----------
+time=14688875880
+mem_heap_B=50194135
+mem_heap_extra_B=22198145
+mem_stacks_B=0
+heap_tree=detailed
+n3: 50194135 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 33288312 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 33288312 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 16817200 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 16817200 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 16817200 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88623 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=50
+#-----------
+time=14754812714
+mem_heap_B=50731750
+mem_heap_extra_B=22391218
+mem_stacks_B=0
+heap_tree=detailed
+n3: 50731750 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 33577776 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 33577776 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 17065408 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 17065408 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 17065408 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=51
+#-----------
+time=14844125231
+mem_heap_B=51205767
+mem_heap_extra_B=22648433
+mem_stacks_B=0
+heap_tree=detailed
+n3: 51205767 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 33963600 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 33963600 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 17153544 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 17153544 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 17153544 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88623 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=52
+#-----------
+time=14922490717
+mem_heap_B=51715255
+mem_heap_extra_B=22877505
+mem_stacks_B=0
+heap_tree=detailed
+n3: 51715255 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 34307064 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 34307064 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 17319568 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 17319568 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 17319568 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88623 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=53
+#-----------
+time=15002484225
+mem_heap_B=52230959
+mem_heap_extra_B=23107761
+mem_stacks_B=0
+heap_tree=detailed
+n3: 52230959 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 34652448 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 34652448 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 17489888 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 17489888 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 17489888 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88623 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=54
+#-----------
+time=15082698930
+mem_heap_B=52749351
+mem_heap_extra_B=23342769
+mem_stacks_B=0
+heap_tree=detailed
+n3: 52749351 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 35004816 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 35004816 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 17655912 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 17655912 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 17655912 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88623 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=55
+#-----------
+time=15163601338
+mem_heap_B=53277551
+mem_heap_extra_B=23575505
+mem_stacks_B=0
+heap_tree=detailed
+n3: 53277551 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 35353824 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 35353824 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 17835104 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 17835104 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 17835104 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88623 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=56
+#-----------
+time=15247162061
+mem_heap_B=53801519
+mem_heap_extra_B=23820081
+mem_stacks_B=0
+heap_tree=detailed
+n3: 53801519 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 35720640 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 35720640 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 17992256 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 17992256 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 17992256 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88623 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=57
+#-----------
+time=15324675237
+mem_heap_B=54364982
+mem_heap_extra_B=24042594
+mem_stacks_B=0
+heap_tree=detailed
+n3: 54364982 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 36054288 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 36054288 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 18222128 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 18222128 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 18222128 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=58
+#-----------
+time=15417546556
+mem_heap_B=54878047
+mem_heap_extra_B=24313633
+mem_stacks_B=0
+heap_tree=detailed
+n3: 54878047 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 36460824 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 36460824 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 18328600 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 18328600 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 18328600 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88623 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=59
+#-----------
+time=15492666586
+mem_heap_B=55496798
+mem_heap_extra_B=24530802
+mem_stacks_B=0
+heap_tree=detailed
+n3: 55496798 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 36786432 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 36786432 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 18621800 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 18621800 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 18621800 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=60
+#-----------
+time=15579692189
+mem_heap_B=56252270
+mem_heap_extra_B=24781458
+mem_stacks_B=0
+heap_tree=peak
+n3: 56252270 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 37162416 0x110D89: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n0: 37162416 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n1: 19001288 0x110203: std::_Hashtable<unsigned long, std::pair<unsigned long const, Lognum>, std::allocator<std::pair<unsigned long const, Lognum> >, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+  n1: 19001288 0x110DE0: std::vector<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > >, std::allocator<std::unordered_map<unsigned long, Lognum, std::hash<unsigned long>, std::equal_to<unsigned long>, std::allocator<std::pair<unsigned long const, Lognum> > > > > read_nonsymmetric_weights<Lognum>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+   n0: 19001288 0x10AD49: main (in /home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler)
+ n0: 88566 in 7 places, all below massif's threshold (1.00%)
