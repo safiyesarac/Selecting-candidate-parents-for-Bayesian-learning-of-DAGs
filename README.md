@@ -53,3 +53,15 @@ Some Notes
  1722  /home/gulce/.pyenv/versions/3.11.7/bin/python /home/gulce/Downloads/thesis/modular-dag-sampling-master/main.py
  1723  python3 setup.py build_ext --inplace
  1724  /home/gulce/.pyenv/versions/3.11.7/bin/python /home/g
+
+
+     PID STAT CMD
+  13444 R    /usr/lib/R/bin/exec/R --no-echo --no-restore --file=./mcmc_sampler_limited_parents.r --args ./data/hailfinder_scores.jkl 50000 ./data/hailfinder_sampled_dags_limited_parents_35.txt 100000000 35
+  13458 R    /usr/lib/R/bin/exec/R --no-echo --no-restore --file=./mcmc_sampler_limited_parents.r --args ./data/hailfinder_scores.jkl 50000 ./data/hailfinder_sampled_dags_limited_parents_40.txt 100000000 40
+  13468 R    /usr/lib/R/bin/exec/R --no-echo --no-restore --file=./mcmc_sampler_limited_parents.r --args ./data/hailfinder_scores.jkl 50000 ./data/hailfinder_sampled_dags_limited_parents_45.txt 100000000 45
+  13478 R    /usr/lib/R/bin/exec/R --no-echo --no-restore --file=./mcmc_sampler_limited_parents.r --args ./data/hailfinder_scores.jkl 50000 ./data/hailfinder_sampled_dags_limited_parents_48.txt 100000000 48
+  13488 R    /usr/lib/R/bin/exec/R --no-echo --no-restore --file=./mcmc_sampler_limited_parents.r --args ./data/hailfinder_scores.jkl 50000 ./data/hailfinder_sampled_dags_limited_parents_38.txt 100000000 38
+  13504 R    /usr/lib/R/bin/exec/R --no-echo --no-restore --file=./mcmc_sampler_limited_parents.r --args ./data/hailfinder_scores.jkl 50000 ./data/hailfinder_sampled_dags_limited_parents_50.txt 100000000 50
+  13514 R    /usr/lib/R/bin/exec/R --no-echo --no-restore --file=./mcmc_sampler_limited_parents.r --args ./data/hailfinder_scores.jkl 50000 ./data/hailfinder_sampled_dags_limited_parents_53.txt 100000000 53
+  13525 R    /usr/lib/R/bin/exec/R --no-echo --no-restore --file=./mcmc_sampler_limited_parents.r --args ./data/hailfinder_scores.jkl 50000 ./data/hailfinder_sampled_dags_limited_parents_55.txt 100000000 55
+  14759 R    /usr/lib/R/bin/exec/R --no-echo --no-restore --file=./mcmc_sampler_limited_parents.r --args ./data/hailfinder_scores.jkl 50000 ./data/hailfinder_sampled_dags_limited_parents_35.txt 100000000 35
