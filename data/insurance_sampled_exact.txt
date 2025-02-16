@@ -1,2 +1,0 @@
-nohup: ignoring input
-Sampling 10000 DAGs
