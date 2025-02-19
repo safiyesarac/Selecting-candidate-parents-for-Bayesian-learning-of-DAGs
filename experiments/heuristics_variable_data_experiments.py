@@ -163,6 +163,11 @@ def main():
         "greedy-lite": (cpa["greedy-lite"], {"scores": scores}),
         "back-forth":  (cpa["back-forth"],  {"scores": scores, "data": scores.data}),
         "beam":        (heuristics.beam_bdeu,          {"scores": scores, "beam_size": 5}),
+                "marginal_bdeu_parents":        (heuristics.marginal_bdeu_parents,            {"scores": scores, "n": n}),
+        
+         "voting_bdeu_parents":        (heuristics.bdeu_score_based_voting,            {"scores": scores}),
+         "synergy": (heuristics.synergy_based_parent_selection,  {"scores": scores}),
+        "stability":(heuristics.stability_bdeu, {"scores": scores, "data": mydata})
     }
 
     # 5. Loop over each algorithm, vary K, measure coverage, respect time limit
@@ -197,7 +202,7 @@ def main():
                 # If it took more than skip_after_seconds, skip it
                 print(f"  [SKIPPED: took {elapsed:.1f}s > {args.skip_after_seconds}s]")
                 results.append((algo_name, K, None, num_data_rows))
-                continue
+                break
 
             
             coverages, efficiencies, avg_coverage, avg_efficiency = compute_coverage_and_efficiency(
@@ -218,11 +223,150 @@ def main():
     if num_data_rows > 0:
         print(f"All coverage fractions above used dataset with {num_data_rows} rows.")
     else:
-        print("No dataset was loaded (NumDataRows=0).")
+        print("No dataset was loaded (NumDataRows=0)")
+        
+    add_metrics_to_csv(args.output_csv, args.output_csv)
     
     
+
+import pandas as pd
+import ast
+
+def parse_parent_dict_as_ints(dict_string):
+    """
+    Safely parse a string representation of a Python dictionary
+    that maps node -> tuple-of-parents, ensuring all keys/values are integers.
+    """
+    try:
+        raw_dict = ast.literal_eval(dict_string)  # parse as Python literal
+    except (SyntaxError, ValueError):
+        return {}
+    
+    final_dict = {}
+    for str_child, parent_tuple in raw_dict.items():
+        child_int = int(str_child)
+        parent_ints = tuple(int(p) for p in parent_tuple)
+        final_dict[child_int] = parent_ints
+    return final_dict
+
+def compute_edge_metrics(true_dict, pred_dict):
+    """
+    Given two dicts:
+       - true_dict: node(int) -> tuple-of-parents(int)
+       - pred_dict: node(int) -> tuple-of-parents(int)
+    Returns a dict with:
+       - NumTrueEdges
+       - NumGuessedEdges
+       - NumCorrectEdges
+       - Coverage (recall)
+       - Efficiency (precision)
+       - F1
+    """
+    true_edges = set()
+    for child, parents_tuple in true_dict.items():
+        for parent in parents_tuple:
+            true_edges.add((parent, child))
+
+    pred_edges = set()
+    for child, parents_tuple in pred_dict.items():
+        for parent in parents_tuple:
+            pred_edges.add((parent, child))
+
+    correct_edges = true_edges.intersection(pred_edges)
+
+    n_true = len(true_edges)
+    n_pred = len(pred_edges)
+    n_correct = len(correct_edges)
+
+    coverage = n_correct / n_true if n_true > 0 else 1.0  # recall
+    efficiency = n_correct / n_pred if n_pred > 0 else 0.0  # precision
+
+    if coverage + efficiency > 0:
+        f1 = 2 * (coverage * efficiency) / (coverage + efficiency)
+    else:
+        f1 = 0.0
+
+    return {
+        "NumTrueEdges": n_true,
+        "NumGuessedEdges": n_pred,
+        "NumCorrectEdges": n_correct,
+        "Coverage": coverage,
+        "Efficiency": efficiency,
+        "F1": f1
+    }
+
+def add_metrics_to_csv(csv_in, csv_out=None):
+    """
+    Reads 'csv_in' with:
+       row 0: column headers
+       row 1: 'True Parents :' with ParentSet holding the true parent dictionary
+       subsequent rows: algorithms with a 'ParentSet' holding predicted parent dictionaries.
+    Computes edge-based metrics and adds them to the CSV.
+    """
+    df = pd.read_csv(csv_in, dtype=str)
+
+    # Determine where the true parent dictionary is stored.
+    # If the 'Algorithm' column in the first row is "True Parents :",
+    # then assume the dictionary is in column 'K'.
+    if df.at[0, "Algorithm"].strip() == "True Parents :":
+        true_str = df.at[0, "K"]
+    else:
+        true_str = df.at[0, "ParentSet"]
+
+    # Ensure true_str is a string before stripping.
+    if isinstance(true_str, str):
+        true_str = true_str.strip().strip('"')
+    else:
+        raise ValueError("True parent dictionary not found in expected column.")
+
+    true_parents = parse_parent_dict_as_ints(true_str)
+
+    # Create new columns for the metrics
+    df["NumTrueEdges"] = None
+    df["NumGuessedEdges"] = None
+    df["NumCorrectEdges"] = None
+    df["Coverage"] = None
+    df["Efficiency"] = None
+    df["F1"] = None
+
+    # Process each row (skip row 0, which is the true parents row)
+    for i in range(len(df)):
+        if i == 0:  # Skip the true parents row.
+            continue
+
+        cand_str = df.at[i, "ParentSet"]
+        if isinstance(cand_str, str):
+            cand_str = cand_str.strip().strip('"')
+        else:
+            # If there's no candidate string, skip metric calculation.
+            continue
+
+        cand_parents = parse_parent_dict_as_ints(cand_str)
+
+        if cand_parents:
+            metrics = compute_edge_metrics(true_parents, cand_parents)
+            df.at[i, "NumTrueEdges"] = metrics["NumTrueEdges"]
+            df.at[i, "NumGuessedEdges"] = metrics["NumGuessedEdges"]
+            df.at[i, "NumCorrectEdges"] = metrics["NumCorrectEdges"]
+            df.at[i, "Coverage"] = metrics["Coverage"]
+            df.at[i, "Efficiency"] = metrics["Efficiency"]
+            df.at[i, "F1"] = metrics["F1"]
+
+    # Convert numeric columns to proper types
+    numeric_cols = ["NumTrueEdges", "NumGuessedEdges", "NumCorrectEdges", "Coverage", "Efficiency", "F1"]
+    for col in numeric_cols:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+
+    # Write the updated DataFrame to the output CSV file
+    if csv_out is None:
+        csv_out = csv_in.replace(".csv", "_withMetrics.csv")
+    df.to_csv(csv_out, index=False)
+    print(f"[INFO] Wrote updated CSV with new metric columns to: {csv_out}")
+
 
 
 if __name__ == "__main__":
     main()
+
+
 
