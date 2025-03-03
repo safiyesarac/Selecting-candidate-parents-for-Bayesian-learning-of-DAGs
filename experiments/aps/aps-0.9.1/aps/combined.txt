@@ -1,0 +1,3161 @@
+#include "aps.h"
+#include "types.h"
+
+namespace aps {
+
+template <typename T>
+Array<Array<T>> orderModularAPS_bruteforce(const Array<Array<T>>& w, bool test);
+template <typename T>
+Array<Array<T>> orderModularAPS_simple(const Array<Array<T>>& w, bool test);
+template <typename T>
+Array<Array<T>> orderModularAPS_singlethread(const Array<Array<T>>& w, bool test);
+
+template <typename T>
+const APSFuncList<T>& getOrderModularAPSFuncs() {
+	static APSFuncList<T> funcs;
+	if(!funcs.empty()) {
+		return funcs;
+	}
+
+	funcs.emplace_back("singlethread", orderModularAPS_singlethread<T>);
+	funcs.emplace_back("simple", orderModularAPS_simple<T>);
+	funcs.emplace_back("bruteforce", orderModularAPS_bruteforce<T>);
+
+	return funcs;
+}
+
+template <typename T>
+Array<Array<T>> modularAPS_bruteforce(const Array<Array<T>>& w, bool test);
+template <typename T>
+Array<Array<T>> modularAPS_simple(const Array<Array<T>>& w, bool test);
+
+template <typename T>
+const APSFuncList<T>& getModularAPSFuncs() {
+	static APSFuncList<T> funcs;
+	if(!funcs.empty()) {
+		return funcs;
+	}
+
+	funcs.emplace_back("simple", modularAPS_simple<T>);
+	funcs.emplace_back("bruteforce", modularAPS_bruteforce<T>);
+
+	return funcs;
+}
+
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	template const APSFuncList<T>& getModularAPSFuncs<T>(); \
+	template const APSFuncList<T>& getOrderModularAPSFuncs<T>();
+APS_FOR_EACH_NUMBER_TYPE
+
+}
+#pragma once
+
+#include "array.h"
+
+#include <vector>
+
+namespace aps {
+
+// Arguments:
+//   - Array of weights (outer indexed by vertex, inner indexed by bitvector
+//     of the parent set, in packed form so size is 2^(#verts - 1)).
+//   - Boolean signifying whether this is a test (if true, the solution may
+//     reject the case if solving it would be slow)
+// Return value:
+//   - The all-parent-set weights, or an empty array if the solution rejects
+//     the case (if the size or weight type is not supported)
+template <typename T>
+using APSFunc = Array<Array<T>> (*)(const Array<Array<T>>&, bool);
+
+// Method name-function pairs in the order of preference (most preferred first).
+template <typename T>
+using APSFuncList = std::vector<std::pair<std::string, APSFunc<T>>>;
+
+template <typename T>
+const APSFuncList<T>& getOrderModularAPSFuncs();
+
+template <typename T>
+const APSFuncList<T>& getModularAPSFuncs();
+
+}
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{515DCD1E-1AE5-43B9-9133-DCB7F80A7F1B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>aps</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="aps.cpp" />
+    <ClCompile Include="ar.cpp" />
+    <ClCompile Include="bruteforce.cpp" />
+    <ClCompile Include="conf.cpp" />
+    <ClCompile Include="file.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="perftest.cpp" />
+    <ClCompile Include="simple_modular.cpp" />
+    <ClCompile Include="simple_ordermodular.cpp" />
+    <ClCompile Include="singlethread_ordermodular.cpp" />
+    <ClCompile Include="test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="aps.h" />
+    <ClInclude Include="ar.h" />
+    <ClInclude Include="array.h" />
+    <ClInclude Include="bits.h" />
+    <ClInclude Include="common.h" />
+    <ClInclude Include="conf.h" />
+    <ClInclude Include="extdouble.h" />
+    <ClInclude Include="file.h" />
+    <ClInclude Include="logdouble.h" />
+    <ClInclude Include="perftest.h" />
+    <ClInclude Include="selectconstant.h" />
+    <ClInclude Include="simple_common.h" />
+    <ClInclude Include="test.h" />
+    <ClInclude Include="types.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aps.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="logdouble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="conf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="simple_common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="perftest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="selectconstant.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extdouble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aps.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="conf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bruteforce.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="simple_ordermodular.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="simple_modular.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="perftest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="singlethread_ordermodular.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="file.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>#include "ar.h"
+#include "types.h"
+
+namespace aps {
+
+template <typename T>
+Array<Array<T>> orderModularAR_bruteforce(const Array<Array<T>>& w, bool test);
+template <typename T>
+Array<Array<T>> orderModularAR_simple(const Array<Array<T>>& w, bool test);
+
+template <typename T>
+const ARFuncList<T>& getOrderModularARFuncs() {
+	static ARFuncList<T> funcs;
+	if(!funcs.empty()) {
+		return funcs;
+	}
+
+	funcs.emplace_back("simple", orderModularAR_simple<T>);
+	funcs.emplace_back("bruteforce", orderModularAR_bruteforce<T>);
+
+	return funcs;
+}
+
+template <typename T>
+Array<Array<T>> modularAR_bruteforce(const Array<Array<T>>& w, bool test);
+template <typename T>
+Array<Array<T>> modularAR_simple(const Array<Array<T>>& w, bool test);
+
+template <typename T>
+const ARFuncList<T>& getModularARFuncs() {
+	static ARFuncList<T> funcs;
+	if(!funcs.empty()) {
+		return funcs;
+	}
+
+	funcs.emplace_back("simple", modularAR_simple<T>);
+	funcs.emplace_back("bruteforce", modularAR_bruteforce<T>);
+
+	return funcs;
+}
+
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	template const ARFuncList<T>& getModularARFuncs<T>(); \
+	template const ARFuncList<T>& getOrderModularARFuncs<T>();
+APS_FOR_EACH_NUMBER_TYPE
+
+}
+#pragma once
+
+#include "array.h"
+
+#include <vector>
+
+namespace aps {
+
+// Arguments:
+//   - Array of weights (outer indexed by vertex, inner indexed by bitvector
+//     of the parent set, in packed form so size is 2^(#verts - 1)).
+//   - Boolean signifying whether this is a test (if true, the solution may
+//     reject the case if solving it would be slow)
+// Return value:
+//   - In index [i][j], the total weight of the DAGs where j is an ancestor of i
+//     or an empty array if the solution rejects the case (if the size or weight
+//     type is not supported)
+template <typename T>
+using ARFunc = Array<Array<T>>(*)(const Array<Array<T>>&, bool);
+
+// Method name-function pairs in the order of preference (most preferred first).
+template <typename T>
+using ARFuncList = std::vector<std::pair<std::string, ARFunc<T>>>;
+
+template <typename T>
+const ARFuncList<T>& getOrderModularARFuncs();
+
+template <typename T>
+const ARFuncList<T>& getModularARFuncs();
+
+}
+#pragma once
+
+#include "common.h"
+
+#include <algorithm>
+#include <cstring>
+#include <memory>
+#include <type_traits>
+
+#ifdef _MSC_VER
+#include <malloc.h>
+#else
+#include <stdlib.h>
+#endif
+
+namespace aps {
+
+// Array of elements with fixed size. For trivially copyable types, initially
+// uninitialized and aligned to allow using aligned vectorized loads and avoid
+// false sharing.
+template <typename T, bool IsTriviallyCopyable = std::is_trivially_copyable<T>::value>
+class Array {
+public:
+	Array() :
+		ptr_(nullptr),
+		size_(0) {
+	}
+
+	Array(size_t size) :
+		ptr_(new T[size]),
+		size_(size)
+	{}
+
+	size_t size() const {
+		return size_;
+	}
+
+	T* data() {
+		return ptr_.get();
+	}
+	const T* data() const {
+		return ptr_.get();
+	}
+
+	T& operator[](size_t i) {
+		return data()[i];
+	}
+	const T& operator[](size_t i) const {
+		return data()[i];
+	}
+
+	void fill(const T& val) {
+		std::fill(data(), data() + size(), val);
+	}
+
+private:
+	std::unique_ptr<T[]> ptr_;
+	size_t size_;
+};
+
+template <typename T>
+class Array<T, true> {
+public:
+	Array() :
+		ptr_(nullptr),
+		size_(0)
+	{}
+
+	Array(size_t size) :
+		size_(size)
+	{
+		const size_t align = 64;
+		size_t bytes = size * sizeof(T);
+		void* addr;
+		if(bytes) {
+#ifdef _MSC_VER
+			addr = _aligned_malloc(bytes, align);
+			if(!addr) {
+				fail("Could not allocate memory (_aligned_malloc(", bytes, ", ", align, ") failed)");
+			}
+#else
+			if(posix_memalign(&addr, align, bytes)) {
+				fail("Could not allocate memory (posix_memalign(..., ", align, ", ", bytes, ") failed)");
+			}
+#endif
+		} else {
+			addr = nullptr;
+		}
+		ptr_.reset((T*)addr);
+	}
+
+	size_t size() const {
+		return size_;
+	}
+
+	T* data() {
+		return ptr_.get();
+	}
+	const T* data() const {
+		return ptr_.get();
+	}
+
+	T& operator[](size_t i) {
+		return data()[i];
+	}
+	const T& operator[](size_t i) const {
+		return data()[i];
+	}
+
+	void fill(const T& val) {
+		std::fill(data(), data() + size(), val);
+	}
+
+private:
+	struct Free {
+		void operator()(T* ptr) {
+#ifdef _MSC_VER
+			_aligned_free(ptr);
+#else
+			free(ptr);
+#endif
+		}
+	};
+
+	std::unique_ptr<T, Free> ptr_;
+	size_t size_;
+};
+
+}
+#pragma once
+
+#include "common.h"
+
+#include <limits>
+
+#ifdef _MSC_VER // Only for MSVC
+#   include <intrin.h>
+#	pragma intrinsic(_BitScanReverse64)
+#	pragma intrinsic(_BitScanForward64)
+#	pragma intrinsic(__popcnt64)
+#	pragma warning (disable : 4146) // bottomOneBit
+#endif
+
+namespace aps {
+
+inline size_t topOneBitIdx(size_t x) {
+#ifdef _MSC_VER
+	static_assert(sizeof(uint64_t) >= sizeof(size_t), "The case uint64_t < size_t is not implemented");
+	unsigned long idx;
+	_BitScanReverse64(&idx, (uint64_t)x);
+	return (size_t)idx;
+#else
+	static_assert(sizeof(unsigned long long) >= sizeof(size_t), "The case unsigned long long < size_t is not implemented");
+	return (size_t)(std::numeric_limits<unsigned long long>::digits - 1 - __builtin_clzll((unsigned long long)x));
+#endif
+}
+
+inline size_t bottomOneBitIdx(size_t x) {
+#ifdef _MSC_VER
+	static_assert(sizeof(uint64_t) >= sizeof(size_t), "The case uint64_t < size_t is not implemented");
+	unsigned long idx;
+	_BitScanForward64(&idx, (uint64_t)x);
+	return (size_t)idx;
+#else
+	static_assert(sizeof(unsigned long long) >= sizeof(size_t), "The case unsigned long long < size_t is not implemented");
+	return (size_t)__builtin_ctzll((unsigned long long)x);
+#endif
+}
+
+inline constexpr size_t bottomOneBit(size_t x) {
+	return x & -x;
+}
+
+inline size_t popCount(size_t x) {
+#ifdef _MSC_VER
+	static_assert(sizeof(uint64_t) >= sizeof(size_t), "The case uint64_t < size_t is not implemented");
+	return (size_t)__popcnt64((uint64_t)x);
+#else
+	static_assert(sizeof(unsigned long long) >= sizeof(size_t), "The case unsigned long long < size_t is not implemented");
+	return (size_t)__builtin_popcountll((unsigned long long)x);
+#endif
+}
+
+inline size_t collapseBit(size_t mask, size_t bitIdx) {
+	uint64_t lowMask = (S1 << bitIdx) - S1;
+	uint64_t highMask = (~lowMask) << 1;
+	return (mask & lowMask) | ((mask & highMask) >> 1);
+}
+inline size_t expandBit(size_t mask, size_t bitIdx) {
+	uint64_t lowMask = (S1 << bitIdx) - S1;
+	uint64_t highMask = ~lowMask;
+	return (mask & lowMask) | ((mask & highMask) << 1);
+}
+
+}
+#include "array.h"
+#include "bits.h"
+#include "types.h"
+
+#include <vector>
+
+namespace aps {
+
+namespace {
+
+template <typename F>
+void dags_(std::vector<size_t>& graph, size_t i, size_t j, F& f) {
+	if(j == i) {
+		dags_(graph, i, j + 1, f);
+		return;
+	}
+	if(j == graph.size()) {
+		dags_(graph, i + 1, 0, f);
+		return;
+	}
+	if(i == graph.size()) {
+		f((const std::vector<size_t>&)graph);
+		return;
+	}
+
+	dags_(graph, i, j + 1, f);
+
+	size_t iBit = S1 << i;
+	size_t jBit = S1 << j;
+
+	size_t queue = iBit;
+	size_t seen = queue;
+	size_t target = jBit;
+
+	while(!(seen & target) && queue) {
+		size_t v = bottomOneBitIdx(queue);
+		queue ^= S1 << v;
+		size_t add = graph[v] & ~seen;
+		queue |= add;
+		seen |= add;
+	}
+
+	if(!(seen & target)) {
+		graph[j] ^= iBit;
+		dags_(graph, i, j + 1, f);
+		graph[j] ^= iBit;
+	}
+}
+
+template <typename F>
+void dags(size_t n, F f) {
+	std::vector<size_t> graph(n);
+	dags_(graph, 0, 0, f);
+}
+
+template <typename F>
+void topoOrders_(const std::vector<size_t>& graph, std::vector<size_t>& order, size_t done, size_t todo, F& f) {
+	if(!todo) {
+		f((const std::vector<size_t>&)order);
+		return;
+	}
+	for(size_t v = 0; v < graph.size(); ++v) {
+		if((todo & (S1 << v)) && !(graph[v] & todo)) {
+			size_t vBit = (S1 << v);
+			order[v] = done;
+			topoOrders_(graph, order, done | vBit, todo ^ vBit, f);
+		}
+	}
+}
+
+template <typename F>
+void topoOrders(const std::vector<size_t>& graph, F f) {
+	std::vector<size_t> order(graph.size());
+	topoOrders_(graph, order, 0, (S1 << graph.size()) - S1, f);
+}
+
+void topoSort_(const std::vector<size_t>& graph, size_t& seen, size_t*& out, size_t v) {
+	if(seen & (S1 << v)) {
+		return;
+	}
+	seen |= S1 << v;
+
+	size_t left = graph[v];
+	while(left) {
+		size_t x = bottomOneBitIdx(left);
+		left ^= S1 << x;
+		topoSort_(graph, seen, out, x);
+	}
+	
+	*out++ = v;
+}
+
+void topoSort(const std::vector<size_t>& graph, size_t* buf) {
+	size_t* asd = buf;
+	size_t seen = 0;
+	for(size_t v = 0; v < graph.size(); ++v) {
+		topoSort_(graph, seen, buf, v);
+	}
+
+	if(buf - asd != graph.size()) throw 0;
+}
+
+}
+
+template <typename T>
+Array<Array<T>> orderModularAPS_bruteforce(const Array<Array<T>>& w, bool test) {
+	size_t n = w.size();
+	if(test && n > 5) {
+		return Array<Array<T>>();
+	}
+	for(size_t v = 0; v < n; ++v) {
+		if(w[v].size() != (S1 << (n - 1))) {
+			fail("Internal error: weight array with invalid size");
+		}
+	}
+
+	Array<Array<T>> ret(n);
+	for(size_t v = 0; v < n; ++v) {
+		ret[v] = Array<T>(S1 << (n - 1));
+		ret[v].fill(getZero<T>());
+	}
+	dags(n, [&](const std::vector<size_t>& dag) {
+		T val = getZero<T>();
+		const T linWeight = getOne<T>();
+		topoOrders(dag, [&](const std::vector<size_t>& lin) {
+			val += linWeight;
+		});
+		for(size_t v = 0; v < n; ++v) {
+			val *= w[v][collapseBit(dag[v], v)];
+		}
+		for(size_t v = 0; v < n; ++v) {
+			ret[v][collapseBit(dag[v], v)] += val;
+		}
+	});
+
+	return ret;
+}
+
+template <typename T>
+Array<Array<T>> modularAPS_bruteforce(const Array<Array<T>>& w, bool test) {
+	size_t n = w.size();
+	if(test && n > 5) {
+		return Array<Array<T>>();
+	}
+	for(size_t v = 0; v < n; ++v) {
+		if(w[v].size() != (S1 << (n - 1))) {
+			fail("Internal error: weight array with invalid size");
+		}
+	}
+
+	Array<Array<T>> ret(n);
+	for(size_t v = 0; v < n; ++v) {
+		ret[v] = Array<T>(S1 << (n - 1));
+		ret[v].fill(getZero<T>());
+	}
+	dags(n, [&](const std::vector<size_t>& dag) {
+		T val = getOne<T>();
+		for(size_t v = 0; v < n; ++v) {
+			val *= w[v][collapseBit(dag[v], v)];
+		}
+
+		for(size_t v = 0; v < n; ++v) {
+			ret[v][collapseBit(dag[v], v)] += val;
+		}
+	});
+
+	return ret;
+}
+
+template <typename T>
+Array<Array<T>> orderModularAR_bruteforce(const Array<Array<T>>& w, bool test) {
+	size_t n = w.size();
+	if(test && n > 5) {
+		return Array<Array<T>>();
+	}
+	for(size_t v = 0; v < n; ++v) {
+		if(w[v].size() != (S1 << (n - 1))) {
+			fail("Internal error: weight array with invalid size");
+		}
+	}
+
+	Array<Array<T>> ret(n);
+	for(size_t v = 0; v < n; ++v) {
+		ret[v] = Array<T>(n);
+		ret[v].fill(getZero<T>());
+	}
+
+	std::vector<size_t> topo(n);
+	std::vector<size_t> ancestors(n);
+
+	dags(n, [&](const std::vector<size_t>& dag) {
+		T val = getZero<T>();
+		const T linWeight = getOne<T>();
+		topoOrders(dag, [&](const std::vector<size_t>& lin) {
+			val += linWeight;
+		});
+		for(size_t v = 0; v < n; ++v) {
+			val *= w[v][collapseBit(dag[v], v)];
+		}
+
+		topoSort(dag, topo.data());
+
+		for(size_t v : topo) {
+			ancestors[v] = S1 << v;
+			while(dag[v] & ~ancestors[v]) {
+				size_t x = bottomOneBitIdx(dag[v] & ~ancestors[v]);
+				ancestors[v] |= ancestors[x];
+			}
+			size_t left = ancestors[v];
+			while(left) {
+				size_t x = bottomOneBitIdx(left);
+				left ^= S1 << x;
+				ret[v][x] += val;
+			}
+		}
+	});
+
+	return ret;
+}
+
+template <typename T>
+Array<Array<T>> modularAR_bruteforce(const Array<Array<T>>& w, bool test) {
+	size_t n = w.size();
+	if(test && n > 5) {
+		return Array<Array<T>>();
+	}
+	for(size_t v = 0; v < n; ++v) {
+		if(w[v].size() != (S1 << (n - 1))) {
+			fail("Internal error: weight array with invalid size");
+		}
+	}
+
+	Array<Array<T>> ret(n);
+	for(size_t v = 0; v < n; ++v) {
+		ret[v] = Array<T>(n);
+		ret[v].fill(getZero<T>());
+	}
+
+	std::vector<size_t> topo(n);
+	std::vector<size_t> ancestors(n);
+
+	dags(n, [&](const std::vector<size_t>& dag) {
+		T val = getOne<T>();
+		for(size_t v = 0; v < n; ++v) {
+			val *= w[v][collapseBit(dag[v], v)];
+		}
+
+		topoSort(dag, topo.data());
+
+		for(size_t v : topo) {
+			ancestors[v] = S1 << v;
+			while(dag[v] & ~ancestors[v]) {
+				size_t x = bottomOneBitIdx(dag[v] & ~ancestors[v]);
+				ancestors[v] |= ancestors[x];
+			}
+			size_t left = ancestors[v];
+			while(left) {
+				size_t x = bottomOneBitIdx(left);
+				left ^= S1 << x;
+				ret[v][x] += val;
+			}
+		}
+	});
+
+	return ret;
+}
+
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	template Array<Array<T>> orderModularAPS_bruteforce<T>(const Array<Array<T>>&, bool); \
+	template Array<Array<T>> modularAPS_bruteforce(const Array<Array<T>>&, bool); \
+	template Array<Array<T>> orderModularAR_bruteforce<T>(const Array<Array<T>>&, bool); \
+	template Array<Array<T>> modularAR_bruteforce(const Array<Array<T>>&, bool);
+APS_FOR_EACH_NUMBER_TYPE
+
+}
+#pragma once
+
+#include <cstddef>
+#include <cstdint>
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <utility>
+
+namespace aps {
+
+using std::move;
+using std::size_t;
+using std::int64_t;
+using std::uint64_t;
+
+constexpr size_t S1 = 1;
+
+namespace stderr_print_ {
+template <typename T>
+auto print(const T& val, bool) -> decltype(std::cerr << val, void()) {
+	std::cerr << val;
+}
+template <typename T>
+void print(const T& val, int) {
+	std::cerr << "?";
+}
+template <typename T>
+void print(const T& val) {
+	print(val, true);
+}
+}
+
+inline void stderrPrint() {
+	std::cerr << "\n";
+}
+template <typename F, typename... T>
+void stderrPrint(const F& f, const T&... p) {
+	stderr_print_::print(f);
+	stderrPrint(p...);
+}
+template <typename... T>
+void fail(const T&... p) {
+	stderrPrint("FAIL: ", p...);
+	abort();
+}
+
+template <typename T>
+T fromString(const std::string& str) {
+	T ret;
+	std::stringstream ss(str);
+	ss >> ret;
+	if(ss.fail()) fail("fromString: Could not convert string '", str, "' to given type.");
+	return ret;
+}
+
+}
+#include "conf.h"
+
+namespace aps {
+namespace conf {
+
+bool verbose = false;
+
+}
+}
+#pragma once
+
+namespace aps {
+namespace conf {
+
+extern bool verbose;
+
+}
+}
+#pragma once
+
+#include "common.h"
+#include "logdouble.h"
+
+#include <cmath>
+#include <limits>
+#include <tuple>
+
+namespace aps {
+
+// Nonnegative real number represented by a normalized double-precision number
+// and an 64-bit integer exponent (e-base)
+struct ExtDouble {
+	double coef;
+	int64_t exp;
+	
+	static constexpr int64_t MinExp = std::numeric_limits<int64_t>::lowest() / 4;
+	static constexpr int64_t MaxExp = std::numeric_limits<int64_t>::max() / 4;
+	static constexpr double MinExpD = (double)MinExp;
+	static constexpr double MaxExpD = (double)MaxExp;
+	static constexpr double E = 2.718281828459045;
+	static constexpr double E2 = E * E;
+	static constexpr double E4 = E2 * E2;
+	static constexpr double E8 = E4 * E4;
+	static constexpr double E16 = E8 * E8;
+	static constexpr double E32 = E16 * E16;
+	static constexpr double InvE = 1.0 / E;
+	static constexpr double InvE2 = InvE * InvE;
+	static constexpr double InvE4 = InvE2 * InvE2;
+	static constexpr double InvE8 = InvE4 * InvE4;
+	static constexpr double InvE16 = InvE8 * InvE8;
+	static constexpr double InvE32 = InvE16 * InvE16;
+	static constexpr double InvE3 = InvE2 * InvE;
+	static constexpr double InvE7 = InvE3 * InvE3 * InvE;
+	static constexpr double InvE15 = InvE7 * InvE7 * InvE;
+	static constexpr double InvE31 = InvE15 * InvE15 * InvE;
+
+	ExtDouble() {}
+	explicit ExtDouble(LogDouble val) {
+		double expD = std::floor(val.log);
+		if(expD < MinExpD) {
+			coef = 0.0;
+			exp = 0;
+		} else {
+			if(expD > MaxExpD) {
+				fail("ExtDouble: overflow");
+			}
+			exp = (int64_t)expD;
+			coef = std::exp(val.log - expD);
+		}
+	}
+	explicit ExtDouble(double val) :
+		ExtDouble((LogDouble)val)
+	{}
+	static ExtDouble zero() {
+		ExtDouble ret;
+		ret.coef = 0.0;
+		ret.exp = 0;
+		return ret;
+	}
+	static ExtDouble one() {
+		ExtDouble ret;
+		ret.coef = 1.0;
+		ret.exp = 0;
+		return ret;
+	}
+
+	explicit operator LogDouble() const {
+		if(coef == 0.0) {
+			return LogDouble(0.0);
+		} else {
+			return LogDouble::fromLog((double)exp + std::log(coef));
+		}
+	}
+	explicit operator double() const {
+		return (double)(LogDouble)*this;
+	}
+};
+
+inline ExtDouble operator*(ExtDouble a, ExtDouble b) {
+	ExtDouble ret;
+	ret.coef = a.coef * b.coef;
+	if(ret.coef == 0.0) {
+		ret.exp = 0;
+	} else {
+		ret.exp = a.exp + b.exp;
+		if(ret.exp < ExtDouble::MinExp) {
+			ret.coef = 0.0;
+			ret.exp = 0;
+		} else {
+			if(ret.coef >= ExtDouble::E) {
+				++ret.exp;
+				ret.coef *= ExtDouble::InvE;
+			}
+			if(ret.exp > ExtDouble::MaxExp) {
+				fail("ExtDouble: overflow");
+			}
+		}
+	}
+	return ret;
+}
+
+inline double invExp_(double val, uint64_t exp) {
+	exp = std::min(exp, (uint64_t)63);
+	if(exp & 1) val *= ExtDouble::InvE;
+	if(exp & 2) val *= ExtDouble::InvE2;
+	if(exp & 4) val *= ExtDouble::InvE4;
+	if(exp & 8) val *= ExtDouble::InvE8;
+	if(exp & 16) val *= ExtDouble::InvE16;
+	if(exp & 32) val *= ExtDouble::InvE32;
+	return val;
+}
+
+inline ExtDouble operator+(ExtDouble a, ExtDouble b) {
+	if(a.coef == 0.0) {
+		return b;
+	}
+	if(b.coef == 0.0) {
+		return a;
+	}
+	if(a.exp < b.exp) {
+		std::swap(a, b);
+	}
+
+	a.coef += invExp_(b.coef, a.exp - b.exp);
+
+	if(a.coef >= ExtDouble::E) {
+		++a.exp;
+		a.coef *= ExtDouble::InvE;
+		if(a.exp > ExtDouble::MaxExp) {
+			fail("ExtDouble: overflow");
+		}
+	}
+
+	return a;
+}
+inline ExtDouble nonnegativeSubtraction(ExtDouble a, ExtDouble b) {
+	if(b.coef == 0.0) {
+		return a;
+	}
+	if(a.coef == 0.0 || a.exp < b.exp) {
+		return ExtDouble::zero();
+	}
+
+	a.coef -= invExp_(b.coef, a.exp - b.exp);
+	if(a.coef <= 0.0) {
+		return ExtDouble::zero();
+	}
+
+	if(a.coef < ExtDouble::InvE31) {
+		a.coef *= ExtDouble::E32;
+		a.exp -= 32;
+	}
+	if(a.coef < ExtDouble::InvE15) {
+		a.coef *= ExtDouble::E16;
+		a.exp -= 16;
+	}
+	if(a.coef < ExtDouble::InvE7) {
+		a.coef *= ExtDouble::E8;
+		a.exp -= 8;
+	}
+	if(a.coef < ExtDouble::InvE3) {
+		a.coef *= ExtDouble::E4;
+		a.exp -= 4;
+	}
+	if(a.coef < ExtDouble::InvE) {
+		a.coef *= ExtDouble::E2;
+		a.exp -= 2;
+	}
+	if(a.coef < 1.0) {
+		a.coef *= ExtDouble::E;
+		a.exp -= 1;
+	}
+	if(a.coef < 1.0) {
+		a.coef = 1.0;
+	}
+
+	if(a.exp < ExtDouble::MinExp) {
+		return ExtDouble::zero();
+	} else {
+		return a;
+	}
+}
+
+inline ExtDouble& operator*=(ExtDouble& a, ExtDouble b) {
+	a = a * b;
+	return a;
+}
+inline ExtDouble& operator+=(ExtDouble& a, ExtDouble b) {
+	a = a + b;
+	return a;
+}
+
+}
+#include "file.h"
+
+#include "bits.h"
+#include "types.h"
+
+#include <cmath>
+#include <fstream>
+#include <unordered_map>
+
+namespace aps {
+
+namespace {
+
+template <typename T>
+void fromLogDouble(const LogDouble& x, T& y) {
+	y = (T)x;
+}
+void fromLogDouble(const LogDouble& x, uint64_t& y) {
+	y = (uint64_t)std::round((double)x);
+}
+
+template <typename T>
+LogDouble toLogDouble(const T& x) {
+	return (LogDouble)x;
+}
+LogDouble toLogDouble(uint64_t x) {
+	return (LogDouble)(double)x;
+}
+
+}
+
+template <typename T>
+Instance<T> readInstance(const std::string& filename) {
+	Instance<T> ret;
+
+	size_t n;
+	{
+		std::ifstream fp;
+		fp.exceptions(fp.eofbit | fp.failbit | fp.badbit);
+		fp.open(filename);
+		fp >> n;
+		ret.names = Array<std::string>(n);
+		std::string tmp;
+		for(size_t i = 0; i < n; ++i) {
+			fp >> ret.names[i];
+			size_t parentSetCount;
+			fp >> parentSetCount;
+			for(size_t j = 0; j < parentSetCount; ++j) {
+				double score;
+				size_t parentCount;
+				fp >> score >> parentCount;
+				for(size_t k = 0; k < parentCount; ++k) {
+					fp >> tmp;
+				}
+			}
+		}
+	}
+
+	ret.weights = Array<Array<T>>(n);
+	for(size_t i = 0; i < n; ++i) {
+		ret.weights[i] = Array<T>(S1 << (n - 1));
+		ret.weights[i].fill(T(0));
+	}
+
+	std::unordered_map<std::string, size_t> nameToIdx;
+	for(size_t i = 0; i < n; ++i) {
+		if(nameToIdx.count(ret.names[i])) {
+			fail("Variable name ", ret.names[i], " defined multiple times in the input file");
+		}
+		nameToIdx[ret.names[i]] = i;
+	}
+
+	{
+		std::ifstream fp;
+		fp.exceptions(fp.eofbit | fp.failbit | fp.badbit);
+		fp.open(filename);
+		size_t n2;
+		fp >> n2;
+		if(n2 != n) {
+			fail("Input file changed during reading");
+		}
+		std::string tmp;
+		for(size_t i = 0; i < n; ++i) {
+			fp >> tmp;
+			if(tmp != ret.names[i]) {
+				fail("Input file changed during reading");
+			}
+			size_t parentSetCount;
+			fp >> parentSetCount;
+			for(size_t j = 0; j < parentSetCount; ++j) {
+				double score;
+				size_t parentCount;
+				fp >> score >> parentCount;
+				if(!std::isfinite(score)) {
+					fail("Input file contains infinite or NaN score");
+				}
+				size_t parentMask = 0;
+				for(size_t k = 0; k < parentCount; ++k) {
+					fp >> tmp;
+					auto it = nameToIdx.find(tmp);
+					if(it == nameToIdx.end()) {
+						fail("Unknown variable ", tmp, " referenced in input file");
+					}
+					if(it->second == i) {
+						fail("Input file contains weight with a self-loop");
+					}
+					parentMask |= S1 << it->second;
+				}
+				parentMask = collapseBit(parentMask, i);
+				fromLogDouble(LogDouble::fromLog(score), ret.weights[i][parentMask]);
+			}
+		}
+	}
+
+	return ret;
+}
+
+template <typename T>
+void writeInstance(const std::string& filename, const Instance<T>& instance) {
+	size_t n = instance.names.size();
+	if(instance.weights.size() != n) {
+		fail("Internal error: invalid instance structure");
+	}
+	for(size_t i = 0; i < n; ++i) {
+		if(instance.weights[i].size() != (S1 << (n - 1))) {
+			fail("Internal error: invalid instance structure");
+		}
+	}
+
+	std::ofstream fp;
+	fp.exceptions(fp.eofbit | fp.failbit | fp.badbit);
+	fp.precision(8);
+	fp.open(filename);
+
+	fp << n << '\n';
+	for(size_t i = 0; i < n; ++i) {
+		size_t parentSetCount = 0;
+		for(size_t j = 0; j < instance.weights[i].size(); ++j) {
+			double weightLog = toLogDouble(instance.weights[i][j]).log;
+			if(std::isnan(weightLog)) {
+				fail("NaN weight in output");
+			}
+			if(weightLog != -std::numeric_limits<double>::infinity()) {
+				if(!std::isfinite(weightLog)) {
+					fail("Infinite weight in output");
+				}
+				++parentSetCount;
+			}
+		}
+		
+		fp << instance.names[i] << ' ' << parentSetCount << '\n';
+		size_t parentSetsWritten = 0;
+		for(size_t j = 0; j < instance.weights[i].size(); ++j) {
+			double weightLog = toLogDouble(instance.weights[i][j]).log;
+			if(weightLog != -std::numeric_limits<double>::infinity()) {
+				if(parentSetsWritten >= parentSetCount) {
+					fail("Internal error: invalid nonzero-weight parent set count");
+				}
+				fp << weightLog << ' ' << popCount(j);
+				size_t parentMask = expandBit(j, i);
+				for(size_t b = 0; b < n; ++b) {
+					if(parentMask & (S1 << b)) {
+						fp << ' ' << instance.names[b];
+					}
+				}
+				fp << '\n';
+				++parentSetsWritten;
+			}
+		}
+		if(parentSetsWritten != parentSetCount) {
+			fail("Internal error: invalid nonzero-weight parent set count");
+		}
+	}
+
+	fp.close();
+}
+
+template <typename T>
+void writeAROutput(const std::string& filename, const AROutput<T>& output) {
+	size_t n = output.names.size();
+	if(output.weights.size() != n) {
+		fail("Internal error: invalid instance structure");
+	}
+	for(size_t i = 0; i < n; ++i) {
+		if(output.weights[i].size() != n) {
+			fail("Internal error: invalid instance structure");
+		}
+	}
+
+	std::ofstream fp;
+	fp.exceptions(fp.eofbit | fp.failbit | fp.badbit);
+	fp.precision(8);
+	fp.open(filename);
+
+	fp << n << "\n";
+	for(size_t i = 0; i < n; ++i) {
+		fp << output.names[i] << "\n";
+	}
+	for(size_t i = 0; i < n; ++i) {
+		for(size_t j = 0; j < n; ++j) {
+			if(j) {
+				fp << " ";
+			}
+			double weightLog = toLogDouble(output.weights[i][j]).log;
+			if(weightLog != -std::numeric_limits<double>::infinity()) {
+				fp << weightLog;
+			} else {
+				fp << "-inf";
+			}
+		}
+		fp << "\n";
+	}
+
+	fp.close();
+}
+
+
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	template Instance<T> readInstance(const std::string& filename); \
+	template void writeInstance(const std::string& filename, const Instance<T>& instance); \
+	template void writeAROutput(const std::string& filename, const AROutput<T>& output);
+APS_FOR_EACH_NUMBER_TYPE
+
+}
+#pragma once
+
+#include "array.h"
+
+namespace aps {
+
+template <typename T>
+struct Instance {
+	Array<std::string> names;
+	Array<Array<T>> weights;
+};
+
+template <typename T>
+Instance<T> readInstance(const std::string& filename);
+
+template <typename T>
+void writeInstance(const std::string& filename, const Instance<T>& instance);
+
+template <typename T>
+struct AROutput {
+	Array<std::string> names;
+	Array<Array<T>> weights;
+};
+
+template <typename T>
+void writeAROutput(const std::string& filename, const AROutput<T>& output);
+
+}
+#pragma once
+
+#include "common.h"
+
+#include <cmath>
+#include <limits>
+
+namespace aps {
+
+// Nonnegative real number represented as its logarithm
+struct LogDouble {
+	double log;
+
+	LogDouble() {}
+	explicit LogDouble(double val) :
+		log(std::log(val))
+	{ }
+	static LogDouble fromLog(double log) {
+		LogDouble ret;
+		ret.log = log;
+		return ret;
+	}
+	static LogDouble zero() {
+		return LogDouble::fromLog(-std::numeric_limits<double>::infinity());
+	}
+	static LogDouble one() {
+		return LogDouble::fromLog(0.0);
+	}
+
+	explicit operator double() const {
+		return std::exp(log);
+	}
+};
+
+inline LogDouble operator*(LogDouble a, LogDouble b) {
+	return LogDouble::fromLog(a.log + b.log);
+}
+inline LogDouble operator/(LogDouble a, LogDouble b) {
+	return LogDouble::fromLog(a.log - b.log);
+}
+inline LogDouble operator+(LogDouble a, LogDouble b) {
+	if(a.log == -std::numeric_limits<double>::infinity()) {
+		return b;
+	}
+	if(b.log == -std::numeric_limits<double>::infinity()) {
+		return a;
+	}
+	if(a.log > b.log) {
+		return LogDouble::fromLog(a.log + std::log(1 + std::exp(b.log - a.log)));
+	} else {
+		return LogDouble::fromLog(b.log + std::log(1 + std::exp(a.log - b.log)));
+	}
+}
+inline LogDouble nonnegativeSubtraction(LogDouble a, LogDouble b) {
+	if(b.log == -std::numeric_limits<double>::infinity()) {
+		return a;
+	}
+	if(a.log <= b.log) {
+		return LogDouble::zero();
+	}
+	return LogDouble::fromLog(a.log + std::log(1 - std::exp(b.log - a.log)));
+}
+
+inline LogDouble& operator*=(LogDouble& a, LogDouble b) {
+	a = a * b;
+	return a;
+}
+inline LogDouble& operator+=(LogDouble& a, LogDouble b) {
+	a = a + b;
+	return a;
+}
+
+}
+﻿#include "aps.h"
+#include "ar.h"
+#include "array.h"
+#include "conf.h"
+#include "file.h"
+#include "perftest.h"
+#include "test.h"
+#include "types.h"
+
+#include <exception>
+#include <map>
+#include <vector>
+
+namespace aps {
+namespace {
+
+struct CommandLine {
+	std::map<std::string, std::string> options;
+	std::vector<std::string> arguments;
+};
+CommandLine readCommandLine(int argc, char* argv[]) {
+	CommandLine cmdLine;
+	int pos = 1;
+	while(pos < argc && argv[pos][0] == '-') {
+		std::string opt = argv[pos++];
+		size_t dashCount = 0;
+		while(dashCount < opt.size() && opt[dashCount] == '-') {
+			++dashCount;
+		}
+		opt = opt.substr(dashCount);
+		size_t eqPos = opt.find('=');
+		if(eqPos == std::string::npos) {
+			cmdLine.options[opt] = "";
+		} else {
+			cmdLine.options[opt.substr(0, eqPos)] = opt.substr(eqPos + 1);
+		}
+	}
+	while(pos < argc) {
+		cmdLine.arguments.push_back(argv[pos++]);
+	}
+	return cmdLine;
+}
+
+template <typename T>
+struct TypeInfo {
+	static const char* info() {
+		return "";
+	}
+};
+template <>
+struct TypeInfo<LogDouble> {
+	static const char* info() {
+		return " (default; number is stored as its logarithm in a double)";
+	}
+};
+template <>
+struct TypeInfo<ExtDouble> {
+	static const char* info() {
+		return " (number is stored as a pair of normalized double and an 62-bit integer exponent)";
+	}
+};
+template <>
+struct TypeInfo<uint64_t> {
+	static const char* info() {
+		return " (exact integer computations modulo 2^64)";
+	}
+};
+
+void printHelp(std::ostream& out) {
+	out << "USAGE:\n";
+	out << "  aps [OPTIONS] ordermodular INPUT_FILE OUTPUT_FILE\n";
+	out << "    Solves APS in the order modular case\n";
+	out << "\n";
+	out << "  aps [OPTIONS] modular INPUT_FILE OUTPUT_FILE\n";
+	out << "    Solves APS in the modular case (WARNING: might not be numerically stable)\n";
+	out << "\n";
+	out << "  aps [OPTIONS] ar_ordermodular INPUT_FILE OUTPUT_FILE\n";
+	out << "    Solves AR in the order modular case\n";
+	out << "\n";
+	out << "  aps [OPTIONS] ar_modular INPUT_FILE OUTPUT_FILE\n";
+	out << "    Solves AR in the modular case (WARNING: might not be numerically stable)\n";
+	out << "\n";
+	out << "  aps [OPTIONS] test\n";
+	out << "    Runs tests, verifying that everything is working and the algorithms agree\n";
+	out << "\n";
+	out << "  aps [OPTIONS] perftest\n";
+	out << "    Runs performance tests for each algorithm for inputs of different sizes\n";
+	out << "\n";
+	out << "  aps [OPTIONS] help\n";
+	out << "    Shows this help\n";
+	out << "\n";
+	out << "OPTIONS:\n";
+	out << "  -v, --verbose: Enable debug/progress output\n";
+	out << "\n";
+	out << "  --type=TYPE: Number type to use in the computations, available types:\n";
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	out << "        \"" << #T << "\"" << TypeInfo<T>::info() << "\n";
+
+	APS_FOR_EACH_NUMBER_TYPE
+	out << "\n";
+
+	out << "PROBLEM:\n";
+	out << "  We have a set of variables, and for each variable and subset of other variables\n";
+	out << "  (candidate parent set) we have a nonnegative weight.\n";
+	out << "\n";
+	out << "  In the modular case, the weight of a DAG is defined as the product of the parent\n";
+	out << "  set weights of each variable.\n";
+	out << "\n";
+	out << "  In the order-modular case, the weight is further multiplied by the number of\n";
+	out << "  linear extensions (topological orders) of the DAG.\n";
+	out << "\n";
+	out << "  In the APS (all parent sets) problem, we compute for each variable and candidate\n";
+	out << "  parent set the total weight of DAGs where that variable has those parents.\n";
+	out << "\n";
+	out << "FILE FORMAT:\n";
+	out << "  The format for both input and output files is the GOBNILP format:\n";
+	out << "  <number of variables>\n";
+	out << "  for each variable:\n";
+	out << "    <variable name> <number of parent sets>\n";
+	out << "    for each parent set:\n";
+	out << "      <natural logarithm of weight> <number of parents> <names of parents separated by spaces>\n";
+	out << "\n";
+	out << "  In the AR (ancestor relations) problem, we compute for all pairs (i, j) of variables\n";
+	out << "  the total weight of DAGs where j is an ancestor of i (a variable is always its own ancestor).\n";
+	out << "  The input is in the same format as APS, and the output has the following format:\n";
+	out << "\n";
+	out << "AR OUTPUT FILE FORMAT:\n";
+	out << "  <number of variables>\n";
+	out << "  for each variable:\n";
+	out << "    <variable name>\n";
+	out << "  <square matrix: (row i, col j) = natural logarithm of total weight of DAGs where the jth variable\n";
+	out << "                                   is an ancestor of the ith variable (-inf if there are none)>\n";
+	out << "\n";
+	out << "  The output always preserves the names and the ordering of the variables.\n";
+	out << "\n";
+}
+
+template <typename T>
+void solve(
+	bool aps,
+	bool orderModular,
+	const std::string& inputFilename,
+	const std::string& outputFilename
+) {
+	if(aps) {
+		APSFuncList<T> funcs;
+		if(orderModular) {
+			funcs = getOrderModularAPSFuncs<T>();
+		} else {
+			funcs = getModularAPSFuncs<T>();
+		}
+
+		Instance<T> input = readInstance<T>(inputFilename);
+		Instance<T> output;
+		for(std::pair<std::string, APSFunc<T>> func : funcs) {
+			output.weights = func.second(input.weights, false);
+			if(output.weights.size() || !input.weights.size()) {
+				break;
+			}
+		}
+		if(input.weights.size() && !output.weights.size()) {
+			fail("All methods rejected the instance (maybe it is too large?)");
+		}
+		output.names = move(input.names);
+		writeInstance<T>(outputFilename, output);
+	} else {
+		ARFuncList<T> funcs;
+		if(orderModular) {
+			funcs = getOrderModularARFuncs<T>();
+		} else {
+			funcs = getModularARFuncs<T>();
+		}
+
+		Instance<T> input = readInstance<T>(inputFilename);
+		AROutput<T> output;
+		for(std::pair<std::string, APSFunc<T>> func : funcs) {
+			output.weights = func.second(input.weights, false);
+			if(output.weights.size() || !input.weights.size()) {
+				break;
+			}
+		}
+		if(input.weights.size() && !output.weights.size()) {
+			fail("All methods rejected the instance (maybe it is too large?)");
+		}
+		output.names = move(input.names);
+		writeAROutput(outputFilename, output);
+	}
+}
+
+void run(int argc, char* argv[]) {
+	try {
+		CommandLine cmdLine = readCommandLine(argc, argv);
+
+		if(cmdLine.options.count("v") || cmdLine.options.count("verbose")) {
+			cmdLine.options.erase("v");
+			cmdLine.options.erase("verbose");
+			conf::verbose = true;
+		}
+		std::string numberType = "LogDouble";
+		if(cmdLine.options.count("type")) {
+			numberType = cmdLine.options["type"];
+			cmdLine.options.erase("type");
+		}
+
+		void(*solveFunc)(bool, bool, const std::string&, const std::string&) = nullptr;
+
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+		if(numberType == #T) { \
+			solveFunc = solve<T>; \
+		}
+
+		APS_FOR_EACH_NUMBER_TYPE
+
+		if(solveFunc == nullptr) {
+			printHelp(std::cerr);
+			fail("Unknown number type \"", numberType, "\"");
+		}
+
+		for(const std::pair<std::string, std::string>& opt : cmdLine.options) {
+			printHelp(std::cerr);
+			fail("Unknown option: ", opt.first);
+		}
+
+		if(cmdLine.arguments.size() == 3 && cmdLine.arguments[0] == "ordermodular") {
+			solveFunc(true, true, cmdLine.arguments[1], cmdLine.arguments[2]);
+			return;
+		}
+		if(cmdLine.arguments.size() == 3 && cmdLine.arguments[0] == "modular") {
+			solveFunc(true, false, cmdLine.arguments[1], cmdLine.arguments[2]);
+			return;
+		}
+		if(cmdLine.arguments.size() == 3 && cmdLine.arguments[0] == "ar_ordermodular") {
+			solveFunc(false, true, cmdLine.arguments[1], cmdLine.arguments[2]);
+			return;
+		}
+		if(cmdLine.arguments.size() == 3 && cmdLine.arguments[0] == "ar_modular") {
+			solveFunc(false, false, cmdLine.arguments[1], cmdLine.arguments[2]);
+			return;
+		}
+		if(cmdLine.arguments.size() == 1 && cmdLine.arguments[0] == "test") {
+			runTests();
+			return;
+		}
+		if(cmdLine.arguments.size() == 1 && cmdLine.arguments[0] == "perftest") {
+			runPerfTests();
+			return;
+		}
+		if(cmdLine.arguments.size() == 1 && cmdLine.arguments[0] == "help") {
+			printHelp(std::cout);
+			return;
+		}
+
+		printHelp(std::cerr);
+		fail("Could not parse command line arguments");
+	} catch(const std::exception& e) {
+		fail("Unhandled exception: ", e.what());
+	} catch(...) {
+		fail("Unhandled unknown exception");
+	}
+}
+
+}
+}
+
+int main(int argc, char* argv[]) {
+	aps::run(argc, argv);
+}
+#include "aps.h"
+#include "ar.h"
+#include "array.h"
+#include "conf.h"
+#include "logdouble.h"
+#include "types.h"
+
+#include <algorithm>
+#include <chrono>
+#include <ctime>
+#include <cmath>
+#include <iomanip>
+#include <limits>
+#include <random>
+#include <vector>
+
+namespace aps {
+
+namespace {
+
+std::mt19937 rng(std::random_device{}());
+
+void genWeightValue(uint64_t& ret) {
+	ret = std::uniform_int_distribution<uint64_t>()(rng);
+}
+void genWeightValue(double& ret) {
+	ret = std::uniform_real_distribution<double>(0.0, 1.0)(rng);
+}
+void genWeightValue(LogDouble& ret) {
+	ret = (LogDouble)std::uniform_real_distribution<double>(0.0, 1.0)(rng);
+}
+void genWeightValue(ExtDouble& ret) {
+	ret = (ExtDouble)std::uniform_real_distribution<double>(0.0, 1.0)(rng);
+}
+
+template <typename T>
+Array<Array<T>> genWeight(size_t n) {
+	Array<Array<T>> ret = Array<Array<T>>(n);
+	for(size_t v = 0; v < n; ++v) {
+		ret[v] = Array<T>(S1 << (n - 1));
+		for(size_t i = 0; i < ret[v].size(); ++i) {
+			genWeightValue(ret[v][i]);
+		}
+	}
+	return ret;
+}
+
+template <typename T>
+void perfTest(const APSFuncList<T>& funcs) {
+	const double timeLimit = 10.0;
+	const double minTime = 0.0001;
+	std::vector<double> time1(funcs.size(), minTime);
+	std::vector<double> time2(funcs.size(), minTime);
+
+	std::cout << "            ";
+	for(size_t fi = 0; fi < funcs.size(); ++fi) {
+		std::cout << " " << std::setw(17) << funcs[fi].first;
+	}
+	std::cout << "\n";
+
+	size_t n = 0;
+	while(true) {
+		std::cout << "    n = " << std::setw(2) << n << ": ";
+		Array<Array<T>> w = genWeight<T>(n);
+
+		bool empty = true;
+
+		for(size_t fi = 0; fi < funcs.size(); ++fi) {
+			if(time1[fi] * time1[fi] / time2[fi] < timeLimit) {
+				using namespace std::chrono;
+
+				auto start = high_resolution_clock::now();
+				std::clock_t start_cpu = std::clock();
+
+				Array<Array<T>> result = funcs[fi].second(w, false);
+
+				auto end = high_resolution_clock::now();
+				std::clock_t end_cpu = std::clock();
+
+				if(!n || result.size()) {
+					double elapsed = duration<double>(end - start).count();
+					double elapsed_cpu = (double)(end_cpu - start_cpu) / (double)CLOCKS_PER_SEC;
+					elapsed = std::max(elapsed, minTime);
+					elapsed_cpu = std::max(elapsed_cpu, minTime);
+
+					double avg_threads = elapsed_cpu / elapsed;
+
+					std::stringstream ss;
+					ss << std::fixed << std::setprecision(4) << elapsed << " x" << std::setprecision(2) << avg_threads;
+					std::cout << " " << std::setw(17) << ss.str();
+
+					time2[fi] = time1[fi];
+					time1[fi] = elapsed;
+
+					if(time1[fi] * time1[fi] / time2[fi] < timeLimit) {
+						empty = false;
+					}
+				} else {
+					std::cout << " " << std::setw(17) << "";
+				}
+			} else {
+				std::cout << " " << std::setw(17) << "";
+			}
+		}
+
+		std::cout << "\n";
+
+		if(empty) {
+			break;
+		}
+
+		++n;
+	}
+}
+
+}
+
+void runPerfTests() {
+	std::cout << "\nModular APS\n";
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	std::cout << "\n  T = " << #T << "\n"; \
+	perfTest<T>(getModularAPSFuncs<T>());
+
+	APS_FOR_EACH_NUMBER_TYPE
+
+	std::cout << "\nOrder-modular APS\n";
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	std::cout << "\n  T = " << #T << "\n"; \
+	perfTest<T>(getOrderModularAPSFuncs<T>());
+	
+	APS_FOR_EACH_NUMBER_TYPE
+
+	std::cout << "\nModular AR\n";
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	std::cout << "\n  T = " << #T << "\n"; \
+	perfTest<T>(getModularARFuncs<T>());
+
+	APS_FOR_EACH_NUMBER_TYPE
+
+	std::cout << "\nOrder-modular AR\n";
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	std::cout << "\n  T = " << #T << "\n"; \
+	perfTest<T>(getOrderModularARFuncs<T>());
+
+	APS_FOR_EACH_NUMBER_TYPE
+}
+
+}
+#pragma once
+
+#include "common.h"
+
+namespace aps {
+
+void runPerfTests();
+
+}
+#pragma once
+
+#include "common.h"
+
+#include <array>
+#include <utility>
+
+namespace aps {
+
+template <size_t N, typename F>
+struct SelectConstant_ {
+	template <size_t X>
+	struct ValueWrapper {
+		static const size_t Val = X;
+	};
+
+	template <size_t X>
+	static void run(F& f) {
+		f(ValueWrapper<X>());
+	}
+
+	typedef void(*RunPtr)(F&);
+	typedef std::array<RunPtr, N> RunPtrArray;
+	static const RunPtrArray runs;
+
+	template <size_t... I>
+	static RunPtrArray initRuns_(std::index_sequence<I...> seq) {
+		return {run<I>...};
+	}
+	static RunPtrArray initRuns() {
+		return initRuns_(std::make_index_sequence<N>());
+	}
+
+	static void selectRun(size_t x, F& f) {
+		runs[x](f);
+	}
+};
+template <size_t N, typename F>
+const typename SelectConstant_<N, F>::RunPtrArray SelectConstant_<N, F>::runs = SelectConstant_<N, F>::initRuns();
+
+// Passes to f a struct with constant size_t element Val that is equal to x.
+// Assumes that x < N.
+template <size_t N, typename F>
+void selectConstant(size_t x, F f) {
+	SelectConstant_<N, F>::selectRun(x, f);
+}
+
+}
+#pragma once
+
+namespace aps {
+namespace {
+
+template <typename T>
+Array<T> downZeta(const Array<T>& src) {
+	size_t n = bottomOneBitIdx(src.size());
+	Array<T> dest(S1 << n);
+	if(n) {
+		for(size_t i = 0; i < dest.size(); i += 2) {
+			dest[i] = src[i];
+			dest[i + 1] = src[i] + src[i + 1];
+		}
+	} else {
+		dest[0] = src[0];
+	}
+	for(size_t b = 1; b < n; ++b) {
+		size_t bBit = S1 << b;
+		size_t highdiff = S1 << (b + 1);
+		for(size_t high = 0; high < dest.size(); high += highdiff) {
+			for(size_t low = 0; low < bBit; ++low) {
+				size_t x = high | low;
+				size_t y = x | bBit;
+				dest[y] += dest[x];
+			}
+		}
+	}
+	return dest;
+}
+
+template <typename T>
+void upZeta(Array<T>& w) {
+	size_t n = bottomOneBitIdx(w.size());
+	for(size_t b = 0; b < n; ++b) {
+		size_t bBit = S1 << b;
+		size_t highdiff = S1 << (b + 1);
+		for(size_t high = 0; high < w.size(); high += highdiff) {
+			for(size_t low = 0; low < bBit; ++low) {
+				size_t x = high | low;
+				size_t y = x | bBit;
+				w[x] += w[y];
+			}
+		}
+	}
+}
+
+}
+}
+#include "array.h"
+#include "bits.h"
+#include "types.h"
+
+#include "simple_common.h"
+
+#include <algorithm>
+
+namespace aps {
+
+namespace {
+
+template <typename T>
+Array<T> alphaSum(const Array<Array<T>>& z) {
+	size_t n = z.size();
+	Array<T> alpha(S1 << n);
+
+	alpha[0] = getOne<T>();
+	for(size_t mask = 1; mask < alpha.size(); ++mask) {
+		T plusVal = getZero<T>();
+		T minusVal = getZero<T>();
+
+		size_t maskPopCount = popCount(mask);
+
+		for(size_t sub = 0; sub != mask; sub = (sub - mask) & mask) {
+			T term = alpha[sub];
+			size_t left = mask ^ sub;
+			while(left) {
+				size_t v = bottomOneBitIdx(left);
+				left ^= S1 << v;
+				term *= z[v][collapseBit(sub, v)];
+			}
+			if((popCount(sub) ^ maskPopCount) & 1) {
+				plusVal += term;
+			} else {
+				minusVal += term;
+			}
+		}
+
+		alpha[mask] = nonnegativeSubtraction(plusVal, minusVal);
+	}
+
+	return alpha;
+}
+
+template <typename T>
+Array<T> betaSum(const Array<Array<T>>& z) {
+	size_t n = z.size();
+	Array<T> beta(S1 << n);
+
+	size_t full = beta.size() - S1;
+
+	beta[0] = getOne<T>();
+	for(size_t mask = 1; mask < beta.size(); ++mask) {
+		T plusVal = getZero<T>();
+		T minusVal = getZero<T>();
+
+		size_t comp = full ^ mask;
+		size_t maskPopCount = popCount(mask);
+
+		for(size_t sub = 0; sub != mask; sub = (sub - mask) & mask) {
+			T term = beta[sub];
+			size_t left = mask ^ sub;
+			while(left) {
+				size_t v = bottomOneBitIdx(left);
+				left ^= S1 << v;
+				term *= z[v][collapseBit(comp, v)];
+			}
+			if((popCount(sub) ^ maskPopCount) & 1) {
+				plusVal += term;
+			} else {
+				minusVal += term;
+			}
+		}
+
+		beta[mask] = nonnegativeSubtraction(plusVal, minusVal);
+	}
+
+	return beta;
+}
+
+template <typename T>
+Array<Array<T>> gammaSum(const Array<T>& beta, const Array<Array<T>>& z) {
+	size_t n = z.size();
+	Array<Array<T>> gamma(n);
+
+	size_t full = (S1 << n) - S1;
+
+	for(size_t v = 0; v < n; ++v) {
+		gamma[v] = Array<T>(S1 << (n - 1));
+
+		for(size_t mask = 0; mask < gamma[v].size(); ++mask) {
+			size_t expMask = expandBit(mask, v);
+			size_t dom = full ^ (S1 << v) ^ expMask;
+
+			T plusVal = getZero<T>();
+			T minusVal = getZero<T>();
+
+			size_t sub = 0;
+			do {
+				T term = beta[dom ^ sub];
+				
+				size_t left = sub;
+				while(left) {
+					size_t x = bottomOneBitIdx(left);
+					left ^= S1 << x;
+					term *= z[x][collapseBit(expMask, x)];
+				}
+
+				if(popCount(sub) & 1) {
+					minusVal += term;
+				} else {
+					plusVal += term;
+				}
+
+				sub = (sub - dom) & dom;
+			} while(sub);
+
+			gamma[v][mask] = nonnegativeSubtraction(plusVal, minusVal);
+		}
+	}
+
+	return gamma;
+}
+
+}
+
+template <typename T>
+Array<Array<T>> modularAPS_simple(const Array<Array<T>>& w, bool test) {
+	size_t n = w.size();
+	if(test && n > 11) {
+		return Array<Array<T>>();
+	}
+
+	for(size_t v = 0; v < n; ++v) {
+		if(w[v].size() != (S1 << (n - 1))) {
+			fail("Internal error: weight array with invalid size");
+		}
+	}
+
+	Array<Array<T>> z(n);
+	for(size_t v = 0; v < n; ++v) {
+		z[v] = downZeta(w[v]);
+	}
+
+	Array<T> alpha = alphaSum(z);
+	Array<T> beta = betaSum(z);
+	Array<Array<T>> ret = gammaSum(beta, z);
+
+	for(size_t v = 0; v < n; ++v) {
+		for(size_t i = 0; i < ret[v].size(); ++i) {
+			ret[v][i] *= alpha[expandBit(i, v)];
+		}
+		upZeta(ret[v]);
+		for(size_t i = 0; i < ret[v].size(); ++i) {
+			ret[v][i] *= w[v][i];
+		}
+	}
+
+	return ret;
+}
+
+template <typename T>
+Array<Array<T>> modularAR_simple(const Array<Array<T>>& w, bool test) {
+	size_t n = w.size();
+	if(test && n > 11) {
+		return Array<Array<T>>();
+	}
+
+	for(size_t v = 0; v < n; ++v) {
+		if(w[v].size() != (S1 << (n - 1))) {
+			fail("Internal error: weight array with invalid size");
+		}
+	}
+
+	Array<Array<T>> z(n);
+	for(size_t v = 0; v < n; ++v) {
+		z[v] = downZeta(w[v]);
+	}
+
+	Array<T> alpha = alphaSum(z);
+	Array<T> beta = betaSum(z);
+	Array<Array<T>> gamma = gammaSum(beta, z);
+
+	Array<Array<T>> ret(n);
+	for(size_t i = 0; i < n; ++i) {
+		ret[i] = Array<T>(n);
+		ret[i].fill(getZero<T>());
+	}
+	for(size_t j = 0; j < n; ++j) {
+		for(size_t u = 0; u < gamma[j].size(); ++u) {
+			size_t ue = expandBit(u, j);
+			T val = gamma[j][u] * z[j][u] * alpha[ue];
+			size_t left = ((S1 << n) - S1) ^ ue;
+			while(left) {
+				size_t i = bottomOneBitIdx(left);
+				left ^= S1 << i;
+				ret[i][j] += val;
+			}
+		}
+	}
+
+	return ret;
+}
+
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	template Array<Array<T>> modularAPS_simple(const Array<Array<T>>&, bool); \
+	template Array<Array<T>> modularAR_simple(const Array<Array<T>>&, bool);
+APS_FOR_EACH_NUMBER_TYPE
+
+}
+#include "array.h"
+#include "bits.h"
+#include "types.h"
+
+#include "simple_common.h"
+
+namespace aps {
+
+namespace {
+
+template <typename T>
+Array<T> alphaSum(const Array<Array<T>>& z) {
+	size_t n = z.size();
+	Array<T> alpha(S1 << n);
+
+	alpha[0] = getOne<T>();
+	for(size_t mask = 1; mask < alpha.size(); ++mask) {
+		T val = getZero<T>();
+
+		size_t left = mask;
+		while(left) {
+			size_t v = bottomOneBitIdx(left);
+			size_t vBit = S1 << v;
+			left ^= vBit;
+
+			val += z[v][collapseBit(mask, v)] * alpha[mask ^ vBit];
+		}
+
+		alpha[mask] = val;
+	}
+
+	return alpha;
+}
+
+template <typename T>
+Array<T> betaSum(const Array<Array<T>>& z) {
+	size_t n = z.size();
+	Array<T> beta(S1 << n);
+
+	size_t full = beta.size() - 1;
+
+	beta[0] = getOne<T>();
+	for(size_t mask = 1; mask < beta.size(); ++mask) {
+		T val = getZero<T>();
+
+		size_t left = mask;
+		while(left) {
+			size_t v = bottomOneBitIdx(left);
+			size_t vBit = S1 << v;
+			left ^= vBit;
+
+			val += z[v][collapseBit(full ^ mask, v)] * beta[mask ^ vBit];
+		}
+
+		beta[mask] = val;
+	}
+
+	return beta;
+}
+
+}
+
+template <typename T>
+Array<Array<T>> orderModularAPS_simple(const Array<Array<T>>& w, bool test) {
+	size_t n = w.size();
+	for(size_t v = 0; v < n; ++v) {
+		if(w[v].size() != (S1 << (n - 1))) {
+			fail("Internal error: weight array with invalid size");
+		}
+	}
+
+	Array<Array<T>> ret(n);
+	for(size_t v = 0; v < n; ++v) {
+		ret[v] = downZeta(w[v]);
+	}
+
+	Array<T> alpha = alphaSum(ret);
+	Array<T> beta = betaSum(ret);
+
+	for(size_t v = 0; v < n; ++v) {
+		size_t full = (S1 << (n - 1)) - S1;
+
+		for(size_t i = 0; i < ret[v].size(); ++i) {
+			ret[v][i] = alpha[expandBit(i, v)] * beta[expandBit(full ^ i, v)];
+		}
+		upZeta(ret[v]);
+		for(size_t i = 0; i < ret[v].size(); ++i) {
+			ret[v][i] *= w[v][i];
+		}
+	}
+
+	return ret;
+}
+
+template <typename T>
+Array<Array<T>> orderModularAR_simple(const Array<Array<T>>& w, bool test) {
+	size_t n = w.size();
+	if(test && n > 11) {
+		return Array<Array<T>>();
+	}
+
+	Array<Array<T>> hatBeta(n);
+	for(size_t v = 0; v < n; ++v) {
+		hatBeta[v] = downZeta(w[v]);
+	}
+
+	Array<Array<T>> ret(n);
+	for(size_t i = 0; i < n; ++i) {
+		ret[i] = Array<T>(n);
+		ret[i].fill(getZero<T>());
+	}
+
+	for(size_t s = 0; s < n; ++s) {
+		auto betaBar = [&](size_t v, size_t S, size_t U) {
+			size_t vb = S1 << v;
+			if(v != s && (U & vb)) {
+				return nonnegativeSubtraction(hatBeta[v][collapseBit(S & ~vb, v)], hatBeta[v][collapseBit((S & ~vb) & ~U, v)]);
+			} else {
+				return hatBeta[v][collapseBit((S & ~vb) & ~U, v)];
+			}
+		};
+
+		size_t sb = S1 << s;
+		Array<Array<T>> g(S1 << n);
+
+		g[0] = Array<T>(1);
+		g[0][0] = getOne<T>();
+
+		for(size_t S = 1; S < g.size(); ++S) {
+			size_t cnt = popCount(S);
+			g[S] = Array<T>(S1 << cnt);
+			
+			// Iterate subsets U of S
+			size_t U = 0;
+			for(size_t US = 0; US < g[S].size(); ++US) {
+				if(!(U & sb) && ((S & sb) || U)) {
+					g[S][US] = getZero<T>();
+				} else {
+					T val = getZero<T>();
+
+					size_t left = S;
+					size_t vi = 0;
+					while(left) {
+						size_t v = bottomOneBitIdx(left);
+						size_t vb = S1 << v;
+						left ^= vb;
+
+						val += g[S & ~vb][collapseBit(US & ~(S1 << vi), vi)] * betaBar(v, S, U);
+
+						++vi;
+					}
+
+					g[S][US] = val;
+				}
+
+				U = (U - S) & S;
+			}
+		}
+
+		size_t full = (S1 << n) - S1;
+		for(size_t U = 1; U < g[full].size(); ++U) {
+			if((U & sb)) {
+				T val = g[full][U];
+
+				size_t left = U;
+				while(left) {
+					size_t t = bottomOneBitIdx(left);
+					left ^= S1 << t;
+
+					ret[t][s] += val;
+				}
+			}
+		}
+	}
+
+	return ret;
+}
+
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	template Array<Array<T>> orderModularAPS_simple<T>(const Array<Array<T>>&, bool); \
+	template Array<Array<T>> orderModularAR_simple(const Array<Array<T>>&, bool);
+APS_FOR_EACH_NUMBER_TYPE
+
+}
+#include "array.h"
+#include "bits.h"
+#include "selectconstant.h"
+#include "types.h"
+
+namespace aps {
+
+namespace {
+
+static const size_t TplLevels = 8;
+
+template <typename T, size_t L>
+struct DownZetaTpl_ {
+	static void run(const T* src, T* z) {
+		const size_t level = L - 1;
+		size_t d = S1 << level;
+		DownZetaTpl_<T, level>::run(src, z);
+		DownZetaTpl_<T, level>::run(src + d, z + d);
+		for(size_t i = 0; i < d; ++i) {
+			z[i | d] += z[i];
+		}
+	}
+};
+
+template <typename T>
+struct DownZetaTpl_<T, 0> {
+	static void run(const T* src, T* z) {
+		z[0] = src[0];
+	}
+};
+
+template <typename T>
+void downZeta_(const T* src, T* z, size_t level) {
+	if(level < TplLevels) {
+		selectConstant<TplLevels>(level, [&](auto sel) {
+			DownZetaTpl_<T, sel.Val>::run(src, z);
+		});
+		return;
+	}
+
+	if(level) {
+		--level;
+		size_t d = S1 << level;
+		downZeta_(src, z, level);
+		downZeta_(src + d, z + d, level);
+		for(size_t i = 0; i < d; ++i) {
+			z[i | d] += z[i];
+		}
+	} else {
+		z[0] = src[0];
+	}
+}
+
+template <typename T>
+Array<T> downZeta(const Array<T>& src) {
+	size_t n = bottomOneBitIdx(src.size());
+	Array<T> z(src.size());
+	downZeta_(src.data(), z.data(), n);
+	return z;
+}
+
+template <typename T, size_t L>
+struct UpZetaTpl_ {
+	static void run(T* z) {
+		const size_t level = L - 1;
+		size_t d = S1 << level;
+		UpZetaTpl_<T, level>::run(z);
+		UpZetaTpl_<T, level>::run(z + d);
+		for(size_t i = 0; i < d; ++i) {
+			z[i] += z[i | d];
+		}
+	}
+};
+
+template <typename T>
+struct UpZetaTpl_<T, 0> {
+	static void run(T* z) {}
+};
+
+template <typename T>
+void upZeta_(T* z, size_t level) {
+	if(level < TplLevels) {
+		selectConstant<TplLevels>(level, [&](auto sel) {
+			UpZetaTpl_<T, sel.Val>::run(z);
+		});
+		return;
+	}
+
+	if(level) {
+		--level;
+		size_t d = S1 << level;
+		upZeta_(z, level);
+		upZeta_(z + d, level);
+		for(size_t i = 0; i < d; ++i) {
+			z[i] += z[i | d];
+		}
+	}
+}
+
+template <typename T>
+void upZeta(Array<T>& w) {
+	size_t n = bottomOneBitIdx(w.size());
+	upZeta_(w.data(), n);
+}
+
+template <typename T, size_t L>
+struct AlphaSumTpl_ {
+	static void run(
+		Array<T>& alpha,
+		const Array<Array<T>>& z,
+		size_t pos,
+		bool beenRight
+	) {
+		const size_t level = L - 1;
+		size_t d = S1 << level;
+		AlphaSumTpl_<T, level>::run(alpha, z, pos, beenRight);
+		for(size_t i = 0; i < d; ++i) {
+			size_t a = pos | i;
+			size_t b = a | d;
+			T add = z[level][collapseBit(b, level)] * alpha[a];
+			if(beenRight) {
+				alpha[b] += add;
+			} else {
+				alpha[b] = add;
+			}
+		}
+		AlphaSumTpl_<T, level>::run(alpha, z, pos | d, true);
+	}
+};
+
+template <typename T>
+struct AlphaSumTpl_<T, 0> {
+	static void run(
+		Array<T>& alpha,
+		const Array<Array<T>>& z,
+		size_t pos,
+		bool beenRight
+	) {}
+};
+
+template <typename T>
+void alphaSum_(
+	Array<T>& alpha,
+	const Array<Array<T>>& z,
+	size_t pos,
+	size_t level,
+	bool beenRight
+) {
+	if(level < TplLevels) {
+		selectConstant<TplLevels>(level, [&](auto sel) {
+			AlphaSumTpl_<T, sel.Val>::run(alpha, z, pos, beenRight);
+		});
+		return;
+	}
+
+	if(level) {
+		--level;
+		size_t d = S1 << level;
+		alphaSum_(alpha, z, pos, level, beenRight);
+		for(size_t i = 0; i < d; ++i) {
+			size_t a = pos | i;
+			size_t b = a | d;
+			T add = z[level][collapseBit(b, level)] * alpha[a];
+			if(beenRight) {
+				alpha[b] += add;
+			} else {
+				alpha[b] = add;
+			}
+		}
+		alphaSum_(alpha, z, pos | d, level, true);
+	}
+}
+
+template <typename T>
+Array<T> alphaSum(const Array<Array<T>>& z) {
+	size_t n = z.size();
+	Array<T> alpha(S1 << n);
+	alpha[0] = getOne<T>();
+	alphaSum_(alpha, z, 0, n, false);
+	return alpha;
+}
+
+template <typename T, size_t L>
+struct BetaSumTpl_ {
+	static void run(
+		Array<T>& beta,
+		const Array<Array<T>>& z,
+		size_t pos,
+		bool beenRight
+	) {
+		const size_t level = L - 1;
+		size_t d = S1 << level;
+		size_t full = beta.size() - S1;
+		BetaSumTpl_<T, level>::run(beta, z, pos, beenRight);
+		for(size_t i = 0; i < d; ++i) {
+			size_t a = pos | i;
+			size_t b = a | d;
+			T add = z[level][collapseBit(full ^ b, level)] * beta[a];
+			if(beenRight) {
+				beta[b] += add;
+			} else {
+				beta[b] = add;
+			}
+		}
+		BetaSumTpl_<T, level>::run(beta, z, pos | d, true);
+	}
+};
+
+template <typename T>
+struct BetaSumTpl_<T, 0> {
+	static void run(
+		Array<T>& beta,
+		const Array<Array<T>>& z,
+		size_t pos,
+		bool beenRight
+	) {}
+};
+
+template <typename T>
+void betaSum_(
+	Array<T>& beta,
+	const Array<Array<T>>& z,
+	size_t pos,
+	size_t level,
+	bool beenRight
+) {
+	if(level < TplLevels) {
+		selectConstant<TplLevels>(level, [&](auto sel) {
+			BetaSumTpl_<T, sel.Val>::run(beta, z, pos, beenRight);
+		});
+		return;
+	}
+
+	if(level) {
+		--level;
+		size_t d = S1 << level;
+		size_t full = beta.size() - S1;
+		betaSum_(beta, z, pos, level, beenRight);
+		for(size_t i = 0; i < d; ++i) {
+			size_t a = pos | i;
+			size_t b = a | d;
+			T add = z[level][collapseBit(full ^ b, level)] * beta[a];
+			if(beenRight) {
+				beta[b] += add;
+			} else {
+				beta[b] = add;
+			}
+		}
+		betaSum_(beta, z, pos | d, level, true);
+	}
+}
+
+template <typename T>
+Array<T> betaSum(const Array<Array<T>>& z) {
+	size_t n = z.size();
+	Array<T> beta(S1 << n);
+	beta[0] = getOne<T>();
+	betaSum_(beta, z, 0, n, false);
+	return beta;
+}
+
+}
+
+template <typename T>
+Array<Array<T>> orderModularAPS_singlethread(const Array<Array<T>>& w, bool test) {
+	size_t n = w.size();
+	for(size_t v = 0; v < n; ++v) {
+		if(w[v].size() != (S1 << (n - 1))) {
+			fail("Internal error: weight array with invalid size");
+		}
+	}
+
+	Array<Array<T>> ret(n);
+	for(size_t v = 0; v < n; ++v) {
+		ret[v] = downZeta(w[v]);
+	}
+
+	Array<T> alpha = alphaSum(ret);
+	Array<T> beta = betaSum(ret);
+
+	for(size_t v = 0; v < n; ++v) {
+		size_t full = (S1 << (n - 1)) - S1;
+
+		for(size_t i = 0; i < ret[v].size(); ++i) {
+			ret[v][i] = alpha[expandBit(i, v)] * beta[expandBit(full ^ i, v)];
+		}
+		upZeta(ret[v]);
+		for(size_t i = 0; i < ret[v].size(); ++i) {
+			ret[v][i] *= w[v][i];
+		}
+	}
+
+	return ret;
+}
+
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	template Array<Array<T>> orderModularAPS_singlethread<T>(const Array<Array<T>>&, bool);
+APS_FOR_EACH_NUMBER_TYPE
+
+}
+#include "aps.h"
+#include "ar.h"
+#include "array.h"
+#include "conf.h"
+#include "logdouble.h"
+#include "types.h"
+
+#include <cmath>
+#include <limits>
+#include <random>
+#include <vector>
+
+namespace aps {
+
+namespace {
+
+template <typename A, typename B>
+void check_equal(const A& a, const B& b, const char* file, int line) {
+	if(!(a == b)) {
+		fail("CHECK_EQUAL(", a, ", ", b, ") failed in ", file, ":", line);
+	}
+}
+#define CHECK_EQUAL(a, b) check_equal((a), (b), __FILE__, __LINE__)
+
+void check_true(bool val, const char* file, int line) {
+	if(!val) {
+		fail("CHECK_TRUE failed in ", file, ":", line);
+	}
+}
+#define CHECK_TRUE(v) check_true((v), __FILE__, __LINE__)
+
+std::mt19937 rng(std::random_device{}());
+
+template <typename T>
+void testNumber() {
+	for(int i = 0; i < 1000; ++i) {
+		double a = std::uniform_real_distribution<double>(0.0, 10.0)(rng);
+		double b = std::uniform_real_distribution<double>(0.0, 10.0)(rng);
+		if(!std::uniform_int_distribution<int>(0, 9)(rng)) {
+			a = 0.0;
+		}
+		if(!std::uniform_int_distribution<int>(0, 9)(rng)) {
+			b = 0.0;
+		}
+		if(!std::uniform_int_distribution<int>(0, 9)(rng)) {
+			b = a;
+		}
+		T a2 = (T)a;
+		T b2 = (T)b;
+
+		{
+			double c = a + b;
+			T c2 = a2 + b2;
+			double d = std::abs(c - (double)c2);
+
+			CHECK_TRUE(d < 1e-10);
+		}
+
+		{
+			double c = a * b;
+			T c2 = a2 * b2;
+			double d = std::abs(c - (double)c2);
+
+			CHECK_TRUE(d < 1e-10);
+		}
+
+		{
+			double c = nonnegativeSubtraction(a, b);
+			T c2 = nonnegativeSubtraction(a2, b2);
+
+			double d = std::abs(c - (double)c2);
+			CHECK_TRUE(d < 1e-10);
+		}
+	}
+}
+
+void checkCanonical(ExtDouble x) {
+	CHECK_TRUE(
+		(x.coef == 0.0 && x.exp == 0) ||
+		(
+			x.coef >= 1.0 - 1e-6 &&
+			x.coef < (1.0 + 1e-6) * ExtDouble::E &&
+			x.exp >= ExtDouble::MinExp &&
+			x.exp <= ExtDouble::MaxExp
+		)
+	);
+}
+
+void crossTestExtLogDouble() {
+	for(int t = 0; t < 100; ++t) {
+		LogDouble a = LogDouble::fromLog(
+			std::uniform_real_distribution<double>(-1e6, 1e6)(rng)
+		);
+		LogDouble b = LogDouble::fromLog(
+			std::uniform_real_distribution<double>(-1e6, 1e6)(rng)
+		);
+		ExtDouble a2 = (ExtDouble)a;
+		ExtDouble b2 = (ExtDouble)b;
+
+		{
+			LogDouble c = a + b;
+			ExtDouble c2 = a2 + b2;
+			checkCanonical(c2);
+			CHECK_TRUE(std::abs(c.log - LogDouble(c2).log) < 1e-6);
+		}
+		{
+			LogDouble c = nonnegativeSubtraction(a, b);
+			ExtDouble c2 = nonnegativeSubtraction(a2, b2);
+			checkCanonical(c2);
+			if(c.log != LogDouble(c2).log) {
+				CHECK_TRUE(std::abs(c.log - LogDouble(c2).log) < 1e-6);
+			}
+		}
+		{
+			LogDouble c = a * b;
+			ExtDouble c2 = a2 * b2;
+			checkCanonical(c2);
+			CHECK_TRUE(std::abs(c.log - LogDouble(c2).log) < 1e-6);
+		}
+	}
+}
+
+bool isValidWeightValue(uint64_t) {
+	return true;
+}
+bool isValidWeightValue(double x) {
+	return std::isfinite(x);
+}
+bool isValidWeightValue(LogDouble x) {
+	return std::isfinite(x.log) || x.log == -std::numeric_limits<double>::infinity();
+}
+bool isValidWeightValue(ExtDouble x) {
+	return
+		(x.coef == 0.0 && x.exp == 0) ||
+		(
+			x.coef >= 1.0 - 1e-6 &&
+			x.coef < (1.0 + 1e-6) * ExtDouble::E &&
+			x.exp >= ExtDouble::MinExp &&
+			x.exp <= ExtDouble::MaxExp
+		);
+}
+
+void genWeightValue(uint64_t& ret) {
+	ret = std::uniform_int_distribution<uint64_t>()(rng);
+}
+void genWeightValue(double& ret) {
+	ret = std::uniform_real_distribution<double>(1.0, 2.0)(rng);
+}
+void genWeightValue(LogDouble& ret) {
+	ret = (LogDouble)std::uniform_real_distribution<double>(1.0, 2.0)(rng);
+}
+void genWeightValue(ExtDouble& ret) {
+	ret = (ExtDouble)std::uniform_real_distribution<double>(1.0, 2.0)(rng);
+}
+
+template <typename T>
+void genWeight(size_t n, Array<Array<T>>& ret) {
+	ret = Array<Array<T>>(n);
+	for(size_t v = 0; v < n; ++v) {
+		ret[v] = Array<T>(S1 << (n - 1));
+		for(size_t i = 0; i < ret[v].size(); ++i) {
+			genWeightValue(ret[v][i]);
+		}
+	}
+}
+
+template <typename T>
+void checkWeightValuesEqual(const T& a, const T& b) {
+	CHECK_EQUAL(a, b);
+}
+void checkWeightValuesEqual(double a, double b) {
+	CHECK_TRUE(std::abs((b - a) / a) < 1e-8);
+}
+void checkWeightValuesEqual(LogDouble a, LogDouble b) {
+	CHECK_TRUE(std::abs(b.log - a.log) < 1e-8);
+}
+void checkWeightValuesEqual(ExtDouble a, ExtDouble b) {
+	return checkWeightValuesEqual((LogDouble)a, (LogDouble)b);
+}
+
+template <typename T>
+void checkWeightsEqual(const Array<Array<T>>& a, const Array<Array<T>>& b) {
+	size_t n = a.size();
+	CHECK_EQUAL(b.size(), n);
+	for(size_t v = 0; v < n; ++v) {
+		CHECK_EQUAL(a[v].size(), S1 << (n - 1));
+		CHECK_EQUAL(b[v].size(), S1 << (n - 1));
+		for(size_t i = 0; i < a[v].size(); ++i) {
+			checkWeightValuesEqual(a[v][i], b[v][i]);
+		}
+	}
+}
+
+template <typename T>
+void checkARResultsEqual(const Array<Array<T>>& a, const Array<Array<T>>& b) {
+	size_t n = a.size();
+	CHECK_EQUAL(b.size(), n);
+	for(size_t v = 0; v < n; ++v) {
+		CHECK_EQUAL(a[v].size(), n);
+		CHECK_EQUAL(b[v].size(), n);
+		for(size_t i = 0; i < n; ++i) {
+			checkWeightValuesEqual(a[v][i], b[v][i]);
+		}
+	}
+}
+
+template <typename T>
+void testAPS(const std::vector<std::pair<std::string, APSFunc<T>>>& funcs) {
+	for(size_t n = 0; n <= 16; ++n) {
+		if(conf::verbose) {
+			std::cerr << "    n = " << n << ":\n";
+		}
+		Array<Array<T>> w;
+		genWeight(n, w);
+
+		Array<Array<T>> cmpResult;
+		for(const std::pair<std::string, APSFunc<T>>& func : funcs) {
+			if(conf::verbose) {
+				std::cerr << "      Method " << func.first << "\n";
+			}
+			Array<Array<T>> result = func.second(w, true);
+			if(n && !result.size()) {
+				if(conf::verbose) {
+					std::cerr << "        ^ SKIPPED\n";
+				}
+				continue;
+			}
+			CHECK_EQUAL(result.size(), n);
+			for(size_t v = 0; v < n; ++v) {
+				CHECK_EQUAL(result[v].size(), S1 << (n - 1));
+				for(size_t i = 0; i < result[v].size(); ++i) {
+					CHECK_TRUE(isValidWeightValue(result[v][i]));
+				}
+			}
+			if(cmpResult.size()) {
+				checkWeightsEqual(cmpResult, result);
+			} else {
+				cmpResult = move(result);
+			}
+		}
+	}
+}
+
+template <typename T>
+void testOrderModularAPS() {
+	if(conf::verbose) {
+		std::cerr << "  Order-modular APS\n";
+	}
+	testAPS(getOrderModularAPSFuncs<T>());
+}
+
+template <typename T>
+void testModularAPS() {
+	if(conf::verbose) {
+		std::cerr << "  Modular APS\n";
+	}
+	testAPS(getModularAPSFuncs<T>());
+}
+
+template <typename T>
+void testAPS() {
+	testModularAPS<T>();
+	testOrderModularAPS<T>();
+}
+
+template <typename T>
+void testAR(const std::vector<std::pair<std::string, APSFunc<T>>>& funcs) {
+	for(size_t n = 0; n <= 16; ++n) {
+		if(conf::verbose) {
+			std::cerr << "    n = " << n << ":\n";
+		}
+		Array<Array<T>> w;
+		genWeight(n, w);
+
+		Array<Array<T>> cmpResult;
+		for(const std::pair<std::string, APSFunc<T>>& func : funcs) {
+			if(conf::verbose) {
+				std::cerr << "      Method " << func.first << "\n";
+			}
+			Array<Array<T>> result = func.second(w, true);
+			if(n && !result.size()) {
+				if(conf::verbose) {
+					std::cerr << "        ^ SKIPPED\n";
+				}
+				continue;
+			}
+			CHECK_EQUAL(result.size(), n);
+			for(size_t v = 0; v < n; ++v) {
+				CHECK_EQUAL(result[v].size(), n);
+				for(size_t i = 0; i < result[v].size(); ++i) {
+					CHECK_TRUE(isValidWeightValue(result[v][i]));
+				}
+			}
+			if(cmpResult.size()) {
+				checkARResultsEqual(cmpResult, result);
+			} else {
+				cmpResult = move(result);
+			}
+		}
+	}
+}
+
+template <typename T>
+void testOrderModularAR() {
+	if(conf::verbose) {
+		std::cerr << "  Order-modular AR\n";
+	}
+	testAR(getOrderModularARFuncs<T>());
+}
+
+template <typename T>
+void testModularAR() {
+	if(conf::verbose) {
+		std::cerr << "  Modular AR\n";
+	}
+	testAR(getModularARFuncs<T>());
+}
+
+template <typename T>
+void testAR() {
+	testModularAR<T>();
+	testOrderModularAR<T>();
+}
+
+}
+
+void runTests() {
+	testNumber<LogDouble>();
+	testNumber<ExtDouble>();
+	crossTestExtLogDouble();
+
+#undef APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(T) \
+	if(conf::verbose) { \
+		std::cerr << "T = " << #T << "\n"; \
+	} \
+	testAPS<T>(); \
+	testAR<T>();
+
+	APS_FOR_EACH_NUMBER_TYPE
+
+	if(conf::verbose) {
+		std::cerr << "All tests completed successfully\n";
+	}
+}
+
+}
+#pragma once
+
+#include "common.h"
+
+namespace aps {
+
+void runTests();
+
+}
+#pragma once
+
+#include "common.h"
+#include "extdouble.h"
+#include "logdouble.h"
+
+#include <algorithm>
+
+namespace aps {
+
+// To use, redefine macro APS_FOR_EACH_NUMBER_TYPE_TEMPLATE
+#define APS_FOR_EACH_NUMBER_TYPE \
+	APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(LogDouble) \
+	APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(ExtDouble) \
+	APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(double) \
+	APS_FOR_EACH_NUMBER_TYPE_TEMPLATE(uint64_t)
+
+inline uint64_t nonnegativeSubtraction(uint64_t a, uint64_t b) {
+	return a - b;
+}
+inline double nonnegativeSubtraction(double a, double b) {
+	return std::max(a - b, 0.0);
+}
+
+template <typename T>
+struct GetConstant_ {};
+
+template <>
+struct GetConstant_<LogDouble> {
+	static LogDouble zero() {
+		return LogDouble::zero();
+	}
+	static LogDouble one() {
+		return LogDouble::one();
+	}
+};
+template <>
+struct GetConstant_<ExtDouble> {
+	static ExtDouble zero() {
+		return ExtDouble::zero();
+	}
+	static ExtDouble one() {
+		return ExtDouble::one();
+	}
+};
+template <>
+struct GetConstant_<double> {
+	static double zero() {
+		return 0.0;
+	}
+	static double one() {
+		return 1.0;
+	}
+};
+template <>
+struct GetConstant_<uint64_t> {
+	static uint64_t zero() {
+		return 0;
+	}
+	static uint64_t one() {
+		return 1;
+	}
+};
+
+template <typename T>
+T getZero() {
+	return GetConstant_<T>::zero();
+}
+template <typename T>
+T getOne() {
+	return GetConstant_<T>::one();
+}
+
+}

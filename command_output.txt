@@ -1,4 +1,6 @@
-Restricted license - for non-production use only - expires 2025-11-24
+Set parameter Username
+Set parameter LicenseID to value 2627011
+Academic license - for non-commercial use only - expires 2026-02-24
 Set parameter PreCrush to value 1
 Set parameter CutPasses to value 100000
 Set parameter GomoryPasses to value 100000

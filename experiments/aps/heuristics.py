@@ -26,12 +26,12 @@ class GobnilpScores:
         print("-----------------------------------",flush=True)
         
         # Store local scores in { node: {parents_tuple: score} }
-        self.scores = {}
+        self.local_scores = {}
         for node, sp_list in parsed_scores.items():
-            self.scores[node] = {}
+            self.local_scores[node] = {}
             for (score, parents) in sp_list:
                 parents_sorted = tuple(sorted(parents))
-                self.scores[node][parents_sorted] = score
+                self.local_scores[node][parents_sorted] = score
 
         # If you do not have a known maximum parent set size, keep this -1
         self.maxid = -1
@@ -42,7 +42,7 @@ class GobnilpScores:
         So, we must provide this method name exactly.
         """
         p_sorted = tuple(sorted(parents))
-        return self.scores[v].get(p_sorted, float("-inf"))
+        return self.local_scores[v].get(p_sorted, float("-inf"))
     
     def _local(self, v, parents):
         """
@@ -50,7 +50,7 @@ class GobnilpScores:
         So, we must provide this method name exactly.
         """
         p_sorted = tuple(sorted(parents))
-        return self.scores[v].get(p_sorted, float("-inf"))
+        return self.local_scores[v].get(p_sorted, float("-inf"))
 
     def all_candidate_restricted_scores(self, C):
         import numpy as np
@@ -73,7 +73,7 @@ class GobnilpScores:
                     if (m & (1 << (len(sorted_parents) - 1 - k)))
                 )
                 # Look up the score; if missing, use -inf.
-                sc = self.scores[i].get(parents_tuple, float("-inf"))
+                sc = self.local_scores[i].get(parents_tuple, float("-inf"))
                 arr[i, m] = sc
         return arr
 
@@ -108,10 +108,10 @@ class GobnilpScores:
             """
             Filter the local scores to only include candidate parent sets with exactly k parents.
             """
-            for node in self.scores:
-                self.scores[node] = {
+            for node in self.local_scores:
+                self.local_scores[node] = {
                     parents: score
-                    for parents, score in self.scores[node].items()
+                    for parents, score in self.local_scores[node].items()
                     if len(parents) == k
                 }
 
@@ -133,7 +133,7 @@ def beam_bdeu(K, scores, beam_size=5, seed=None):
     
     n = scores.n
 
-    def score(v, pset):
+    def local_score(v, pset):
         # sumu's scores.local expects a list or np.array
         return scores.local(v, np.array(list(pset)))
 
@@ -148,7 +148,7 @@ def beam_bdeu(K, scores, beam_size=5, seed=None):
             raise ValueError(f"Node {v} has fewer than K possible parents.")
 
         # Start beam with empty set
-        beam = [(score(v, []), frozenset())]
+        beam = [(local_score(v, []), frozenset())]
 
         for _ in range(K):
             new_level = []
@@ -157,7 +157,7 @@ def beam_bdeu(K, scores, beam_size=5, seed=None):
                     if cand not in pset:
                         new_pset = set(pset)
                         new_pset.add(cand)
-                        new_score = score(v, new_pset)
+                        new_score = local_score(v, new_pset)
                         new_level.append((new_score, frozenset(new_pset)))
             
             new_level.sort(key=lambda x: x[0], reverse=True)
@@ -214,7 +214,7 @@ def marginal_bdeu_parents(K, **kwargs):
         Maximum number of parents to keep for each node.
     kwargs : dict
         Must contain 'scores', which is a GobnilpScores-like object with:
-            - scores.scores[v]: dict {parents_tuple: log_bdeu_score}
+            - scores.local_scores[v]: dict {parents_tuple: log_bdeu_score}
             - a 'local(v, parents)' method
             - an integer 'n' or 'scores.data.n' for the number of variables
         Optionally can contain 'n', if not inferred from the scores object.
@@ -249,14 +249,14 @@ def marginal_bdeu_parents(K, **kwargs):
     # 4) Loop over each node v
     for v in range(n):
 
-        # Instead of 'if v not in scores:', use 'scores.scores'
-        if v not in scores.scores:
+        # Instead of 'if v not in scores:', use 'scores.local_scores'
+        if v not in scores.local_scores:
             # If no entry, means no known subsets => no candidates
             C[v] = ()
             continue
 
         # v_subsets: dict mapping { (p1, p2, ...): log_BDeu, ... }
-        v_subsets = scores.scores[v]
+        v_subsets = scores.local_scores[v]
         if not v_subsets:
             # empty => no parents
             C[v] = ()
@@ -413,12 +413,12 @@ class GobnilpScores:
         self.data = Data(self.n)
         
         # Store local scores in { node: {parents_tuple: score} }
-        self.scores = {}
+        self.local_scores = {}
         for node, sp_list in parsed_scores.items():
-            self.scores[node] = {}
+            self.local_scores[node] = {}
             for (score, parents) in sp_list:
                 parents_sorted = tuple(sorted(parents))
-                self.scores[node][parents_sorted] = score
+                self.local_scores[node][parents_sorted] = score
 
         # If you do not have a known maximum parent set size, keep this -1
         self.maxid = -1
@@ -429,14 +429,14 @@ class GobnilpScores:
         So, we must provide this method name exactly.
         """
         p_sorted = tuple(sorted(parents))
-        return self.scores[v].get(p_sorted, float("-inf"))
+        return self.local_scores[v].get(p_sorted, float("-inf"))
     
     def _local(self, v, parents):
         """
         Same as 'local' above; sometimes sumu calls _local(...) internally.
         """
         p_sorted = tuple(sorted(parents))
-        return self.scores[v].get(p_sorted, float("-inf"))
+        return self.local_scores[v].get(p_sorted, float("-inf"))
 
     def all_candidate_restricted_scores(self, C):
         import numpy as np
@@ -458,7 +458,7 @@ class GobnilpScores:
                     if (m & (1 << k))
                 )
                 # Look up the score; if missing, use -inf.
-                sc = self.scores[i].get(parents_tuple, float("-inf"))
+                sc = self.local_scores[i].get(parents_tuple, float("-inf"))
                 arr[i, m] = sc
         return arr
 
@@ -493,7 +493,7 @@ def beam_bdeu(K, scores, beam_size=5, seed=None):
     
     n = scores.n
 
-    def score(v, pset):
+    def local_score(v, pset):
         return scores.local(v, np.array(list(pset)))
 
     candidate_parents = {}
@@ -504,7 +504,7 @@ def beam_bdeu(K, scores, beam_size=5, seed=None):
             logging.warning(f"Node {v}: cannot pick K={K} parents out of {len(possible_parents)} possible!")
             raise ValueError(f"Node {v} has fewer than K possible parents.")
 
-        beam = [(score(v, []), frozenset())]
+        beam = [(local_score(v, []), frozenset())]
 
         for _ in range(K):
             new_level = []
@@ -513,7 +513,7 @@ def beam_bdeu(K, scores, beam_size=5, seed=None):
                     if cand not in pset:
                         new_pset = set(pset)
                         new_pset.add(cand)
-                        new_score = score(v, new_pset)
+                        new_score = local_score(v, new_pset)
                         new_level.append((new_score, frozenset(new_pset)))
             
             new_level.sort(key=lambda x: x[0], reverse=True)
@@ -570,11 +570,11 @@ def marginal_bdeu_parents(K, **kwargs):
     C = {}
 
     for v in range(n):
-        if v not in scores.scores:
+        if v not in scores.local_scores:
             C[v] = ()
             continue
 
-        v_subsets = scores.scores[v]
+        v_subsets = scores.local_scores[v]
         if not v_subsets:
             C[v] = ()
             continue
@@ -784,7 +784,7 @@ def synergy_based_parent_selection(K, scores, alpha=0.0, fallback=True):
     C = {}
     for v in range(n):
         # If the node has no local scores, we can't pick anything
-        if v not in scores.scores or len(scores.scores[v]) == 0:
+        if v not in scores.local_scores or len(scores.local_scores[v]) == 0:
             C[v] = ()
             continue
 
@@ -886,21 +886,21 @@ def bootstrap_data(data):
 ###############################################################################
 def pick_top_k_parents(scores, K):
     """
-    For each node v, pick top-K parents from scores.
+    For each node v, pick top-K parents from local_scores.
     If the node has no singletons or all -inf, fallback to empty set.
     """
     C_b = {}
     n = scores.n
 
     for v in range(n):
-        # If scores is missing or empty, fallback to ()
-        if v not in scores.scores or not scores.scores[v]:
+        # If local_scores is missing or empty, fallback to ()
+        if v not in scores.local_scores or not scores.local_scores[v]:
             C_b[v] = ()
             continue
 
         # Collect single-parent subsets
         singletons = {}
-        for pset, val in scores.scores[v].items():
+        for pset, val in scores.local_scores[v].items():
             if len(pset) == 1:
                 singletons[pset[0]] = val
 
@@ -910,7 +910,7 @@ def pick_top_k_parents(scores, K):
             # fallback to the best subset overall
             best_sub = None
             best_val = float("-inf")
-            for pset, val in scores.scores[v].items():
+            for pset, val in scores.local_scores[v].items():
                 if val > best_val:
                     best_val = val
                     best_sub = pset
@@ -933,194 +933,3 @@ def pick_top_k_parents(scores, K):
         C_b[v] = tuple(sorted(top_k))
 
     return C_b
-import gurobipy as gp
-from gurobipy import GRB
-import itertools
-import numpy as np
-
-
-class BayesianNetwork:
-    def __init__(self, structure, scores):
-        """
-        structure: dict of node -> tuple/set of parent nodes
-        scores: GobnilpScores (with real BDeu up to 3 parents)
-        """
-        self.structure = structure
-        self.scores = scores
-
-    def compute_posterior(self):
-        """
-        Sums up real local scores.  If any node has more than 3 parents,
-        the real GobnilpScores.local(...) might be -inf => -inf total.
-        So this step is only valid if you do indeed have those bigger sets scored,
-        or you rely on the same approximation again here.
-        """
-        total_score = 0.0
-        for node, pars in self.structure.items():
-            val = self.scores.local(node, tuple(sorted(pars)))
-            if val == float('-inf'):
-                return float('-inf')
-            total_score += val
-        return total_score
-
-def approximate_score(node, parents, scores):
-    """
-    Approximate local score using existing up-to-3-parent data.
-    If parents has size > 3, pick best 3-subset's real local score as a stand-in.
-    """
-    if len(parents) <= 3:
-        return scores.local(node, tuple(sorted(parents)))
-
-    best_sub_score = -float("inf")
-    for sub in itertools.combinations(parents, 3):
-        sc = scores.local(node, tuple(sorted(sub)))
-        if sc > best_sub_score:
-            best_sub_score = sc
-    return best_sub_score
-
-def compute_approx_score_for_candidate(node, parents, scores):
-    """
-    Use an approximate scheme to get a 'score' for sets possibly > 3 parents.
-    """
-    return approximate_local_score(node, parents, scores)
-
-def approximate_local_score(node, parents, scores):
-    """
-    Approximate local score for sets with > 3 parents by averaging
-    the real GobnilpScores for all 3-subsets.
-
-    If len(parents) <= 3, just return the real local score.
-    """
-    from math import isfinite
-    
-    sz = len(parents)
-    # If 3 or fewer, return the real score
-    if sz <= 3:
-        return scores.local(node, tuple(sorted(parents)))
-
-    # For > 3, let's compute the average across all 3-subsets
-    all_3_subsets = list(itertools.combinations(parents, 3))
-    scores_3sub = []
-    for sub in all_3_subsets:
-        sc_sub = scores.local(node, tuple(sorted(sub)))
-        if isfinite(sc_sub):
-            scores_3sub.append(sc_sub)
-        else:
-            # If any 3-subset is -inf, we can either skip it or treat it as -inf
-            # (which will drag the average down heavily).
-            scores_3sub.append(float('-inf'))
-
-    if not scores_3sub:
-        # If they are all -inf, the approximate score is -inf
-        return float('-inf')
-    
-    # Return the average or the max or any combination
-    return sum(scores_3sub)/len(scores_3sub)
-
-
-def maximize_true_graph_posterior( K,scores):
-    """
-    Column generation for exactly K parents per node,
-    but if K>3, we approximate the local score of a bigger set by
-    the best 3-parent subset (or another scheme).
-
-    Returns: a dict of node -> chosen parent set (size exactly K).
-    """
-    n=scores.n
-    master = gp.Model("MasterProblem")
-    master.Params.OutputFlag = 0
-
-    x_vars = {}
-    columns = {}
-
-    # 1) Build candidate columns for each node: all subsets of size K
-    for i in range(n):
-        columns[i] = []
-        possible_parents = [p for p in range(n) if p != i]
-
-        for cand in itertools.combinations(possible_parents, K):
-            sc = compute_approx_score_for_candidate(i, cand, scores)
-            if np.isfinite(sc):
-                var = master.addVar(vtype=GRB.CONTINUOUS, lb=0, ub=1,
-                                    name=f"x_{i}_{cand}")
-                x_vars[(i, cand)] = var
-                columns[i].append(cand)
-
-    master.update()
-
-    # 2) Constraints: each node picks exactly one K-parent set
-    constrs = {}
-    for i in range(n):
-        if len(columns[i]) == 0:
-            raise ValueError(
-                f"No feasible K={K} parent sets for node {i} with the approximate scoring."
-            )
-        constrs[i] = master.addConstr(
-            gp.quicksum(x_vars[(i, c)] for c in columns[i]) == 1,
-            name=f"node_{i}"
-        )
-    master.update()
-
-    # 3) Objective: sum of approximate scores
-    obj_expr = gp.LinExpr()
-    for i in range(n):
-        for cand in columns[i]:
-            sc = compute_approx_score_for_candidate(i, cand, scores)
-            obj_expr.addTerms(sc, x_vars[(i, cand)])
-    master.setObjective(obj_expr, GRB.MAXIMIZE)
-    master.update()
-
-    # 4) Column generation loop
-    improved = True
-    iteration = 0
-    while improved:
-        iteration += 1
-        master.optimize()
-        if master.status != GRB.OPTIMAL:
-            print(f"Master problem not optimal at iteration {iteration}; stopping.")
-            break
-
-        duals = {i: constrs[i].Pi for i in range(n)}
-        improved = False
-
-        # Pricing: find columns (K-subsets) with positive reduced cost
-        for i in range(n):
-            best_rc = -float('inf')
-            best_cand = None
-            possible_parents = [p for p in range(n) if p != i]
-            for cand in itertools.combinations(possible_parents, K):
-                if cand in columns[i]:
-                    continue
-                sc = compute_approx_score_for_candidate(i, cand, scores)
-                if not np.isfinite(sc):
-                    continue
-                rc = sc - duals[i]
-                if rc > best_rc:
-                    best_rc = rc
-                    best_cand = cand
-
-            # Add any new column with significantly positive reduced cost
-            if best_cand is not None and best_rc > 1e-8:
-                improved = True
-                columns[i].append(best_cand)
-                var = master.addVar(vtype=GRB.CONTINUOUS, lb=0, ub=1,
-                                    name=f"x_{i}_{best_cand}")
-                x_vars[(i, best_cand)] = var
-                master.chgCoeff(constrs[i], var, 1.0)
-                master.setObjective(master.getObjective() + best_rc * var)
-                master.update()
-
-    # 5) Extract solution
-    solution = {}
-    for i in range(n):
-        best_val = -1.0
-        best_cand = None
-        for cand in columns[i]:
-            val = x_vars[(i, cand)].X
-            if val > best_val:
-                best_val = val
-                best_cand = cand
-        solution[i] = tuple(sorted(best_cand)) if best_cand else ()
-        
-    print(f"Column generation done after {iteration} iteration(s).")
-    return solution

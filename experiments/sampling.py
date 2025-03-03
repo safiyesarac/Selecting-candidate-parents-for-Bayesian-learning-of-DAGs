@@ -1,20 +1,25 @@
 import subprocess
-def sample_from_exact_modular_sampler(jkl_file,n):
+def sample_from_exact_modular_sampler(jkl_file,n,output_file):
 
     # Define the command as a list of arguments
-    command = ["./modular-dag-sampling-master/sampler", "nonsymmetric", jkl_file, n]
+    command = ["/home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler", "nonsymmetric", jkl_file, n]
 
     # Specify the output file
-    output_file = "asia_sampled.txt"
+    
 
     # Run the command and write its output to the file
     with open(output_file, "w") as file:
-        try:
-            result = subprocess.run(command, check=True, text=True, stdout=file, stderr=subprocess.PIPE)
-            print("Command executed successfully! Output written to", output_file)
-        except subprocess.CalledProcessError as e:
-            print("An error occurred while executing the command.")
-            print("Error message:", e.stderr)
+        with open('/home/gulce/Downloads/thesis/data/child/error.log', 'w') as err_file:
+            try:
+                result = subprocess.run(command, check=True, text=True, stdout=file, stderr=err_file)
+                print("Command executed successfully! Output written to", output_file)
+            except subprocess.CalledProcessError as e:
+                print("An error occurred while executing the command.")
+                print("Error message:", e.stderr)
+
+            
+            
+sample_from_exact_modular_sampler('/home/gulce/Downloads/thesis/data/synth/synt.jkl','10000','/home/gulce/Downloads/thesis/data/synt/synt_exact_sampled.txt')
 
 import heuristics
 import data_io
@@ -134,7 +139,7 @@ def mcmc_sample_pymc(jkl_file,n,output_file):
 
 
 # mcmc_sample_pymc('/home/gulce/Downloads/thesis/data/child/child_scores.jkl',10000,'/home/gulce/Downloads/thesis/data/child/child_pymc_sampled_dags.txt')
-mcmc_sample_pymc('/home/gulce/Downloads/thesis/data/hailfinder/hailfinder_scores.jkl',10000,'/home/gulce/Downloads/thesis/data/hailfinder/hailfinder_pymc_sampled_dags_clean.txt')
+#mcmc_sample_pymc('/home/gulce/Downloads/thesis/data/hailfinder/hailfinder_scores.jkl',10000,'/home/gulce/Downloads/thesis/data/hailfinder/hailfinder_pymc_sampled_dags_clean.txt')
 
 
 
