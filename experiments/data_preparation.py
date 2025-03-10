@@ -95,5 +95,5 @@ def compute_bdeu_scores(dat_file,jkl_file):
 # compute_bdeu_scores( '/home/gulce/Downloads/thesis/data/child/child_500.dat', '/home/gulce/Downloads/thesis/data/child/child_500.jkl')
 
 
-sample_datapoints_from_model('/home/gulce/Downloads/thesis/data/synt/synt.bif',10000,  '/home/gulce/Downloads/thesis/data/synt/synt.csv','/home/gulce/Downloads/thesis/data/synt/synt.dat')
-compute_bdeu_scores( '/home/gulce/Downloads/thesis/data/synt/synt.dat', '/home/gulce/Downloads/thesis/data/synt/synt.jkl')
+# sample_datapoints_from_model('/home/gulce/Downloads/thesis/data/synt/synt.bif',10000,  '/home/gulce/Downloads/thesis/data/synt/synt.csv','/home/gulce/Downloads/thesis/data/synt/synt.dat')
+# compute_bdeu_scores( '/home/gulce/Downloads/thesis/data/synt/synt.dat', '/home/gulce/Downloads/thesis/data/synt/synt.jkl')
