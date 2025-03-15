@@ -57,6 +57,7 @@ void run_sampler(int number_of_dags, typename Sampler::WeightT weights) {
 void usage() {
     std::cerr << "Usage:\n";
     std::cerr << "    ./sampler symmetric uniform <number_of_nodes> <number_of_dags>\n";
+    std::cerr << "    ./sampler symmetric fair <number_of_nodes> <number_of_dags>\n";
     std::cerr << "    ./sampler symmetric input <input_file> <number_of_dags>\n";
     std::cerr << "    ./sampler nonsymmetric <input_file> <number_of_dags>\n";
 }
@@ -91,7 +92,33 @@ int main(int argc, char* argv[]) {
 
             std::vector<Lognum> weights(size, Lognum::one());
             run_sampler<SymmetricSampler<Lognum>>(n_dags, std::move(weights));
-        } else if (weight_arg == "input") {
+        } else if (weight_arg == "fair") {
+    // e.g. "./sampler symmetric fair <num_nodes> <num_dags>"
+    int size = std::stoi(getArg());   // number_of_nodes
+    int n_dags = std::stoi(getArg()); // number_of_dags
+    argsDone();
+
+    std::vector<Lognum> fair_weights(size);
+
+    // log(n)
+    Lognum lnN = Lognum::from_double(double(size));
+
+    for(int k = 0; k < size; ++k) {
+        // binomial(n-1, k) => a Lognum storing ln(C(n-1, k))
+        Lognum lnC = Lognum::binomial(size - 1, k);
+        
+        // denom = lnN + lnC = ln( n * C(n-1,k) )
+        Lognum denom = lnN * lnC; // operator* adds logs: lnN + lnC
+
+        // So final weight = exp(0 - denom) => 1 / (n*C(n-1,k)) in real space
+        Lognum w = Lognum::one() / denom;
+        fair_weights[k] = w;
+    }
+
+    // Then pass to the existing SymmetricSampler code:
+    run_sampler<SymmetricSampler<Lognum>>(n_dags, std::move(fair_weights));
+}
+else if (weight_arg == "input") {
             std::string input = getArg();
             int n_dags = std::stoi(getArg());
             argsDone();

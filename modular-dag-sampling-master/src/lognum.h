@@ -84,4 +84,10 @@ public:
 	bool operator>=(Lognum o) const {
 		return log_value >= o.log_value;
 	}
+	Lognum operator/(const Lognum &rhs) const {
+        return Lognum::from_log(this->log_value - rhs.log_value);
+    }
+    Lognum operator/(double d) const {
+        return Lognum::from_log(this->log_value - std::log(d));
+    }
 };
