@@ -91,8 +91,8 @@ def compute_bdeu_scores(dat_file,jkl_file):
             print("An error occurred while executing the command.")
             print("Error message:", e.stderr)
 
-# sample_datapoints_from_model('/home/gulce/Downloads/thesis/data/child/child.bif',500,  '/home/gulce/Downloads/thesis/data/child/child_1000.csv','/home/gulce/Downloads/thesis/data/child/child_500.dat')
-# compute_bdeu_scores( '/home/gulce/Downloads/thesis/data/child/child_500.dat', '/home/gulce/Downloads/thesis/data/child/child_500.jkl')
+sample_datapoints_from_model('/home/gulce/Downloads/thesis/data/survey/survey.bif',1000000,  '/home/gulce/Downloads/thesis/data/survey/survey.csv','/home/gulce/Downloads/thesis/data/survey/survey.dat')
+compute_bdeu_scores( '/home/gulce/Downloads/thesis/data/survey/survey.dat', '/home/gulce/Downloads/thesis/data/survey/survey.jkl')
 
 
 # sample_datapoints_from_model('/home/gulce/Downloads/thesis/data/synt/synt.bif',10000,  '/home/gulce/Downloads/thesis/data/synt/synt.csv','/home/gulce/Downloads/thesis/data/synt/synt.dat')

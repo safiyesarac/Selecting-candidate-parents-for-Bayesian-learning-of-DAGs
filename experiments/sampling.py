@@ -16,10 +16,30 @@ def sample_from_exact_modular_sampler(jkl_file,n,output_file):
             except subprocess.CalledProcessError as e:
                 print("An error occurred while executing the command.")
                 print("Error message:", e.stderr)
+                
+                
+def sample_from_exact_modular_fair_sampler(n,m,output_file):
+
+    # Define the command as a list of arguments
+    command = ["/home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler", "symmetric",'fair',  str(n),str(m)]
+
+    # Specify the output file
+    
+
+    # Run the command and write its output to the file
+    with open(output_file, "w") as file:
+        with open('/home/gulce/Downloads/thesis/data/child/error.log', 'w') as err_file:
+            try:
+                result = subprocess.run(command, check=True, text=True, stdout=file, stderr=err_file)
+                print("Command executed successfully! Output written to", output_file)
+            except subprocess.CalledProcessError as e:
+                print("An error occurred while executing the command.")
+                print("Error message:", e.stderr)
+
 
             
             
-sample_from_exact_modular_sampler('/home/gulce/Downloads/thesis/data/synth/synt.jkl','10000','/home/gulce/Downloads/thesis/data/synt/synt_exact_sampled.txt')
+sample_from_exact_modular_sampler('/home/gulce/Downloads/thesis/data/survey/survey.jkl','100000','/home/gulce/Downloads/thesis/data/survey/survey_exact_sampled.txt')
 
 import heuristics
 import data_io

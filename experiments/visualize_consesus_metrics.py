@@ -101,7 +101,12 @@ def plot_facet(df, metric="Average Parent Coverage", xcol="K", save=None):
 # --------------------------------------------------------------------------
 # 5. Plot Approach D: Heatmap
 # --------------------------------------------------------------------------
-def plot_heatmap(df, metric="Average Parent Coverage", xcol="K", save=None):
+def plot_heatmap(df, metric="Average Parent Coverage", xcol="K",
+                 heatmap_figsize=(30,24), save=None):
+    """
+    Creates a pivot table (Algorithm vs. K) of <metric> and displays
+    as a heatmap, with a default figure size of (30,24).
+    """
     df_hm = df.copy()
     try:
         df_hm[xcol] = df_hm[xcol].astype(float)
@@ -109,18 +114,20 @@ def plot_heatmap(df, metric="Average Parent Coverage", xcol="K", save=None):
         pass
 
     pivoted = df_hm.pivot_table(index="Algorithm", columns=xcol, values=metric, aggfunc="mean")
+    # Sort columns by ascending K
     pivoted = pivoted.reindex(sorted(pivoted.columns), axis=1)
 
-    plt.figure(figsize=(10, 8))
-    sns.heatmap(pivoted, annot=True, fmt=".4f", cmap="YlGnBu")
+    plt.figure(figsize=heatmap_figsize)
+    sns.heatmap(pivoted, annot=True, fmt=".4f", cmap="YlGnBu",   annot_kws={"fontsize": 14} )
     plt.title(f"Heatmap of {metric} by Algorithm vs. {xcol}")
     plt.ylabel("Algorithm")
     plt.xlabel(xcol)
     plt.tight_layout()
 
     if save:
-        plt.savefig(save.replace('.csv','_heatmap.png'))
-        print(f"Plot saved as ")
+        outpath = save.replace('.csv','_heatmap.png')
+        plt.savefig(outpath)
+        print(f"[INFO] Heatmap plot saved as {outpath}")
     else:
         plt.show()
 

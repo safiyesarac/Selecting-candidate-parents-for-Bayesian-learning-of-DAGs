@@ -36,7 +36,7 @@ def main():
     pivot_df = pivot_df.sort_index(axis=1)
 
     plt.figure(figsize=(8, 6))
-    sns.heatmap(pivot_df, annot=True, fmt=".4f", cmap="YlGnBu")
+    sns.heatmap(pivot_df, annot=True, fmt=".4f", cmap="YlGnBu",annot_kws={"fontsize": 8} )
     plt.title(f"Heatmap of {args.metric} by {args.ycol} vs. {args.xcol}")
     plt.xlabel(args.xcol)
     plt.ylabel(args.ycol)

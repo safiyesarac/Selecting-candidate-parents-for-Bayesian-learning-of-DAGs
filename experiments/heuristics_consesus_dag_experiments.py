@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 
 """
 experiment_consensus_data.py
@@ -169,6 +169,7 @@ def topological_sort(adj):
     if len(order) < n:
         raise ValueError("Not a DAG (cycle found).")
     return order
+from typing import Dict, Set, List
 
 def sample_data_from_dag_discrete(adj, n_samples=1000, arity=2, seed=42):
     import random
@@ -211,155 +212,293 @@ def sample_data_from_dag_discrete(adj, n_samples=1000, arity=2, seed=42):
             data[s, node] = x_val
     return data, cpd
 
+########################
+# (B) Parameter Sampling
+#########################
+
+def sample_cpts_for_dag(
+    dag: dict, num_states: int, alpha: float = 1.0
+) -> dict:
+    """
+    Given a DAG (dict: node -> set_of_parents), sample each node's CPT from a Dirichlet(alpha) prior.
+    """
+    cpts = {}
+    d = len(dag)
+    for node in range(d):
+        parents = dag[node]
+        num_parent_combos = num_states ** len(parents)
+        cpt = np.zeros((num_parent_combos, num_states))
+        for row_idx in range(num_parent_combos):
+            theta = np.random.gamma(alpha, 1.0, size=num_states)
+            theta /= theta.sum()  # normalize
+            cpt[row_idx, :] = theta
+        cpts[node] = cpt
+    return cpts
+
+
+#########################
+# (C) Data Generation   #
+#########################
+
+def get_topological_order(dag: Dict[int, Set[int]]) -> List[int]:
+    """
+    Returns a topological ordering of the DAG (node->parents).
+    Simple BFS/Kahn's algorithm or DFS-based. 
+    """
+    d = len(dag)
+    in_degree = {node: 0 for node in range(d)}
+    for child, parents in dag.items():
+        for p in parents:
+            in_degree[child] += 1
+    
+    queue = [n for n in range(d) if in_degree[n] == 0]
+    topo_order = []
+    while queue:
+        cur = queue.pop()
+        topo_order.append(cur)
+        # "Remove" cur
+        for child, parents in dag.items():
+            if cur in parents:
+                in_degree[child] -= 1
+                if in_degree[child] == 0:
+                    queue.append(child)
+    
+    if len(topo_order) != d:
+        raise ValueError("Graph is not acyclic or an error occurred. Cannot find topological order.")
+    return topo_order
+
+def generate_data_from_dag(
+    dag: dict,
+    cpts: dict,
+    num_samples: int,
+    num_states: int
+) -> np.ndarray:
+    """
+    Generate synthetic data from a DAG with known CPTs.
+    """
+    d = len(dag)
+    data = np.zeros((num_samples, d), dtype=int)
+    topo_order = get_topological_order(dag)
+    for s in range(num_samples):
+        row_vals = [None] * d
+        for node in topo_order:
+            parents = dag[node]
+            parent_list = sorted(parents)
+            parent_idx = 0
+            for p in parent_list:
+                parent_idx = parent_idx * num_states + row_vals[p]
+            probs = cpts[node][parent_idx, :]
+            child_val = np.random.choice(num_states, p=probs)
+            row_vals[node] = child_val
+        data[s, :] = row_vals
+    return data
+
 # --------------------------------------------------------------------------
 # 8) Main
 # --------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--threshold", type=float, default=0.5,
-                        help="Threshold for including edges in consensus DAG.")
-    parser.add_argument("--n_samples_data", type=int, default=1000,
+    parser.add_argument("--n_samples_data", type=int, default=10,
                         help="Number of data samples to generate.")
     parser.add_argument("--arity", type=int, default=2,
                         help="Discrete arity for each variable.")
     parser.add_argument("--log_csv", type=str, default="coverage_log.csv",
                         help="Where to store coverage fraction results.")
+    # Add arguments for example
+    parser.add_argument("--alpha", type=float, default=1.0,
+                        help="Dirichlet prior parameter.")
+    parser.add_argument("--data_in", type=str, 
+                        default="/home/gulce/Downloads/thesis/data/fair/test.txt",
+                        help="File containing sampled DAGs.")
+    parser.add_argument("--replicates", type=int, default=1,
+                        help="Number of replicate data sets per DAG.")
+    parser.add_argument("--sample_sizes", type=str, default="1000,5000",
+                        help="Comma-separated list of sample sizes to test.")
     args = parser.parse_args()
+    import sampling
+    sampling.sample_from_exact_modular_fair_sampler(25,15,"/home/gulce/Downloads/thesis/data/fair/test.txt")
+    
+    # Convert string to list of int
+    sample_sizes = [int(x) for x in args.sample_sizes.split(",")]
+    replicates = args.replicates
+    alpha = args.alpha
+    num_states = args.arity
 
-    # 1) Build the consensus DAG
-    import compute_consesus_dag
-    c_dag = compute_consesus_dag.get_consensus_dag()
-    if c_dag is None:
-        print("[ERROR] No DAGs parsed or empty list.")
-        return
+    # ------------------------------------------------------------------
+    # [1] Read or sample DAGs
+    # Here you have your own logic to read 'sampled_dags' from a file.
+    # Suppose data_io.parse_dag_file(...) returns a list of adjacency dicts:
+    import data_io
+    # e.g. each element is {node: [parents...], ...}
+    sampled_dags = data_io.parse_dag_file(args.data_in)
+    logging.info(f"Loaded {len(sampled_dags)} DAGs from {args.data_in}")
 
-    print(f"[INFO] Consensus DAG shape = {c_dag.shape}")
-    print(c_dag)
+    # We will store *all results* for all DAGs into this list,
+    # then average across DAGs at the very end.
+    all_results = []
 
-    # 2) Sample data from DAG
-    data, cpd = sample_data_from_dag_discrete(
-        c_dag,
-        n_samples=args.n_samples_data,
-        arity=args.arity
-    )
-    print(f"[INFO] Sampled {args.n_samples_data} rows (shape={data.shape})")
-
-    # 3) Compute local BDeu scores
     from datetime import datetime
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-    import data_preparation
-    df_data = pd.DataFrame(data)
-    import sumu
-    from sumu.candidates import candidate_parent_algorithm as cpa
-    import data_io
-    import heuristics
+    # ------------------------------------------------------------------
+    # For each DAG in your file
+    for dag_index, true_dag in enumerate(sampled_dags):
+        d = len(true_dag)
 
-    out_csv = f"/home/gulce/Downloads/thesis/data/consesus/consesus_dag_{timestamp}.csv"
-    out_dat = f"/home/gulce/Downloads/thesis/data/consesus/consesus_dag_{timestamp}.dat"
-    out_jkl = f"/home/gulce/Downloads/thesis/data/consesus/consesus_dag_{timestamp}.jkl"
+        # For each requested sample size and replicate
+        for size in sample_sizes:
+            
+                logging.info(f"[DAG #{dag_index}] sample_size={size}, rep=1")
 
-    data_preparation.save_data(df_data, out_csv, out_dat)
-    data_preparation.compute_bdeu_scores(out_dat, out_jkl)
-    print("[INFO] Computed local BDeu scores for each node + parent set.")
+                # [2] Sample parameters for the DAG
+                cpts = sample_cpts_for_dag(true_dag, num_states=num_states, alpha=alpha)
 
-    parsed_scores = data_io.parse_gobnilp_jkl(out_jkl)
-    scores = heuristics.GobnilpScores(parsed_scores)
-    n = scores.n
+                # [3] Generate data
+                data_mat = generate_data_from_dag(
+                    dag=true_dag,
+                    cpts=cpts,
+                    num_samples=size,
+                    num_states=num_states
+                )
 
-    df_sumu = pd.read_csv(out_csv, skiprows=[1])  # skip second line of metadata
-    mydata = sumu.Data(df_sumu.values)
-    num_data_rows = df_sumu.shape[0]
+                # [4] Compute local BDeu scores -> produce .jkl
+                # Save data into .csv/.dat
+                import pandas as pd
+                df_data = pd.DataFrame(data_mat)
+                
+                # Build unique filenames for each DAG/rep
+                out_csv = f"/home/gulce/Downloads/thesis/data/fair/tmp/consensus_dag_{dag_index}_{timestamp}.csv"
+                out_dat = f"/home/gulce/Downloads/thesis/data/fair/tmp/consensus_dag_{dag_index}_{timestamp}.dat"
+                out_jkl = f"/home/gulce/Downloads/thesis/data/fair/tmp/consensus_dag_{dag_index}_{timestamp}.jkl"
 
-    # 4) Prepare candidate algos
-    candidate_algos = {
-        "top": (cpa["top"], {"scores": scores, "n": n}),
-        "opt": (cpa["opt"], {"scores": scores, "n": n}),
-        "mb": (cpa["mb"], {"data": mydata, "fill": "random"}),
-        "pc": (cpa["pc"], {"data": mydata, "fill": "random"}),
-        "ges": (cpa["ges"], {"scores": scores, "data": mydata, "fill": "top"}),
-        "greedy": (cpa["greedy"], {"scores": scores}),
-        "greedy-lite": (cpa["greedy-lite"], {"scores": scores}),
-        "back-forth": (cpa["back-forth"], {"scores": scores, "data": scores.data}),
-        "beam": (heuristics.beam_bdeu, {"scores": scores, "beam_size": 5}),
-        "marginal_bdeu_parents": (heuristics.marginal_bdeu_parents, {"scores": scores, "n": n}),
-        "voting_bdeu_parents": (heuristics.bdeu_score_based_voting, {"scores": scores}),
-        "synergy": (heuristics.synergy_based_parent_selection, {"scores": scores}),
-        "stability": (heuristics.stability_bdeu, {"scores": scores, "data": mydata}),
-        "post": (heuristics.maximize_true_graph_posterior, {"scores": scores}),
-    }
+                import data_preparation
+                df_data.to_csv(out_csv, index=False)
+                # Or use your own method that writes the second line, etc.
+                data_preparation.save_data(df_data, out_csv, out_dat)
+                data_preparation.compute_bdeu_scores(out_dat, out_jkl)
 
-    # 5) Evaluate each algo at K=1..9
-    consensus_parents = adj_matrix_to_dict(c_dag)
-    results = []
-    results.append(("Consensus Parents:", consensus_parents))
+                # [5] Parse .jkl file, create sumu Data, etc.
+                import sumu
+                import heuristics
+                parsed_scores = data_io.parse_gobnilp_jkl(out_jkl)
+                scores = heuristics.GobnilpScores(parsed_scores)
+                n = scores.n
 
-    import time
-    for algo_name, (algo_func, algo_kwargs) in candidate_algos.items():
-        print(f"\n*** Running algorithm: {algo_name} ***")
-        for K in range(1, 10):
-            print(f"   [K={K}] ...", end="", flush=True)
-            start_time = time.time()
-            candidate_parents = None
-            try:
-                tmp_result = algo_func(K, **algo_kwargs)
-                if isinstance(tmp_result, tuple) and len(tmp_result) >= 1:
-                    candidate_parents = tmp_result[0]
-                else:
-                    candidate_parents = tmp_result
-            except Exception as e:
-                print(f"  [ERROR] {e}")
-                results.append((algo_name, K, None, "Error"))
-                continue
+                # sumu requires a Data object
+                df_sumu = pd.read_csv(out_csv, skiprows=[1])  # skip second line if needed
+                mydata = sumu.Data(df_sumu.values)
 
-            elapsed = time.time() - start_time
-            if elapsed > 200:
-                print(f"  [SKIPPED: took {elapsed:.1f}s > 200s]")
-                results.append((algo_name, K, None, "Skipped"))
-                break
+                # [6] Prepare candidate algorithms
+                from sumu.candidates import candidate_parent_algorithm as cpa
+                candidate_algos = {
+                    "top": (cpa["top"], {"scores": scores, "n": n}),
+                    # "opt": (cpa["opt"], {"scores": scores, "n": n}),
+                    "mb": (cpa["mb"], {"data": mydata, "fill": "random"}),
+                    "pc": (cpa["pc"], {"data": mydata, "fill": "random"}),
+                    "ges": (cpa["ges"], {"scores": scores, "data": mydata, "fill": "top"}),
+                    "greedy": (cpa["greedy"], {"scores": scores}),
+                    "greedy-lite": (cpa["greedy-lite"], {"scores": scores}),
+                    "back-forth": (cpa["back-forth"], {"scores": scores, "data": scores.data}),
+                    "beam": (heuristics.beam_bdeu, {"scores": scores, "beam_size": 5}),
+                    "marginal_bdeu_parents": (heuristics.marginal_bdeu_parents, {"scores": scores, "n": n}),
+                    "voting_bdeu_parents": (heuristics.bdeu_score_based_voting, {"scores": scores}),
+                    "synergy": (heuristics.synergy_based_parent_selection, {"scores": scores}),
+                    "stability": (heuristics.stability_bdeu, {"scores": scores, "data": mydata}),
+                    "post": (heuristics.maximize_true_graph_posterior, {"scores": scores}),
+                }
 
-            # Compute node-by-node coverage & other metrics
-            exact_cov = exact_coverage(consensus_parents, candidate_parents)
-            avg_cov = average_parent_coverage(consensus_parents, candidate_parents)
-            precision, recall, f1 = precision_recall_f1(consensus_parents, candidate_parents)
-            shd = structural_hamming_distance(consensus_parents, candidate_parents)
-            rank_cov = rank_coverage(consensus_parents, candidate_parents)
+                # Convert true_dag to a consistent dict-of-tuples for coverage
+                # If your true_dag is already { node : [parents...] }, do:
+                true_parents = {}
+                for node, parlist in true_dag.items():
+                    true_parents[node] = tuple(parlist)
 
-            print(f"Metrics: Exact={exact_cov:.3f}, AvgCover={avg_cov:.3f}, "
-                  f"Precision={precision:.3f}, Recall={recall:.3f}, F1={f1:.3f}, "
-                  f"SHD={shd}, Rank={rank_cov:.3f}, time={elapsed:.1f}s")
+                import time
 
-            # Store each row
-            results.append((
-                algo_name,
-                K,
-                exact_cov,
-                avg_cov,
-                precision,
-                recall,
-                f1,
-                shd,
-                rank_cov,
-                candidate_parents
-            ))
+                # Evaluate each algo at K=1..9
+                for algo_name, (algo_func, algo_kwargs) in candidate_algos.items():
+                    for K in range(1, scores.n):
+                        start_time = time.time()
+                        candidate_parents = None
+                        try:
+                            tmp_result = algo_func(K, **algo_kwargs)
+                            # Some algorithms might return (candidate_parents, something_else)
+                            if isinstance(tmp_result, tuple) and len(tmp_result) >= 1:
+                                candidate_parents = tmp_result[0]
+                            else:
+                                candidate_parents = tmp_result
+                        except Exception as e:
+                            logging.warning(f"[Algo={algo_name}, K={K}] error: {e}")
+                            # You might store a row with Nones:
+                            all_results.append((
+                                dag_index, size, 1,
+                                algo_name, K,
+                                None, None, None, None, None, None
+                            ))
+                            continue
 
-    # 6) Save results to CSV (no subset/superset/jaccard)
-    df_res = pd.DataFrame(results, columns=[
-        "Algorithm",
-        "K",
-        "Exact Coverage",
-        "Average Parent Coverage",
-        "Precision",
-        "Recall",
-        "F1",
-        "SHD",
-        "Rank Coverage",
-        "ParentSet"
-    ])
+                        elapsed = time.time() - start_time
+                        # If you have a time cutoff:
+                        if elapsed > 200:
+                            logging.warning(f"[Algo={algo_name}, K={K}] SKIPPED, took {elapsed:.1f}s > 200s")
+                            # store skip
+                            all_results.append((
+                                dag_index, size, 1,
+                                algo_name, K,
+                                None, None, None, None, None, None
+                            ))
+                            break
+
+                        # Compute coverage metrics
+                        exact_cov = exact_coverage(true_parents, candidate_parents)
+                        avg_cov = average_parent_coverage(true_parents, candidate_parents)
+                        precision, recall, f1 = precision_recall_f1(true_parents, candidate_parents)
+                        shd = structural_hamming_distance(true_parents, candidate_parents)
+                        rank_cov = rank_coverage(true_parents, candidate_parents)
+
+                        # Append to big list
+                        all_results.append((
+                            dag_index, size, 1,
+                            algo_name, K,
+                            exact_cov,
+                            avg_cov,
+                            precision,
+                            recall,
+                            f1,
+                            shd
+                            # you could also include rank_cov if you want
+                        ))
+    # ------------------------------------------------------------------
+    # [7] After finishing *all DAGs*, group by (Algorithm, K) 
+    #     and compute the average across DAGs (and possibly across replicates).
+    df_cols = [
+        "dag_index", "sample_size", "replicate",
+        "Algorithm", "K",
+        "Exact Coverage", "Average Parent Coverage",
+        "Precision", "Recall", "F1", "SHD"
+    ]
+    df_all = pd.DataFrame(all_results, columns=df_cols)
+
+
+
+
+    # If you want a separate average per sample_size, do:
+    df_agg = (
+        df_all.groupby(["Algorithm", "K", "sample_size"], dropna=True)
+              [["Exact Coverage", "Average Parent Coverage",
+                "Precision", "Recall", "F1", "SHD"]]
+              .mean()
+              .reset_index()
+    )
+
+    # [8] Save the aggregated results
     out_log_csv = f"/home/gulce/Downloads/thesis/data/consesus/consensus_log_{timestamp}.csv"
-    df_res.to_csv(out_log_csv, index=False)
-    print(f"[INFO] Results saved to {out_log_csv}")
-
+    df_agg.to_csv(out_log_csv, index=False)
+    print(f"[INFO] Averaged results saved to {out_log_csv}")
 
 if __name__ == "__main__":
     main()
+
+
+
+

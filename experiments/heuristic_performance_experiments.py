@@ -94,18 +94,18 @@ def main():
     candidate_algos = {
         "top":         (cpa["top"],         {"scores": scores, "n": n}),
          "opt":         (cpa["opt"],         {"scores": scores, "n": n}),
-        # "mb":          (cpa["mb"],          {"data": mydata, "fill": "random"}),
-        # "pc":          (cpa["pc"],          {"data": mydata, "fill": "random"}),
-        # "ges":         (cpa["ges"],         {"scores": scores, "data": mydata, "fill": "top"}),
+        "mb":          (cpa["mb"],          {"data": mydata, "fill": "random"}),
+        "pc":          (cpa["pc"],          {"data": mydata, "fill": "random"}),
+        "ges":         (cpa["ges"],         {"scores": scores, "data": mydata, "fill": "top"}),
         "greedy":      (cpa["greedy"],      {"scores": scores}),
-        # "greedy-lite": (cpa["greedy-lite"], {"scores": scores}),
-        # "back-forth":  (cpa["back-forth"],  {"scores": scores, "data": scores.data}),
-        # "beam":        (heuristics.beam_bdeu,          {"scores": scores, "beam_size": 5}),
+        "greedy-lite": (cpa["greedy-lite"], {"scores": scores}),
+        "back-forth":  (cpa["back-forth"],  {"scores": scores, "data": scores.data}),
+        "beam":        (heuristics.beam_bdeu,          {"scores": scores, "beam_size": 5}),
         # "marginal_bdeu_parents":        (heuristics.marginal_bdeu_parents,            {"scores": scores, "n": n}),
         
-        #  "voting_bdeu_parents":        (heuristics.bdeu_score_based_voting,            {"scores": scores}),
-        #  "synergy": (heuristics.synergy_based_parent_selection,  {"scores": scores}),
-        # "stability":(heuristics.stability_bdeu, {"scores": scores, "data": mydata}),
+         "voting_bdeu_parents":        (heuristics.bdeu_score_based_voting,            {"scores": scores}),
+         "synergy": (heuristics.synergy_based_parent_selection,  {"scores": scores}),
+        "stability":(heuristics.stability_bdeu, {"scores": scores, "data": mydata}),
         "post":         (heuristics.maximize_true_graph_posterior,         {"scores": scores}),
         
         
