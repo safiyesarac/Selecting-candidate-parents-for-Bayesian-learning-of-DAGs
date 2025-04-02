@@ -1,0 +1,63 @@
+network EngineFuelProblems {
+}
+
+variable FuelFilters { type discrete [2] { Defective, Correct }; }
+variable FuelDelivSys { type discrete [2] { Defective, Correct }; }
+variable FuelPressLow { type discrete [2] { Present, Absent }; }
+variable FuelPressHigh { type discrete [2] { Present, Absent }; }
+variable FuelPressDrop { type discrete [2] { Present, Absent }; }
+variable FuelSightGlass { type discrete [2] { Fail, Pass }; }
+variable Visual { type discrete [2] { Fail, Pass }; }
+variable PressGauge { type discrete [2] { Fail, Pass }; }
+variable LoadTest { type discrete [2] { Fail, Pass }; }
+
+probability (FuelFilters) { 
+    table 0.005, 0.995; 
+}
+
+probability (FuelDelivSys) { 
+    table 0.01, 0.99; 
+}
+
+probability (FuelPressLow | FuelFilters, FuelDelivSys) {
+    (Defective, Defective) 1.0, 0.0;
+    (Defective, Correct) 0.992, 0.008;
+    (Correct, Defective) 1.0, 0.0;
+    (Correct, Correct) 0.99, 0.01;
+}
+
+probability (FuelPressHigh | FuelDelivSys) {
+    (Defective) 1.0, 0.0;
+    (Correct) 0.99, 0.01;
+}
+
+probability (FuelPressDrop | FuelFilters) {
+    (Defective) 0.991, 0.009;
+    (Correct) 0.99, 0.01;
+}
+
+probability (FuelSightGlass | FuelFilters, FuelDelivSys) {
+    (Defective, Defective) 1.0, 0.0;
+    (Defective, Correct) 0.992, 0.008;
+    (Correct, Defective) 1.0, 0.0;
+    (Correct, Correct) 0.99, 0.01;
+}
+
+probability (Visual | FuelDelivSys) {
+    (Defective) 0.998, 0.002;
+    (Correct) 0.99, 0.01;
+}
+
+probability (PressGauge | FuelFilters, FuelDelivSys) {
+    (Defective, Defective) 1.0, 0.0;
+    (Defective, Correct) 0.993, 0.007;
+    (Correct, Defective) 1.0, 0.0;
+    (Correct, Correct) 0.99, 0.01;
+}
+
+probability (LoadTest | FuelFilters, FuelDelivSys) {
+    (Defective, Defective) 1.0, 0.0;
+    (Defective, Correct) 0.992, 0.008;
+    (Correct, Defective) 1.0, 0.0;
+    (Correct, Correct) 0.99, 0.01;
+}

@@ -44,6 +44,7 @@ class GobnilpScores:
         p_sorted = tuple(sorted(parents))
         return self.scores[v].get(p_sorted, float("-inf"))
     
+    
     def _local(self, v, parents):
         """
         Sumu calls 'scores.local(...)' in the candidate generation.

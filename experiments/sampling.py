@@ -28,7 +28,7 @@ def sample_from_exact_modular_fair_sampler(n,m,output_file):
 
     # Run the command and write its output to the file
     with open(output_file, "w") as file:
-        with open('/home/gulce/Downloads/thesis/data/child/error.log', 'w') as err_file:
+        with open('/home/gulce/Downloads/thesis/data/barleyfungal/error.log', 'w') as err_file:
             try:
                 result = subprocess.run(command, check=True, text=True, stdout=file, stderr=err_file)
                 print("Command executed successfully! Output written to", output_file)
@@ -39,7 +39,7 @@ def sample_from_exact_modular_fair_sampler(n,m,output_file):
 
             
             
-sample_from_exact_modular_sampler('/home/gulce/Downloads/thesis/data/survey/survey.jkl','100000','/home/gulce/Downloads/thesis/data/survey/survey_exact_sampled.txt')
+sample_from_exact_modular_sampler('/home/gulce/Downloads/thesis/data/credit/credit_10000_normalized.jkl','10000','/home/gulce/Downloads/thesis/data/credit/credit_exact_100000_normalized.txt')
 
 import heuristics
 import data_io
@@ -64,8 +64,8 @@ def mcmc_sample_pymc(jkl_file,n,output_file):
 
             # Use `scores_obj.local_scores` instead of iterating over `scores_obj`
             for node in range(num_nodes):
-                if node in scores_obj.local_scores:
-                    node_scores = scores_obj.local_scores[node]  # Extract dictionary for node
+                if node in scores_obj.scores:
+                    node_scores = scores_obj.scores[node]  # Extract dictionary for node
                     
                     jittered_probs = []
                     
@@ -95,7 +95,7 @@ def mcmc_sample_pymc(jkl_file,n,output_file):
     with model:
         # Using different step methods and increasing tune and sample sizes
         step = pm.Metropolis()  # Using Metropolis for potentially better exploration
-        trace = pm.sample(n, tune=1000, step=step, return_inferencedata=False)
+        trace = pm.sample(n, tune=1000000, step=step, return_inferencedata=False)
 
 
 
@@ -118,7 +118,7 @@ def mcmc_sample_pymc(jkl_file,n,output_file):
 
                 # Fix: Access `local_scores` properly
                 try:
-                    parents_dict = scores.local_scores[node_index]  # Get all parent sets for this node
+                    parents_dict = scores.scores[node_index]  # Get all parent sets for this node
                     parent_sets = list(parents_dict.keys())  # Get all parent sets as list
                     parents = parent_sets[parent_index]  # Select parent set by index
                 except (KeyError, IndexError):
@@ -154,8 +154,8 @@ def mcmc_sample_pymc(jkl_file,n,output_file):
                 file.write(dag_str + "\n")
 
     write_dags_to_file(decoded_dags,output_file)
-# mcmc_sample_pymc('/home/gulce/Downloads/thesis/data/sachs/sachs_scores.jkl',10000,'/home/gulce/Downloads/thesis/data/sachs/sachs_pymc_sampled_dags.txt')
-# mcmc_sample_pymc('/home/gulce/Downloads/thesis/data/insurance/insurance_scores.jkl',10000,'/home/gulce/Downloads/thesis/data/insurance/insurance_pymc_sampled_dags.txt')
+#mcmc_sample_pymc('/home/gulce/Downloads/thesis/data/credit/credit_10000.jkl',1000,'/home/gulce/Downloads/thesis/data/credit/credit_pymc_sampled_dags.txt')
+# mcmc_sample_pymc('/home/gulce/Downloads/thesis/data/insurance/insurance_scores.jkl',1000000,'/home/gulce/Downloads/thesis/data/insurance/insurance_pymc_sampled_dags.txt')
 
 
 # mcmc_sample_pymc('/home/gulce/Downloads/thesis/data/child/child_scores.jkl',10000,'/home/gulce/Downloads/thesis/data/child/child_pymc_sampled_dags.txt')

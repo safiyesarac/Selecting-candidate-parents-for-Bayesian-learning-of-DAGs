@@ -101,7 +101,7 @@ def main():
         "greedy-lite": (cpa["greedy-lite"], {"scores": scores}),
         "back-forth":  (cpa["back-forth"],  {"scores": scores, "data": scores.data}),
         "beam":        (heuristics.beam_bdeu,          {"scores": scores, "beam_size": 5}),
-        # "marginal_bdeu_parents":        (heuristics.marginal_bdeu_parents,            {"scores": scores, "n": n}),
+        #"marginal_bdeu_parents":        (heuristics.marginal_bdeu_parents,            {"scores": scores, "n": n}),
         
          "voting_bdeu_parents":        (heuristics.bdeu_score_based_voting,            {"scores": scores}),
          "synergy": (heuristics.synergy_based_parent_selection,  {"scores": scores}),
@@ -144,16 +144,16 @@ def main():
             if elapsed > args.skip_after_seconds:
                 # If it took more than skip_after_seconds, skip it
                 print(f"  [SKIPPED: took {elapsed:.1f}s > {args.skip_after_seconds}s]")
-                results.append((algo_name, K, None, num_data_rows))
+                results.append((algo_name, K, None, num_data_rows,None))
                 break
 
             # Otherwise, measure coverage
             cf = coverage.coverage_fraction(candidate_parents, sampled_dags)
             print(f"  coverage={cf}, time={elapsed:.1f}s")
-            results.append((algo_name, K, cf, num_data_rows))
+            results.append((algo_name, K, cf, num_data_rows,candidate_parents))
 
     # 6. Save results to CSV
-    df_res = pd.DataFrame(results, columns=["Algorithm", "K", "CoverageFraction", "NumDataRows"])
+    df_res = pd.DataFrame(results, columns=["Algorithm", "K", "CoverageFraction", "NumDataRows",'CandidateParents'])
     df_res.to_csv(args.output_csv, index=False)
     print(f"\nCoverage results saved to: {args.output_csv}")
     if num_data_rows > 0:

@@ -76,6 +76,7 @@ def parse_dag_file(dag_file: str) -> list:
                 all_dags.append(dag)
             else:
                 logging.warning(f"Line {line_no} in {dag_file} was empty or invalid.")
+                return 
     logging.info(f"Parsed {len(all_dags)} DAGs from {dag_file}")
     return all_dags
 

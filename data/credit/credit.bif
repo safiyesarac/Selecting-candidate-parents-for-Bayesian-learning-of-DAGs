@@ -1,0 +1,136 @@
+network "Credit" {
+}
+variable PaymentHistory {
+    type discrete [4] {PaymentHistory_state0 PaymentHistory_state1 PaymentHistory_state2 PaymentHistory_state3};
+}
+variable WorkHistory {
+    type discrete [4] {WorkHistory_state0 WorkHistory_state1 WorkHistory_state2 WorkHistory_state3};
+}
+variable Reliability {
+    type discrete [2] {Reliability_state0 Reliability_state1};
+}
+variable Debit {
+    type discrete [3] {Debit_state0 Debit_state1 Debit_state2};
+}
+variable Income {
+    type discrete [3] {Income_state0 Income_state1 Income_state2};
+}
+variable RatioDebInc {
+    type discrete [2] {RatioDebInc_state0 RatioDebInc_state1};
+}
+variable Assets {
+    type discrete [3] {Assets_state0 Assets_state1 Assets_state2};
+}
+variable Worth {
+    type discrete [3] {Worth_state0 Worth_state1 Worth_state2};
+}
+variable Profession {
+    type discrete [3] {Profession_state0 Profession_state1 Profession_state2};
+}
+variable FutureIncome {
+    type discrete [2] {FutureIncome_state0 FutureIncome_state1};
+}
+variable Age {
+    type discrete [3] {Age_state0 Age_state1 Age_state2};
+}
+variable CreditWorthiness {
+    type discrete [2] {CreditWorthiness_state0 CreditWorthiness_state1};
+}
+probability ( PaymentHistory ) {
+    table 0.25 0.25 0.25 0.25;
+}
+probability ( WorkHistory ) {
+    table 0.25 0.25 0.25 0.25;
+}
+probability ( Reliability | PaymentHistory WorkHistory ) {
+    ( PaymentHistory_state0 WorkHistory_state0 ) 0.99 0.01;
+    ( PaymentHistory_state0 WorkHistory_state1 ) 0.7 0.3;
+    ( PaymentHistory_state0 WorkHistory_state2 ) 0.7 0.3;
+    ( PaymentHistory_state0 WorkHistory_state3 ) 0.5 0.5;
+    ( PaymentHistory_state1 WorkHistory_state0 ) 0.7 0.3;
+    ( PaymentHistory_state1 WorkHistory_state1 ) 0.55 0.45;
+    ( PaymentHistory_state1 WorkHistory_state2 ) 0.6 0.4;
+    ( PaymentHistory_state1 WorkHistory_state3 ) 0.4 0.6;
+    ( PaymentHistory_state2 WorkHistory_state0 ) 0.196429 0.803571;
+    ( PaymentHistory_state2 WorkHistory_state1 ) 0.01 0.99;
+    ( PaymentHistory_state2 WorkHistory_state2 ) 0.1 0.9;
+    ( PaymentHistory_state2 WorkHistory_state3 ) 0.01 0.99;
+    ( PaymentHistory_state3 WorkHistory_state0 ) 0.7 0.3;
+    ( PaymentHistory_state3 WorkHistory_state1 ) 0.3 0.7;
+    ( PaymentHistory_state3 WorkHistory_state2 ) 0.5 0.5;
+    ( PaymentHistory_state3 WorkHistory_state3 ) 0.2 0.8;
+}
+probability ( Debit ) {
+    table 0.3333333333333333 0.3333333333333333 0.3333333333333334;
+}
+probability ( Income ) {
+    table 0.3333333333333333 0.3333333333333333 0.3333333333333334;
+}
+probability ( RatioDebInc | Debit Income ) {
+    ( Debit_state0 Income_state0 ) 0.5 0.5;
+    ( Debit_state0 Income_state1 ) 0.8 0.2;
+    ( Debit_state0 Income_state2 ) 0.999 0.001;
+    ( Debit_state1 Income_state0 ) 0.001 0.999;
+    ( Debit_state1 Income_state1 ) 0.5 0.5;
+    ( Debit_state1 Income_state2 ) 0.8 0.2;
+    ( Debit_state2 Income_state0 ) 0.001 0.999;
+    ( Debit_state2 Income_state1 ) 0.1 0.9;
+    ( Debit_state2 Income_state2 ) 0.5 0.5;
+}
+probability ( Assets ) {
+    table 0.333333 0.333333 0.333333;
+}
+probability ( Worth | Income Assets ) {
+    ( Income_state0 Assets_state0 ) 0.899 0.1 0.001;
+    ( Income_state0 Assets_state1 ) 0.001 0.3 0.699;
+    ( Income_state0 Assets_state2 ) 0.001 0.1 0.899;
+    ( Income_state1 Assets_state0 ) 0.989 0.01 0.001;
+    ( Income_state1 Assets_state1 ) 0.699 0.3 0.001;
+    ( Income_state1 Assets_state2 ) 0.1 0.8 0.1;
+    ( Income_state2 Assets_state0 ) 0.989 0.01 0.001;
+    ( Income_state2 Assets_state1 ) 0.90734 0.091743 0.0009170000000000001;
+    ( Income_state2 Assets_state2 ) 0.69 0.3 0.01;
+}
+probability ( Profession ) {
+    table 0.333333 0.333333 0.333333;
+}
+probability ( FutureIncome | Worth Profession ) {
+    ( Worth_state0 Profession_state0 ) 0.99 0.01;
+    ( Worth_state0 Profession_state1 ) 0.8 0.2;
+    ( Worth_state0 Profession_state2 ) 0.6 0.4;
+    ( Worth_state1 Profession_state0 ) 0.85 0.15;
+    ( Worth_state1 Profession_state1 ) 0.6 0.4;
+    ( Worth_state1 Profession_state2 ) 0.4 0.6;
+    ( Worth_state2 Profession_state0 ) 0.8 0.2;
+    ( Worth_state2 Profession_state1 ) 0.4 0.6;
+    ( Worth_state2 Profession_state2 ) 0.01 0.99;
+}
+probability ( Age ) {
+    table 0.3333333333333333 0.3333333333333333 0.3333333333333334;
+}
+probability ( CreditWorthiness | Reliability RatioDebInc FutureIncome Age ) {
+    ( Reliability_state0 RatioDebInc_state0 FutureIncome_state0 Age_state0 ) 0.9 0.1;
+    ( Reliability_state0 RatioDebInc_state0 FutureIncome_state0 Age_state1 ) 0.908257 0.091743;
+    ( Reliability_state0 RatioDebInc_state0 FutureIncome_state0 Age_state2 ) 0.8 0.2;
+    ( Reliability_state0 RatioDebInc_state0 FutureIncome_state1 Age_state0 ) 0.7 0.3;
+    ( Reliability_state0 RatioDebInc_state0 FutureIncome_state1 Age_state1 ) 0.8 0.2;
+    ( Reliability_state0 RatioDebInc_state0 FutureIncome_state1 Age_state2 ) 0.6 0.4;
+    ( Reliability_state0 RatioDebInc_state1 FutureIncome_state0 Age_state0 ) 0.7 0.3;
+    ( Reliability_state0 RatioDebInc_state1 FutureIncome_state0 Age_state1 ) 0.727273 0.272727;
+    ( Reliability_state0 RatioDebInc_state1 FutureIncome_state0 Age_state2 ) 0.7 0.3;
+    ( Reliability_state0 RatioDebInc_state1 FutureIncome_state1 Age_state0 ) 0.25 0.75;
+    ( Reliability_state0 RatioDebInc_state1 FutureIncome_state1 Age_state1 ) 0.4 0.6;
+    ( Reliability_state0 RatioDebInc_state1 FutureIncome_state1 Age_state2 ) 0.25 0.75;
+    ( Reliability_state1 RatioDebInc_state0 FutureIncome_state0 Age_state0 ) 0.7 0.3;
+    ( Reliability_state1 RatioDebInc_state0 FutureIncome_state0 Age_state1 ) 0.8 0.2;
+    ( Reliability_state1 RatioDebInc_state0 FutureIncome_state0 Age_state2 ) 0.5 0.5;
+    ( Reliability_state1 RatioDebInc_state0 FutureIncome_state1 Age_state0 ) 0.3 0.7;
+    ( Reliability_state1 RatioDebInc_state0 FutureIncome_state1 Age_state1 ) 0.4 0.6;
+    ( Reliability_state1 RatioDebInc_state0 FutureIncome_state1 Age_state2 ) 0.2 0.8;
+    ( Reliability_state1 RatioDebInc_state1 FutureIncome_state0 Age_state0 ) 0.5 0.5;
+    ( Reliability_state1 RatioDebInc_state1 FutureIncome_state0 Age_state1 ) 0.5 0.5;
+    ( Reliability_state1 RatioDebInc_state1 FutureIncome_state0 Age_state2 ) 0.4 0.6;
+    ( Reliability_state1 RatioDebInc_state1 FutureIncome_state1 Age_state0 ) 0.001 0.999;
+    ( Reliability_state1 RatioDebInc_state1 FutureIncome_state1 Age_state1 ) 0.001 0.999;
+    ( Reliability_state1 RatioDebInc_state1 FutureIncome_state1 Age_state2 ) 0.001 0.999;
+}
