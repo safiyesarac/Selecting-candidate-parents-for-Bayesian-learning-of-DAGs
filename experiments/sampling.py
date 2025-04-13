@@ -18,10 +18,18 @@ def sample_from_exact_modular_sampler(jkl_file,n,output_file):
                 print("Error message:", e.stderr)
                 
                 
-def sample_from_exact_modular_fair_sampler(n,m,output_file):
+# sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/asia/survey_500.jkl","100000","/home/gulce/Downloads/thesis/data/asia/asia_500.txt")
+sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_10000.jkl","100000","/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_10000.txt")           
+sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_1000.jkl","100000","/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_1000.txt")   
+sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_200.jkl","100000","/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_200.txt")              
+sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_50.jkl","100000","/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_50.txt") 
+sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_100.jkl","100000","/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_100.txt")     
+
+
+def sample_from_exact_modular_fair_sampler(n,k,m,output_file):
 
     # Define the command as a list of arguments
-    command = ["/home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler", "symmetric",'fair',  str(n),str(m)]
+    command = ["/home/gulce/Downloads/thesis/modular-dag-sampling-master/sampler", "symmetric",'fair',  str(n),str(k), str(m)]
 
     # Specify the output file
     
@@ -38,9 +46,7 @@ def sample_from_exact_modular_fair_sampler(n,m,output_file):
 
 
             
-            
-sample_from_exact_modular_sampler('/home/gulce/Downloads/thesis/data/credit/credit_10000_normalized.jkl','10000','/home/gulce/Downloads/thesis/data/credit/credit_exact_100000_normalized.txt')
-
+    
 import heuristics
 import data_io
 def mcmc_sample_pymc(jkl_file,n,output_file):

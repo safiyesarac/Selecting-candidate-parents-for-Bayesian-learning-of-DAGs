@@ -94,9 +94,9 @@ def main():
     candidate_algos = {
         "top":         (cpa["top"],         {"scores": scores, "n": n}),
          "opt":         (cpa["opt"],         {"scores": scores, "n": n}),
-        "mb":          (cpa["mb"],          {"data": mydata, "fill": "random"}),
-        "pc":          (cpa["pc"],          {"data": mydata, "fill": "random"}),
-        "ges":         (cpa["ges"],         {"scores": scores, "data": mydata, "fill": "top"}),
+        #"mb":          (cpa["mb"],          {"data": mydata, "fill": "random"}),
+         #"pc":          (cpa["pc"],          {"data": mydata, "fill": "random"}),
+        #"ges":         (cpa["ges"],         {"scores": scores, "data": mydata, "fill": "top"}),
         "greedy":      (cpa["greedy"],      {"scores": scores}),
         "greedy-lite": (cpa["greedy-lite"], {"scores": scores}),
         "back-forth":  (cpa["back-forth"],  {"scores": scores, "data": scores.data}),

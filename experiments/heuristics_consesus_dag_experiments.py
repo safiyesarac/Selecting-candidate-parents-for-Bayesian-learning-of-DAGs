@@ -298,7 +298,7 @@ def generate_data_from_dag(
 # --------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--n_samples_data", type=int, default=10,
+    parser.add_argument("--n_samples_data", type=int, default=10000,
                         help="Number of data samples to generate.")
     parser.add_argument("--arity", type=int, default=2,
                         help="Discrete arity for each variable.")
@@ -308,7 +308,7 @@ def main():
     parser.add_argument("--alpha", type=float, default=1.0,
                         help="Dirichlet prior parameter.")
     parser.add_argument("--data_in", type=str, 
-                        default="/home/gulce/Downloads/thesis/data/fair/test.txt",
+                        default="/home/gulce/Downloads/thesis/data/fair/fair.txt",
                         help="File containing sampled DAGs.")
     parser.add_argument("--replicates", type=int, default=1,
                         help="Number of replicate data sets per DAG.")

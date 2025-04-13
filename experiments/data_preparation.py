@@ -90,10 +90,14 @@ def compute_bdeu_scores(dat_file,jkl_file):
         except subprocess.CalledProcessError as e:
             print("An error occurred while executing the command.")
             print("Error message:", e.stderr)
+# sample_datapoints_from_model("data/enginefuel/enginefuel.bif",10000, "data/enginefuel/enginefuel_10000.csv","data/enginefuel/enginefuel_10000.dat")
+# compute_bdeu_scores("data/enginefuel/enginefuel_10000.dat","data/enginefuel/enginefuel_10000.jkl")
 
-sample_datapoints_from_model('/home/gulce/Downloads/thesis/data/sachs/sachs_rounded.bif',100000,  '/home/gulce/Downloads/thesis/data/sachs/sachs_rounded_10000.csv','/home/gulce/Downloads/thesis/data/sachs/sachs_rounded_10000.dat')
-compute_bdeu_scores( '/home/gulce/Downloads/thesis/data/sachs/sachs_rounded_10000.dat', '/home/gulce/Downloads/thesis/data/sachs/sachs_rounded_10000.jkl')
 
+# sample_datapoints_from_model("data/enginefuel/enginefuel.bif",200, "data/enginefuel/enginefuel_200.csv","data/enginefuel/enginefuel_200.dat")
+compute_bdeu_scores("data/enginefuel/enginefuel_50.dat","data/enginefuel/enginefuel_50.jkl")
 
-# sample_datapoints_from_model('/home/gulce/Downloads/thesis/data/synt/synt.bif',1000,  '/home/gulce/Downloads/thesis/data/synt/synt.csv','/home/gulce/Downloads/thesis/data/synt/synt.dat')
-# compute_bdeu_scores( '/home/gulce/Downloads/thesis/data/synt/synt.dat', '/home/gulce/Downloads/thesis/data/synt/synt.jkl')
+# sample_datapoints_from_model("data/enginefuel/enginefuel.bif",100, "data/enginefuel/enginefuel_100.csv","data/enginefuel/enginefuel_100.dat")
+#compute_bdeu_scores("data/enginefuel/enginefuel_100.dat","data/enginefuel/enginefuel_100.jkl")
+# sample_datapoints_from_model("data/asia/asia.bif", 100000, "data/asia/asia_100000.csv","data/asia/asia_100000.dat")
+# compute_bdeu_scores("data/asia/asia_100000.dat","data/asia/asia_100000.jkl")
