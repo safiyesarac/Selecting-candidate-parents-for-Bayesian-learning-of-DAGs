@@ -525,7 +525,7 @@ def main():
                 "back-forth":     (cpa["back-forth"],     {"scores": scores_small, "data": scores_small.data}),
                 "beam":           (heuristics.beam_bdeu,  {"scores": scores_small, "beam_size": 5}),
                 "marginal_bdeu_parents": (heuristics.marginal_bdeu_parents, {"scores": scores_small, "n": n}),
-                "voting_bdeu_parents":   (heuristics.bdeu_score_based_voting, {"scores": scores_small}),
+                # "voting_bdeu_parents":   (heuristics.bdeu_score_based_voting, {"scores": scores_small}),
                 "synergy":        (heuristics.synergy_based_parent_selection, {"scores": scores_small}),
                 "stability":      (heuristics.stability_bdeu, {"scores": scores_small, "data": mydata_small}),
                 "post":           (heuristics.maximize_true_graph_posterior, {"scores": scores_small}),

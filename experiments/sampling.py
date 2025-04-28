@@ -18,12 +18,12 @@ def sample_from_exact_modular_sampler(jkl_file,n,output_file):
                 print("Error message:", e.stderr)
                 
                 
-# sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/asia/survey_500.jkl","100000","/home/gulce/Downloads/thesis/data/asia/asia_500.txt")
-sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_10000.jkl","100000","/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_10000.txt")           
-sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_1000.jkl","100000","/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_1000.txt")   
-sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_200.jkl","100000","/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_200.txt")              
-sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_50.jkl","100000","/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_50.txt") 
-sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_100.jkl","100000","/home/gulce/Downloads/thesis/data/enginefuel/enginefuel_100.txt")     
+# sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/asia/barleyfungal_500.jkl","100000","/home/gulce/Downloads/thesis/data/asia/asia_500.txt")
+# sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/barleyfungal/barleyfungal_10000.jkl","100000","/home/gulce/Downloads/thesis/data/barleyfungal/barleyfungal_10000.txt")           
+# sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/barleyfungal/barleyfungal_1000.jkl","100000","/home/gulce/Downloads/thesis/data/barleyfungal/barleyfungal_1000.txt")   
+# sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/barleyfungal/barleyfungal_200.jkl","100000","/home/gulce/Downloads/thesis/data/barleyfungal/barleyfungal_200.txt")              
+# sample_from_exact_modular_sampler("/home/gulce/Downloads/thesis/data/barleyfungal/barleyfungal_50.jkl","100000","/home/gulce/Downloads/thesis/data/barleyfungal/barleyfungal_50.txt") 
+   
 
 
 def sample_from_exact_modular_fair_sampler(n,k,m,output_file):
