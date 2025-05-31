@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import os
+import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -24,10 +25,27 @@ def main():
                         help="CSV column for the y-axis (default: Algorithm).")
     parser.add_argument("--save", type=str,
                         help="Optional path (including filename) to save the heatmap image (e.g., heatmap.png).")
+    parser.add_argument(
+        "--k", type=float,             # accept either int or float
+        help=(
+            "The single K value you want to visualise. "
+            "If omitted, the script exits without plotting."
+        )
+    )
     args = parser.parse_args()
 
     # Load the CSV file
     df = pd.read_csv(args.csv_file)
+    
+    df[args.xcol] = pd.to_numeric(df[args.xcol], errors="coerce")
+    df = df.dropna(subset=[args.xcol])
+
+    # ── Filter by K threshold if requested ───────────────────────────
+    if args.k is not None:
+        df = df[df[args.xcol] >= args.k]
+        if df.empty:
+            print(f"No rows found with {args.xcol} ≥ {args.k}. Exiting.", file=sys.stderr)
+            sys.exit(0)
     
     # Pivot the DataFrame to have 'Algorithm' as rows and 'K' as columns with values from 'CoverageFraction'
     pivot_df = df.pivot_table(index=args.ycol, columns=args.xcol, values=args.metric, aggfunc="mean")
@@ -35,9 +53,9 @@ def main():
     # Sort the columns (K values) if they are numeric
     pivot_df = pivot_df.sort_index(axis=1)
 
-    plt.figure(figsize=(8, 6))
-    sns.heatmap(pivot_df, annot=True, fmt=".4f", cmap="YlGnBu",annot_kws={"fontsize": 8} )
-    plt.title(f"Heatmap of {args.metric} by {args.ycol} vs. {args.xcol}")
+    plt.figure(figsize=(12, 8))
+    sns.heatmap(pivot_df, annot=True, fmt=".2f", cmap="YlGnBu",annot_kws={"fontsize": 8} )
+    # plt.title(f"Heatmap of {args.metric} by {args.ycol} vs. {args.xcol}")
     plt.xlabel(args.xcol)
     plt.ylabel(args.ycol)
     plt.tight_layout()

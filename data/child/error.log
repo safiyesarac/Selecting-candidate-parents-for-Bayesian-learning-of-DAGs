@@ -1,3 +1,3 @@
-Sampling 10000 DAGs
-Precomputation: 2.22813s
-Per DAG: 0.00214582s
+Sampling 100000 DAGs
+Precomputation: 88.8167s
+Per DAG: 0.0330783s

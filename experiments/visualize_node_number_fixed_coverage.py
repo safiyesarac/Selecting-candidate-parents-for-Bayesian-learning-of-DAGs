@@ -3,10 +3,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 files = {
-    "Asia (8 Nodes)": "/home/gulce/Downloads/thesis/data/coverage/asia/asia_coverage_results_10000.csv",
-    # "Sachs (11 Nodes)": "/home/gulce/Downloads/thesis/data/coverage/sachs/sachs_coverage_results_10000.csv",
-    "Credit (12 Nodes)": "/home/gulce/Downloads/thesis/data/coverage/credit/credit_coverage_results_10000.csv",
-    "EngineFuel (9 Nodes)": "/home/gulce/Downloads/thesis/data/coverage/enginefuel/enginefuel_coverage_results_10000.csv"
+    "Asia (8 Nodes)": "/home/gulce/Downloads/thesis/data/coverage/asia/asia_coverage_results_1000.csv",
+     "Sachs (11 Nodes)": "/home/gulce/Downloads/thesis/data/coverage/sachs/sachs_coverage_results_1000.csv",
+    "Credit (12 Nodes)": "/home/gulce/Downloads/thesis/data/coverage/credit/credit_coverage_results_1000.csv",
+    "EngineFuel (9 Nodes)": "/home/gulce/Downloads/thesis/data/coverage/enginefuel/enginefuel_coverage_results_1000.csv"
 }
 
 datasets = {}
@@ -17,7 +17,7 @@ all_algorithms = sorted(
     set().union(*(df["Algorithm"].unique() for df in datasets.values()))
 )
 
-output_folder = "/home/gulce/Downloads/thesis/data/coverage/nodenumber/10000"
+output_folder = "/home/gulce/Downloads/thesis/data/coverage/nodenumber/1000"
 os.makedirs(output_folder, exist_ok=True)
 
 for alg in all_algorithms:
@@ -35,8 +35,8 @@ for alg in all_algorithms:
         
         plt.plot(real_k, coverage_values, marker='o', label=dataset_name)
     
-    plt.title(f"Coverage vs. (K+1): {alg}\n(Exact Parents, 10000 Data Points)")
-    plt.xlabel("Exact Parent-Set Size = (CSV K) + 1")
+    plt.title(f"Coverage vs. K: {alg}\n(1000 Data Points)")
+    plt.xlabel("Parent-Set Size")
     plt.ylabel("Coverage Fraction")
     plt.ylim(0, 1.05)
     plt.grid(True)

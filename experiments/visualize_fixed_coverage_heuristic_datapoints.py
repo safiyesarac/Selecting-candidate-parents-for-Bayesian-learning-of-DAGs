@@ -7,11 +7,11 @@ os.makedirs("plots", exist_ok=True)
 
 # Paths to the CSV files by sample size
 files = {
-    50:   "/home/gulce/Downloads/thesis/data/coverage/enginefuel/enginefuel_coverage_results_50.csv",
-    100:  "/home/gulce/Downloads/thesis/data/coverage/enginefuel/enginefuel_coverage_results_100.csv",
-    200:  "/home/gulce/Downloads/thesis/data/coverage/enginefuel/enginefuel_coverage_results_200.csv",
-    1000:  "/home/gulce/Downloads/thesis/data/coverage/enginefuel/enginefuel_coverage_results_1000.csv",
-    10000: "/home/gulce/Downloads/thesis/data/coverage/enginefuel/enginefuel_coverage_results_10000.csv"
+    # 50:   "/home/gulce/Downloads/thesis/data/coverage/survey/survey_coverage_results_50.csv",
+    # 100:  "/home/gulce/Downloads/thesis/data/coverage/survey/survey_coverage_results_100.csv",
+    200:  "/home/gulce/Downloads/thesis/data/coverage/survey/survey_coverage_results_200.csv",
+    1000:  "/home/gulce/Downloads/thesis/data/coverage/survey/survey_coverage_results_1000.csv",
+    10000: "/home/gulce/Downloads/thesis/data/coverage/survey/survey_coverage_results_10000.csv"
 }
 
 # Read each file into a dictionary keyed by sample size
@@ -48,7 +48,7 @@ for alg in all_algs:
     plt.ylim(0, 1.05)  # coverage fraction is between 0 and 1
     
     # Save plot to the "plots" directory (e.g., "plots/greedy_coverage_plot.png")
-    plt.savefig(f"/home/gulce/Downloads/thesis/data/coverage/enginefuel/datapointsplots/{alg}_coverage_plot.png")
+    plt.savefig(f"/home/gulce/Downloads/thesis/data/coverage/survey/datapointsplots/{alg}_coverage_plot.png")
     
     # Close the figure to free memory (avoids piling up many open figures)
     plt.close()

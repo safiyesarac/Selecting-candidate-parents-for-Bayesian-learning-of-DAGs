@@ -1125,3 +1125,264 @@ def maximize_true_graph_posterior( K,scores):
         
     print(f"Column generation done after {iteration} iteration(s).")
     return solution
+
+
+
+import itertools, numpy as np, gurobipy as gp
+from gurobipy import GRB
+from collections import defaultdict, Counter
+
+# ----------------------------------------------------------------------
+# helper ----------------------------------------------------------------
+def local_score(i, pa, scores):
+    try:               # dict‑of‑dicts
+        return scores.local[i][pa]
+    except TypeError:  # callable
+        return scores.local(i, pa)
+
+
+def approx_score(i, pa, scores, max_exact=3):
+    """best |pa|≤max_exact subset score (simple surrogate)."""
+    best = -np.inf
+    for sub in itertools.combinations(pa, min(max_exact, len(pa))):
+        best = max(best, local_score(i, sub, scores))
+    return best
+
+# ----------------------------------------------------------------------
+def maximise_posterior_via_sampled_dags(K, scores, sampled_dags,
+                                    freq_threshold=0.01,
+                                    rc_tol=1e-8):
+    """
+    Column generation that is aligned with posterior DAG samples.
+    Returns: dict {node -> chosen K‑parent tuple} (sorted).
+    --------------------------------------------------------------------
+    Parameters
+    ----------
+    K            : int   – max parents allowed in the candidate list
+    scores       : object holding pre‑computed local BDeu scores
+    sampled_dags : iterable of DAG objects or dicts {node -> tuple(parent list)}
+    freq_threshold : float – min fraction for a parent to be considered 'core'
+    rc_tol         : float – positive reduced‑cost tolerance for pricing
+    """
+    n = scores.n
+
+    # 0)  gather posterior info
+    parent_freq = [Counter() for _ in range(n)]
+    for G in sampled_dags:
+        for v, pa in G.items():
+            for p in pa:
+                parent_freq[v][p] += 1
+    m_samples = len(sampled_dags)
+    parent_freq = [{p: c/m_samples for p, c in cnt.items()} for cnt in parent_freq]
+
+    # 1) master model
+    m  = gp.Model("exactK_CG");  m.Params.OutputFlag = 0
+    x, cols = {}, defaultdict(list)
+    pick    = {}
+
+    for i in range(n):
+        # core parents: high‑freq first
+        pool = [p for p,f in parent_freq[i].items()]
+        pool.sort(key=lambda p: -parent_freq[i][p])
+        if len(pool) < K:
+            pool.extend([p for p in range(n) if p!=i and p not in pool])
+        # seed = best “top‑K” set
+        cand = tuple(sorted(pool[:K]))
+        sc   = approx_score(i, cand, scores)
+        x[(i,cand)] = m.addVar(obj=sc, vtype=GRB.CONTINUOUS,
+                               lb=0, ub=1, name=f"x_{i}_{cand}")
+        cols[i].append(cand)
+
+        pick[i] = m.addConstr(x[(i,cand)] == 1, name=f"pick_{i}")  # one column so far
+
+    m.ModelSense = GRB.MAXIMIZE
+    m.update()
+
+    # 2) column generation loop – only K‑tuples are generated
+    improved, it = True, 0
+    while improved:
+        it += 1
+        m.optimize()
+        dual = {i: pick[i].Pi for i in range(n)}
+        improved = False
+
+        for i in range(n):
+            pool = [p for p,_ in sorted(parent_freq[i].items(),
+                                        key=lambda kv: -kv[1])]
+            pool = [p for p in pool if p != i][:max(8, K+3)]  # small pool
+            best_rc, best_cand = -np.inf, None
+            for cand in itertools.combinations(pool, K):
+                cand = tuple(sorted(cand))
+                if cand in cols[i]: continue
+                sc = approx_score(i, cand, scores)
+                rc = sc - dual[i]
+                if rc > best_rc:
+                    best_rc, best_cand = rc, cand
+            if best_cand and best_rc > rc_tol:
+                improved = True
+                var = m.addVar(obj=best_rc + dual[i], vtype=GRB.CONTINUOUS,
+                               lb=0, ub=1, name=f"x_{i}_{best_cand}")
+                x[(i,best_cand)] = var
+                cols[i].append(best_cand)
+                # update “pick one” (replace equality with sum==1 lazily)
+                m.chgCoeff(pick[i], var, 1)
+        m.update()
+
+    # 3) extract deterministic solution
+    solution = {i: max(cols[i], key=lambda c: x[(i,c)].X) for i in range(n)}
+    print(f"done after {it} iteration(s)")
+    return solution
+
+
+
+
+
+
+def maximize_true_graph_posterior_acyclic(K, scores):
+    """
+    Solve for a Bayesian network in which *every* node has exactly K parents
+    (using approximate local scores when K > 3) **and** the resulting graph
+    is a DAG.  Column generation is used to avoid enumerating all K-parent
+    sets up front.
+
+    Parameters
+    ----------
+    K : int
+        Required in-degree for every node.
+    scores : object
+        Must expose:
+            • n  – number of variables
+            • local(i, parent_tuple) – true local score for ≤ 3 parents
+        plus whatever compute_approx_score_for_candidate() needs.
+
+    Returns
+    -------
+    dict : node → tuple(sorted(parent_set))
+        A feasible DAG with |parents| = K for every node.
+    """
+    n = scores.n
+    BIG_M = n                       # big-M for order constraints; n is sufficient
+
+    master = gp.Model("DAG_K_Parents")
+    master.Params.OutputFlag = 0
+
+    # ------------------------------------------------------------------
+    # 1) decision variables for K-parent sets (columns)
+    # ------------------------------------------------------------------
+    x_vars = {}                     # key  (i, cand)  →  gurobi Var
+    columns = {i: [] for i in range(n)}
+
+    for i in range(n):
+        for cand in itertools.combinations([p for p in range(n) if p != i], K):
+            sc = compute_approx_score_for_candidate(i, cand, scores)
+            if np.isfinite(sc):
+                v = master.addVar(vtype=GRB.BINARY, name=f"x_{i}_{cand}")
+                x_vars[(i, cand)] = v
+                columns[i].append(cand)
+
+    # ------------------------------------------------------------------
+    # 2) “choose exactly one set” constraints
+    # ------------------------------------------------------------------
+    choose_one = {
+        i: master.addConstr(
+            gp.quicksum(x_vars[(i, c)] for c in columns[i]) == 1,
+            name=f"choose_one_{i}"
+        )
+        for i in range(n)
+    }
+
+    # ------------------------------------------------------------------
+    # 3) acyclicity: integer topological-order variables  π_i
+    #     π_j + 1 ≤ π_i   whenever edge  j→i  is selected
+    # ------------------------------------------------------------------
+    pi = master.addVars(n, vtype=GRB.INTEGER, lb=0, ub=n - 1, name="pi")
+
+    # edge-presence linear expressions  e_{j,i} = Σ_{cand∋j} x_{i,cand}
+    edge_expr = {
+        (j, i): gp.LinExpr(
+            sum(x_vars[(i, c)] for c in columns[i] if j in c)
+        )
+        for j in range(n) for i in range(n) if j != i
+    }
+
+    for j in range(n):
+        for i in range(n):
+            if j == i:
+                continue
+            master.addConstr(
+                pi[j] + 1 <= pi[i] + BIG_M * (1 - edge_expr[(j, i)]),
+                name=f"acyclic_{j}_{i}",
+            )
+
+    # ------------------------------------------------------------------
+    # 4) objective: maximise sum of (approximate) local scores
+    # ------------------------------------------------------------------
+    master.setObjective(
+        gp.quicksum(
+            compute_approx_score_for_candidate(i, c, scores) * x_vars[(i, c)]
+            for i in range(n) for c in columns[i]
+        ),
+        GRB.MAXIMIZE,
+    )
+    master.update()
+
+    # ------------------------------------------------------------------
+    # Helper: when column generation adds a new variable
+    # ------------------------------------------------------------------
+    def _add_column(i, cand, score):
+        """Register a new K-parent set (column) for node i."""
+        var = master.addVar(vtype=GRB.BINARY, name=f"x_{i}_{cand}")
+        x_vars[(i, cand)] = var
+        columns[i].append(cand)
+
+        # link into existing constraints / expressions
+        master.chgCoeff(choose_one[i], var, 1.0)
+        for j in cand:
+            edge_expr[(j, i)].addTerms(1.0, var)
+
+        master.setObjective(master.getObjective() + score * var)
+
+    # ------------------------------------------------------------------
+    # 5) column-generation loop
+    # ------------------------------------------------------------------
+    improved, iteration = True, 0
+    while improved:
+        iteration += 1
+        master.optimize()
+        if master.status != GRB.OPTIMAL:
+            raise RuntimeError("Master not optimal; aborting.")
+
+        dual = {i: choose_one[i].Pi for i in range(n)}
+        improved = False
+
+        for i in range(n):
+            best_rc, best_cand = -float("inf"), None
+            for cand in itertools.combinations(
+                [p for p in range(n) if p != i], K
+            ):
+                if cand in columns[i]:
+                    continue
+                sc = compute_approx_score_for_candidate(i, cand, scores)
+                if not np.isfinite(sc):
+                    continue
+                rc = sc - dual[i]
+                if rc > best_rc:
+                    best_rc, best_cand = rc, cand
+
+            if best_cand is not None and best_rc > 1e-8:
+                improved = True
+                _add_column(i, best_cand,
+                            compute_approx_score_for_candidate(i, best_cand, scores))
+                master.update()
+
+    # ------------------------------------------------------------------
+    # 6) extract the chosen parent set for every node
+    # ------------------------------------------------------------------
+    solution = {}
+    for i in range(n):
+        sel = max(columns[i], key=lambda c: x_vars[(i, c)].X)
+        solution[i] = tuple(sorted(sel))
+
+    print(f"Column generation finished after {iteration} iteration(s).")
+    return solution
+
