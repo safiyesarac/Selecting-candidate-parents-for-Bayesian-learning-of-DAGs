@@ -1,33 +1,33 @@
-# mybnexp/coverage.py
+
 def get_true_parents(model_file):  
     import bnlearn as bn
 
-# Load a predefined Bayesian network structure
+
     model = bn.import_DAG(model_file)
     adjmat = model["adjmat"]
 
-    # Get the list of node names (assumed to be the same in the DataFrame index and columns)
+    
     nodes = list(adjmat.columns)
     print(adjmat.columns)
 
 
 
-    # Build a dictionary mapping each node to its list of parent nodes.
+    
     model_dict = {}
     for node in nodes:
-        # For each node, find all source nodes for which the value is True.
-        # The expression `adjmat[node] == True` returns a boolean Series;
-        # its index are the source node names.
+        
+        
+        
         parent_nodes = list(adjmat.index[adjmat[node] == True])
         model_dict[node] = parent_nodes
 
-    # 3. Define a conversion function that works without needing a desired order.
+    
     def convert_bn_to_indices(model_dict, ordered_node_list):
         """
         Convert a BN to a dictionary mapping node indices to parent indices,
         respecting the user-supplied 'ordered_node_list'.
         """
-        node_names = ordered_node_list  # Use the given order
+        node_names = ordered_node_list  
         name_to_idx = {name: i for i, name in enumerate(node_names)}
 
         bn_dict = {}
@@ -40,7 +40,7 @@ def get_true_parents(model_file):
 
     ordered_nodes = list(adjmat.columns)
     return convert_bn_to_indices(model_dict, ordered_nodes)
-# sumu and related modules
+
 def coverage_fraction(candidate_parents, sampled_dags):
     """
     Compute fraction of sampled_dags that are covered by candidate_parents.

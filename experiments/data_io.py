@@ -1,4 +1,4 @@
-# mybnexp/data_io.py
+
 
 import logging
 import pandas as pd
@@ -44,7 +44,7 @@ def parse_dag_line(line: str) -> dict:
         node_str = node_str.strip()
         parents_str = parents_str.strip()
 
-        # Remove outer braces
+        
         if parents_str.startswith("{"):
             parents_str = parents_str[1:]
         if parents_str.endswith("}"):
@@ -96,10 +96,10 @@ def parse_gobnilp_jkl(file_path: str) -> dict:
                 continue
             parts = line.split()
             if len(parts) == 1 and parts[0].isdigit():
-                # Possibly a metadata line, skip
+                
                 continue
             elif len(parts) == 2 and not line.startswith("-"):
-                # Node header line (e.g., "6 64")
+                
                 try:
                     current_node = int(parts[0])
                     scores[current_node] = []

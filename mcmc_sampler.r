@@ -1,22 +1,22 @@
-#!/usr/bin/env Rscript
 
-# ===========================
-# 1) Parse .jkl into a hash env, optionally rescaling log-scores
-# ===========================
+
+
+
+
 parse_jkl_to_env <- function(file_path, scale_factor = 0.001) {
   scores_env <- new.env(hash = TRUE, size = 1e5)
   con <- file(file_path, open = "r")
   
-  # 1) Read the first line => number_of_nodes
-  first_line <- readLines(con, n = 1, warn = FALSE)
-  # not strictly used, but we read it to advance the cursor
   
-  # 2) For each node block: "node_id count", then `count` lines: "<logscore> <num_parents> p1 p2 ..."
+  first_line <- readLines(con, n = 1, warn = FALSE)
+  
+  
+  
   while (TRUE) {
     node_line <- readLines(con, n = 1, warn = FALSE)
-    if (!length(node_line)) break  # EOF
+    if (!length(node_line)) break  
     node_line <- trimws(node_line)
-    if (!nchar(node_line)) next    # skip empty
+    if (!nchar(node_line)) next    
     
     parts <- strsplit(node_line, "\\s+")[[1]]
     if (length(parts) != 2) {
@@ -52,7 +52,7 @@ parse_jkl_to_env <- function(file_path, scale_factor = 0.001) {
         next
       }
       
-      # Rescale if desired
+      
       score_val <- raw_score_val * scale_factor
       
       if (num_par > 0) {
@@ -61,7 +61,7 @@ parse_jkl_to_env <- function(file_path, scale_factor = 0.001) {
         par_nodes <- integer(0)
       }
       
-      # Build key: "child|p1,p2,..."
+      
       sorted_par <- sort(par_nodes)
       key_str <- paste0(current_node, "|", paste(sorted_par, collapse=","))
       assign(key_str, score_val, envir = scores_env)
@@ -71,12 +71,12 @@ parse_jkl_to_env <- function(file_path, scale_factor = 0.001) {
   return(scores_env)
 }
 
-# ===========================
-# 2) Local node score lookup for a single node’s parents
-# ===========================
+
+
+
 local_score_node <- function(adjmat, node_i, scores_env) {
-  # child => node_i
-  # (row, col) => (parent, child)
+  
+  
   parents_idx <- which(adjmat[, node_i + 1] == 1) - 1
   key <- paste0(node_i, "|", paste(sort(parents_idx), collapse=","))
   val <- scores_env[[key]]
@@ -84,15 +84,15 @@ local_score_node <- function(adjmat, node_i, scores_env) {
   return(val)
 }
 
-# ===========================
-# 3) Check for cycles with DFS
-# ===========================
+
+
+
 has_cycle <- function(adjmat) {
   N <- nrow(adjmat)
-  visited <- integer(N)  # 0=unvisited, 1=visiting, 2=done
+  visited <- integer(N)  
   
   dfs <- function(u) {
-    if (visited[u] == 1L) return(TRUE)  # found back-edge => cycle
+    if (visited[u] == 1L) return(TRUE)  
     if (visited[u] == 2L) return(FALSE)
     visited[u] <<- 1L
     for (v in which(adjmat[u, ] == 1)) {
@@ -110,18 +110,18 @@ has_cycle <- function(adjmat) {
   return(FALSE)
 }
 
-# ===========================
-# 4) MCMC step
-#    - For standard "child-only" scoring (BDeu-like), uncomment ONLY the child-based code
-#    - For "parent+child" (nonsymmetric) scoring, uncomment BOTH parent + child lines
-# ===========================
+
+
+
+
+
 mcmc_step <- function(adjmat, scores_env, iteration=NA, temperature=1.0,
                       include_parent=FALSE) {
   N <- nrow(adjmat)
   
   repeat {
-    i <- sample.int(N, 1) - 1  # child
-    j <- sample.int(N, 1) - 1  # parent
+    i <- sample.int(N, 1) - 1  
+    j <- sample.int(N, 1) - 1  
     if (i != j) break
   }
   
@@ -129,44 +129,44 @@ mcmc_step <- function(adjmat, scores_env, iteration=NA, temperature=1.0,
   new_val <- if (old_val == 1) 0 else 1
   adjmat[j+1, i+1] <- new_val
   
-  # If this creates cycle => revert
+  
   if (has_cycle(adjmat)) {
     adjmat[j+1, i+1] <- old_val
     cat(sprintf("Iter=%d: Proposed edge %d->%d => cycle => REJECT\n", iteration, j, i))
     return(adjmat)
   }
   
-  # ----------------------------------------------------------------------
-  # If your .jkl is purely child-based (standard BDeu), only node i changes:
-  # ----------------------------------------------------------------------
   
-  # measure old local score_i by toggling that edge in a temp manner:
+  
+  
+  
+  
   adjmat[j+1, i+1] <- old_val
   old_score_i <- local_score_node(adjmat, i, scores_env)
   adjmat[j+1, i+1] <- new_val
   new_score_i <- local_score_node(adjmat, i, scores_env)
   
-  # ----------------------------------------------------------------------
-  # If your scoring is "nonsymmetric" (depends on parent node j as well),
-  # then *ALSO* measure old/new local scores for node j. Uncomment below:
-  # ----------------------------------------------------------------------
+  
+  
+  
+  
   old_score_j <- 0
   new_score_j <- 0
   if (include_parent) {
-    # measure parent's old score (temp revert)  
+    
     adjmat[j+1, i+1] <- old_val
     old_score_j <- local_score_node(adjmat, j, scores_env)
-    # measure parent's new score (with flipped edge)
+    
     adjmat[j+1, i+1] <- new_val
     new_score_j <- local_score_node(adjmat, j, scores_env)
   }
   
-  # revert adjacency so difference is computed properly
+  
   adjmat[j+1, i+1] <- old_val
   total_old <- old_score_i + old_score_j
   total_new <- new_score_i + new_score_j
   
-  # Handle case where both totals are -Inf to avoid NaN in difference
+  
   if (is.infinite(total_old) && is.infinite(total_new)) {
     diff_val <- 0
   } else {
@@ -175,17 +175,17 @@ mcmc_step <- function(adjmat, scores_env, iteration=NA, temperature=1.0,
   
   ratio <- exp(temperature * diff_val)
   
-  # final accept/reject with NA check for ratio
+  
   if (is.na(ratio)) {
     adjmat[j+1, i+1] <- old_val
     cat(sprintf("Iter=%d: %d->%d resulted in undefined ratio => REJECT\n", iteration, j, i))
   } else if (runif(1) < ratio) {
-    # accept => keep the new_val
+    
     adjmat[j+1, i+1] <- new_val
     cat(sprintf("Iter=%d: %d->%d old=%.4f new=%.4f diff=%.4f => ratio=%.4f => ACCEPT\n",
                 iteration, j, i, total_old, total_new, diff_val, ratio))
   } else {
-    # reject => revert to old
+    
     adjmat[j+1, i+1] <- old_val
     cat(sprintf("Iter=%d: %d->%d old=%.4f new=%.4f diff=%.4f => ratio=%.4f => REJECT\n",
                 iteration, j, i, total_old, total_new, diff_val, ratio))
@@ -194,9 +194,9 @@ mcmc_step <- function(adjmat, scores_env, iteration=NA, temperature=1.0,
   return(adjmat)
 }
 
-# ===========================
-# 5) DAG -> string
-# ===========================
+
+
+
 dag_to_string <- function(adjmat) {
   N <- ncol(adjmat)
   out <- character(N)
@@ -212,9 +212,9 @@ dag_to_string <- function(adjmat) {
   paste(out, collapse=", ")
 }
 
-# ===========================
-# 6) MAIN
-# ===========================
+
+
+
 args <- commandArgs(TRUE)
 if (length(args) < 3) {
   cat("Usage: Rscript my_mcmc_sampler.R <jkl_file> <num_iterations> <outfile> [num_samples]\n")
@@ -225,14 +225,14 @@ num_iter    <- as.integer(args[2])
 outfile     <- args[3]
 num_samples <- if (length(args) >= 4) as.integer(args[4]) else 10
 
-# ----------------------------------------------------------------------
-# Tuning parameters for your scenario:
-# ----------------------------------------------------------------------
+
+
+
 scale_factor <- 0.001
 temperature  <- 5.0
-# By default, we assume child-only BDeu. If your .jkl is nonsymmetric, set TRUE:
+
 include_parent_score <- FALSE  
-# ----------------------------------------------------------------------
+
 
 cat("Reading local scores from:", jkl_file, "\n")
 cat("Using scale_factor =", scale_factor, "\n")
@@ -240,7 +240,7 @@ scores_env <- parse_jkl_to_env(jkl_file, scale_factor=scale_factor)
 all_keys   <- ls(scores_env)
 cat("Number of node|parents combos parsed:", length(all_keys), "\n")
 
-# Infer number of nodes from largest node index
+
 max_node <- 0
 for (k in all_keys) {
   node_str <- strsplit(k, "\\|")[[1]][1]
@@ -252,7 +252,7 @@ for (k in all_keys) {
 N <- max_node + 1
 cat("Inferred N =", N, "\n")
 
-# Initialize random DAG with ~10% edges, remove edges until acyclic
+
 adjmat <- matrix(rbinom(N*N, 1, 0.1), nrow=N)
 diag(adjmat) <- 0
 while (has_cycle(adjmat)) {
@@ -264,7 +264,7 @@ while (has_cycle(adjmat)) {
 cat("Initial DAG:\n", dag_to_string(adjmat), "\n\n")
 cat("Running MCMC for", num_iter, "burn-in iterations...\n")
 
-# Burn-in
+
 for (iter in seq_len(num_iter)) {
   adjmat <- mcmc_step(
     adjmat,
@@ -276,9 +276,9 @@ for (iter in seq_len(num_iter)) {
 }
 
 cat("\nSampling", num_samples, "DAGs => writing to", outfile, "\n")
-cat("", file=outfile)  # overwrite file
+cat("", file=outfile)  
 
-# Thin the chain => # of steps between successive samples
+
 thin_steps <- 50
 
 for (s in seq_len(num_samples)) {

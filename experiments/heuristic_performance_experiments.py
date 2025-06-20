@@ -1,5 +1,5 @@
-# takes jkl file k not gıven all k gıven then a txt fıle to measure coverage fractıon saves logs in a log fıle the results 
-#!/usr/bin/env python3
+
+
 
 """
 experiment_heuristics_with_timeout.py
@@ -36,16 +36,16 @@ import heuristics
 print(heuristics.__file__)
 import coverage 
 
-# sumu and related modules
+
 import sumu
 from sumu.candidates import candidate_parent_algorithm as cpa
 
 
-#(base) gulce@gulce-HP-Laptop:~/Downloads/thesis$ python experiments/heuristic_performance_experiments.py     --jkl_file data/asia_scores.jkl     --sampled_dags data/asia_sampled.txt     --data_file data/asia_dataset.csv     --K_min 1     --K_max 7    --skip_after_seconds 300     --output_csv data/coverage/asia_coverage_results.csv
-#
-##############################################################################
-# 6. main()
-##############################################################################
+
+
+
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--jkl_file", type=str, required=True,
@@ -66,21 +66,21 @@ def main():
                         help="Time limit (in seconds) for each heuristic call. If exceeded, skip.")
     args = parser.parse_args()
 
-    # 1. Parse JKL -> GobnilpScores
+    
     parsed_scores = data_io.parse_gobnilp_jkl(args.jkl_file)
     scores = heuristics.GobnilpScores(parsed_scores)
     n = scores.n
 
-    # 2. Parse sampled DAGs
+    
     sampled_dags = data_io.parse_dag_file(args.sampled_dags)
 
-    # 3. Optionally load data for sumu algorithms that require the original data
-    #    We'll also store the number of data rows in `num_data_rows`.
+    
+    
     mydata = None
     num_data_rows = 0
     if args.data_file and os.path.exists(args.data_file):
-        # If the second row has e.g. arity or an extraneous row, adapt skiprows if needed:
-        # df = pd.read_csv(args.data_file, skiprows=[1])
+        
+        
    
         df = pd.read_csv(args.data_file, skiprows=[1])
 
@@ -90,18 +90,18 @@ def main():
     else:
         print("No data file given or file does not exist; 'mb', 'pc', 'ges' etc. might fail if used.")
     print(cpa.keys())
-    # 4. Define the candidate algorithms we want to test
+    
     candidate_algos = {
         "top":         (cpa["top"],         {"scores": scores, "n": n}),
          "opt":         (cpa["opt"],         {"scores": scores, "n": n}),
-        #"mb":          (cpa["mb"],          {"data": mydata, "fill": "random"}),
-         #"pc":          (cpa["pc"],          {"data": mydata, "fill": "random"}),
-        #"ges":         (cpa["ges"],         {"scores": scores, "data": mydata, "fill": "top"}),
+        
+         
+        
         "greedy":      (cpa["greedy"],      {"scores": scores}),
         "greedy-lite": (cpa["greedy-lite"], {"scores": scores}),
         "back-forth":  (cpa["back-forth"],  {"scores": scores, "data": scores.data}),
         "beam":        (heuristics.beam_bdeu,          {"scores": scores, "beam_size": 5}),
-        #"marginal_bdeu_parents":        (heuristics.marginal_bdeu_parents,            {"scores": scores, "n": n}),
+        
         
          "voting_bdeu_parents":        (heuristics.bdeu_score_based_voting,            {"scores": scores}),
          "synergy": (heuristics.synergy_based_parent_selection,  {"scores": scores}),
@@ -114,9 +114,9 @@ def main():
         
     }
 
-    # 5. Loop over each algorithm, vary K, measure coverage, respect time limit
-    #    We'll now store the number of data rows in the results, too.
-    results = []  # will store tuples of (algorithm, K, coverage_fraction, num_data_rows)
+    
+    
+    results = []  
 
     for algo_name, (algo_func, algo_kwargs) in candidate_algos.items():
         print(f"\n*** Running algorithm: {algo_name} ***")
@@ -125,34 +125,34 @@ def main():
             start_time = time.time()
             candidate_parents = None
 
-            # Attempt to run the heuristic
+            
             try:
                 tmp_result = algo_func(K, **algo_kwargs)
-                # Some sumu CPAs return (C, None) or (C, extra).
+                
                 if isinstance(tmp_result, tuple) and len(tmp_result) >= 1:
                     candidate_parents = tmp_result[0]
                 else:
                     candidate_parents = tmp_result
             except Exception as e:
-                # Could be an error if data wasn't provided for 'mb' or 'pc', or other issues
+                
                 print(f"  [ERROR] {e}")
                 results.append((algo_name, K, None, num_data_rows))
                 continue
 
-            # Check elapsed time
+            
             elapsed = time.time() - start_time
             if elapsed > args.skip_after_seconds:
-                # If it took more than skip_after_seconds, skip it
+                
                 print(f"  [SKIPPED: took {elapsed:.1f}s > {args.skip_after_seconds}s]")
                 results.append((algo_name, K, None, num_data_rows,None))
                 break
 
-            # Otherwise, measure coverage
+            
             cf = coverage.coverage_fraction(candidate_parents, sampled_dags)
             print(f"  coverage={cf}, time={elapsed:.1f}s")
             results.append((algo_name, K, cf, num_data_rows,candidate_parents))
 
-    # 6. Save results to CSV
+    
     df_res = pd.DataFrame(results, columns=["Algorithm", "K", "CoverageFraction", "NumDataRows",'CandidateParents'])
     df_res.to_csv(args.output_csv, index=False)
     print(f"\nCoverage results saved to: {args.output_csv}")

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 
 import re
 import sys
@@ -19,8 +19,8 @@ def parse_coverage_log(log_file_path):
 
     coverage_data = []
 
-    # We'll keep track of the last (rep, algo, K) we found,
-    # so that once we see the coverage line, we can store that row.
+    
+    
     current_rep = None
     current_algo = None
     current_k = None
@@ -31,7 +31,7 @@ def parse_coverage_log(log_file_path):
             if not line:
                 continue
 
-            # Check if it’s the "Rep=X, ALGORITHM=Y, K=Z" line
+            
             match_header = pattern_header.match(line)
             if match_header:
                 current_rep = int(match_header.group(1))
@@ -39,16 +39,16 @@ def parse_coverage_log(log_file_path):
                 current_k = int(match_header.group(3))
                 continue
 
-            # Check if it’s the coverage line
+            
             match_cov = pattern_cov.match(line)
             if match_cov:
                 cov_prior_str = match_cov.group(1)
                 cov_gob_str   = match_cov.group(2)
-                # Convert coverage strings to floats
+                
                 coverage_prior   = float(cov_prior_str)
                 coverage_gobnilp = float(cov_gob_str)
 
-                # Save row only if we have current_rep/algo/K
+                
                 if current_rep is not None and current_algo is not None and current_k is not None:
                     coverage_data.append((
                         current_rep,
@@ -62,23 +62,23 @@ def parse_coverage_log(log_file_path):
 
 
 def main(log_file_path, output_raw_csv, output_means_csv):
-    # Parse the log => list of (rep, algo, K, coverage_prior, coverage_gobnilp)
+    
     rows = parse_coverage_log(log_file_path)
 
-    # Convert to DataFrame
+    
     df = pd.DataFrame(
         rows,
         columns=['replicate', 'method', 'K', 'coverage_prior', 'coverage_gobnilp']
     )
 
-    # Write the “raw” coverage results
+    
     df.to_csv(output_raw_csv, index=False)
     print(f"Wrote raw coverage data to {output_raw_csv} (rows={len(df)})")
 
-    # Compute mean coverage across replicates, grouped by (method, K)
+    
     df_mean = df.groupby(['method', 'K'], as_index=False)[['coverage_prior','coverage_gobnilp']].mean()
 
-    # Write the coverage means
+    
     df_mean.to_csv(output_means_csv, index=False)
     print(f"Wrote coverage means to {output_means_csv}")
 

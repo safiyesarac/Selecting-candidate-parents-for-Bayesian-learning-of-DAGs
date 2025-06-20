@@ -1,26 +1,26 @@
-# Load required libraries
-library(MCMCpack)
-library(MASS)  # For multivariate Gaussian likelihood
-library(parallel)  # For parallel execution of chains
 
-# Specify the path to your CSV file
+library(MCMCpack)
+library(MASS)  
+library(parallel)  
+
+
 file_path <- "~/Downloads/thesis/data/asia_dataset.csv"
 
-# Read the dataset
+
 data <- read.csv(file_path, header = TRUE)
 
-# Convert the data frame to a numerical matrix
+
 data_matrix <- as.matrix(sapply(data, as.numeric))
 
-# Number of nodes (variables in the DAG)
+
 num_nodes <- ncol(data_matrix)
 
-# Number of MCMC iterations
-total_iter <- 12000
-num_chains <- 4  # Number of MCMC chains to run
-target_dags <- 10000  # Target number of unique DAGs
 
-# --- Likelihood Function ---
+total_iter <- 12000
+num_chains <- 4  
+target_dags <- 10000  
+
+
 calculate_likelihood <- function(dag, data_matrix) {
   likelihood <- 0  
   for (j in 1:num_nodes) {
@@ -41,7 +41,7 @@ calculate_likelihood <- function(dag, data_matrix) {
   return(as.numeric(likelihood))  
 }
 
-# --- Function to Ensure Acyclicity ---
+
 ensure_acyclic <- function(dag) {
   temp_dag <- dag
   in_degree <- colSums(temp_dag)
@@ -64,7 +64,7 @@ ensure_acyclic <- function(dag) {
   return(visited == num_nodes)
 }
 
-# --- Initialize a Random DAG ---
+
 initialize_dag <- function(n) {
   dag <- matrix(0, nrow = n, ncol = n)
   for (i in 1:(n - 1)) {
@@ -75,7 +75,7 @@ initialize_dag <- function(n) {
   return(dag)
 }
 
-# --- Proposal Step: Modify a DAG ---
+
 propose_dag <- function(dag) {
   new_dag <- dag
   i <- sample(1:num_nodes, 1)
@@ -86,7 +86,7 @@ propose_dag <- function(dag) {
   return(new_dag)
 }
 
-# --- Metropolis-Hastings MCMC Sampling (Single Chain) ---
+
 metropolis_mcmc <- function(chain_id, total_iter, max_dags) {
   dag <- initialize_dag(num_nodes)
   current_likelihood <- calculate_likelihood(dag, data_matrix)
@@ -115,12 +115,12 @@ metropolis_mcmc <- function(chain_id, total_iter, max_dags) {
   return(sampled_dags)
 }
 
-# --- Run Multiple Chains in Parallel ---
+
 run_multiple_chains <- function(num_chains, total_iter, target_dags) {
   cl <- makeCluster(num_chains)  
   clusterExport(cl, c("initialize_dag", "propose_dag", "ensure_acyclic",
                       "calculate_likelihood", "metropolis_mcmc", "data_matrix", 
-                      "num_nodes", "total_iter", "target_dags"))  # ✅ FIXED: Export `target_dags`
+                      "num_nodes", "total_iter", "target_dags"))  
   results <- parLapply(cl, 1:num_chains, function(chain_id) {
     metropolis_mcmc(chain_id, total_iter, target_dags / num_chains)
   })
@@ -128,10 +128,10 @@ run_multiple_chains <- function(num_chains, total_iter, target_dags) {
   return(results)
 }
 
-# Run Multiple MCMC Chains
+
 sampled_dags_all_chains <- run_multiple_chains(num_chains, total_iter, target_dags)
 
-# --- Collect Unique DAGs Across All Chains ---
+
 unique_dags <- list()
 dag_hashes <- list()
 for (chain in 1:num_chains) {
@@ -148,7 +148,7 @@ for (chain in 1:num_chains) {
 
 cat("Total Unique DAGs:", length(unique_dags), "\n")
 
-# --- Save Unique DAGs to File ---
+
 output_file <- "~/Downloads/thesis/data/asia_unique_sampled_mh_dags.txt"
 con <- file(output_file, open = "w")
 
@@ -158,14 +158,14 @@ for (dag in unique_dags) {
     parent_indices <- which(dag[, j] == 1)
     parent_nodes <- sort(parent_indices - 1)
     
-    # Fix: Handling empty parent sets as "{}" instead of "{{}}"
+    
     parent_str <- if (length(parent_nodes) == 0) "{}" else paste(parent_nodes, collapse = ", ")
     
-    # Construct the DAG representation for the current node
+    
     node_strs[j] <- paste0(j - 1, " <- {", parent_str, "}")
   }
   
-  # Join all nodes into a single line (One DAG per line)
+  
   dag_line <- paste(node_strs, collapse = ", ")
   writeLines(dag_line, con)
 }

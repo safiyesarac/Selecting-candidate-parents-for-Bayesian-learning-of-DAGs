@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 
 """
 two_phase_nodelevel_coverage.py (Debug Version)
@@ -21,7 +21,7 @@ import os
 import random
 import logging
 
-# Set logging to DEBUG to ensure debug messages are shown
+
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
@@ -30,31 +30,31 @@ def save_data(df,csv_file, dat_file):
     print(columns)
     
     data = [[2] *( len(columns)+0)]
-    # Convert to DataFrame
+    
     df_arity = pd.DataFrame(data, columns=columns)
 
     column_mapping = {old: new for old, new in zip(df.columns, df_arity.columns)}
     df = df.rename(columns=column_mapping)
 
-    # Now, combine the data as before
+    
     df_combined_correct = pd.concat([df_arity, df], ignore_index=True)
     df_combined_correct.to_csv(csv_file, index=False)
 
 
-    # Combine the arity information (first row) with the rest of the dataset
+    
     df_combined_correct = pd.concat([df_arity, df])
-    # Save the DataFrame to a CSV file for inspection or future use
-    #df_arity.to_csv("data/original_hailfinder_dataset.csv", index=False)
-    # Append the arity row (df_arity) on top of the data_samples
+    
+    
+    
     df_combined = pd.concat([df_arity, df], ignore_index=True)
 
-    # Save the combined dataset to a CSV file
+    
     df_combined.to_csv(dat_file, index=False, sep=' ')    
     
 
-##########################
-# (A) "Fair" BN Prior
-##########################
+
+
+
 def sample_dag_fair_prior(n_vars, max_in_degree):
     """
     Sample exactly one random DAG on n_vars nodes
@@ -67,7 +67,7 @@ def sample_dag_fair_prior(n_vars, max_in_degree):
     tmp_file = f"_tmp_dag_{random.randint(0,999999)}.txt"
     logging.debug(f"[sample_dag_fair_prior] About to sample DAG; writing to {tmp_file}")
 
-    # sample 1 DAG
+    
     n_dags_to_sample = 1
     sampling.sample_from_exact_modular_fair_sampler(
         n_vars, max_in_degree, n_dags_to_sample, tmp_file
@@ -76,7 +76,7 @@ def sample_dag_fair_prior(n_vars, max_in_degree):
     dag_list = data_io.parse_dag_file(tmp_file)
     logging.debug(f"[sample_dag_fair_prior] Parsed {len(dag_list)} DAG(s) from {tmp_file}")
 
-    # Cleanup
+    
     if os.path.exists(tmp_file):
         os.remove(tmp_file)
     if not dag_list or len(dag_list) == 0:
@@ -179,7 +179,7 @@ def get_sumu_scores_for_small_data(data_small, replicate_idx=0):
 
     parsed_scores = data_io.parse_gobnilp_jkl(jkl_file)
 
-    scores = heuristics.GobnilpScores(parsed_scores)  # or sumu_heur.GobnilpScores
+    scores = heuristics.GobnilpScores(parsed_scores)  
 
     for f in [csv_file, dat_file, jkl_file]:
         if os.path.exists(f):
@@ -187,9 +187,9 @@ def get_sumu_scores_for_small_data(data_small, replicate_idx=0):
 
     return scores
 
-##########################
-# (B) Heuristic on small data
-##########################
+
+
+
 def run_heuristic_on_small_data(data_small, replicate_idx=0):
     """
     We'll produce node->list_of_parent_sets for each node
@@ -209,13 +209,13 @@ def run_heuristic_on_small_data(data_small, replicate_idx=0):
     dat_file = f"{prefix}.dat"
     jkl_file = f"{prefix}.jkl"
 
-    # Save data -> CSV -> DAT -> JKL
+    
     df_small = pd.DataFrame(data_small)
     df_small.to_csv(csv_file, index=False)
     data_preparation.save_data(df_small, csv_file, dat_file)
     data_preparation.compute_bdeu_scores(dat_file, jkl_file)
 
-    # Parse the JKL => wrap in GobnilpScores => pass to sumu greedy
+    
     parsed_scores = data_io.parse_gobnilp_jkl(jkl_file)
     scores = heuristics.GobnilpScores(parsed_scores)
     n = scores.n
@@ -223,7 +223,7 @@ def run_heuristic_on_small_data(data_small, replicate_idx=0):
 
     algo_func = cpa["greedy"]
     algo_kwargs = {"scores": scores}
-    # Some code had 'algo_func(n-1, **algo_kwargs)', others used 'n'. Adjust as needed.
+    
     tmp_result = algo_func(n-4, **algo_kwargs)
 
     if isinstance(tmp_result, tuple):
@@ -233,16 +233,16 @@ def run_heuristic_on_small_data(data_small, replicate_idx=0):
 
     logging.debug(f"[run_heuristic_on_small_data] Candidate parents for each node: {candidate_parents}")
 
-    # Cleanup
+    
     for f in [csv_file, dat_file, jkl_file]:
         if os.path.exists(f):
             os.remove(f)
 
     return candidate_parents
 
-##########################
-# (C) ILP solver on large data => best DAG
-##########################
+
+
+
 def find_best_dag_reference(data_ref, replicate_idx=0):
     """
     Use rungobnilp.py on local BDeu scores from data_ref
@@ -269,7 +269,7 @@ def find_best_dag_reference(data_ref, replicate_idx=0):
     dag_best = parse_best_dag_dot(dot_file)
     logging.debug(f"[find_best_dag_reference] Parsed DAG from {dot_file}: {dag_best}")
 
-    # Cleanup
+    
     for f in [csv_file, dat_file, jkl_file, dot_file]:
         if os.path.exists(f):
             os.remove(f)
@@ -286,7 +286,7 @@ def run_gobnilp_for_best_dag(jkl_file, prefix):
     cmd = [
         "python3",
         "/home/gulce/Downloads/thesis/pygobnilp-1.0/rungobnilp.py",
-        jkl_file,        # treat as local scores
+        jkl_file,        
         "--scores",
         "--nsols=1",
         "--nopruning",
@@ -314,18 +314,18 @@ def parse_best_dag_dot(dot_file):
         logging.warning(f"[parse_best_dag_dot] Solution .dot not found: {dot_file}")
         return dag_out
 
-    # pydot can return a list of graphs if the .dot file has multiple subgraphs
+    
     graphs = pydot.graph_from_dot_file(dot_file)
     if not graphs:
         logging.warning(f"[parse_best_dag_dot] No graphs found in {dot_file}.")
         return dag_out
     
-    graph = graphs[0]  # assume the first graph is the main one
+    graph = graphs[0]  
 
-    # Get all edges in the graph
+    
     for edge in graph.get_edges():
-        src = edge.get_source()      # e.g. '8'
-        dst = edge.get_destination() # e.g. '0'
+        src = edge.get_source()      
+        dst = edge.get_destination() 
         try:
             parent = int(src)
             child = int(dst)
@@ -337,7 +337,7 @@ def parse_best_dag_dot(dot_file):
             dag_out[child] = []
         dag_out[child].append(parent)
 
-    # Ensure every node (0..max_node) is in the dictionary
+    
     all_nodes = set()
     for c, ps in dag_out.items():
         all_nodes.add(c)
@@ -351,9 +351,9 @@ def parse_best_dag_dot(dot_file):
 
     return dag_out
 
-##########################
-# (D) Node-level coverage
-##########################
+
+
+
 def dag_nodes_covered(dag_ref, candidate_parents):
     """
     Check if DAG 'dag_ref' is "covered" by the candidate parents in 'candidate_parents'.
@@ -380,20 +380,20 @@ def dag_nodes_covered(dag_ref, candidate_parents):
     for node, ref_pa_list in dag_ref.items():
         ref_set = set(ref_pa_list)
 
-        # Get the candidate sets for this node
+        
         csets = candidate_parents.get(node, None)
         if csets is None:
-            # No candidate parents => automatically fails coverage
+            
             return False
 
-        # Convert single tuples/ints to a list of sets for uniformity
+        
         if isinstance(csets, tuple):
             csets = [csets]
         elif isinstance(csets, int):
             csets = [[csets]]
 
-        # Now csets should be an iterable of candidate sets (each a tuple or list).
-        # We only need ONE candidate set that covers ref_set (i.e. ref_set ⊆ cset).
+        
+        
         covered_this_node = False
         for cset in csets:
             cset_as_set = set(cset)
@@ -402,10 +402,10 @@ def dag_nodes_covered(dag_ref, candidate_parents):
                 break
 
         if not covered_this_node:
-            # If we never found a candidate set that contains all parents, coverage fails
+            
             return False
 
-    # If we never returned False, that means every node had at least one superset candidate set
+    
     return True
 
 
@@ -417,31 +417,31 @@ def arcs_coverage(dag_ref, candidate_parents):
     
     Returns a float in [0, 1], or 0.0 if dag_ref has no arcs.
     """
-    # Collect all arcs from the reference DAG
-    # dag_ref is { child : [ list_of_parents ] }
+    
+    
     arcs = []
     for child, parents in dag_ref.items():
         for p in parents:
             arcs.append((p, child))
     total_arcs = len(arcs)
     if total_arcs == 0:
-        return 1.0  # or define it as 1.0 if you prefer (no arcs => trivially covered)
+        return 1.0  
 
     guessed = 0
     for (p, c) in arcs:
         csets = candidate_parents.get(c, None)
         if csets is None:
-            # No candidate sets for this child => can't guess any arcs
+            
             continue
         
-        # Normalize to a list of sets/tuples so we can iterate
+        
         if isinstance(csets, (int, tuple, set)):
             csets = [csets]
 
-        # If 'p' appears in at least one candidate set for child 'c', we count it guessed
+        
         is_guessed = False
         for cset in csets:
-            # If a candidate set is just an int/tuple, turn it into a set
+            
             if isinstance(cset, int):
                 cset = {cset}
             else:
@@ -456,9 +456,9 @@ def arcs_coverage(dag_ref, candidate_parents):
     return guessed / total_arcs
 
 from sumu.candidates import candidate_parent_algorithm as cpa
-##########################
-# (E) main
-##########################
+
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--n_vars", type=int, default=10, help="Number of nodes (variables)")
@@ -472,47 +472,47 @@ def main():
     args = parser.parse_args()
     logging.debug(f"[main] Starting with arguments: {args}")
 
-    # Build a string summarizing the key parameters (for filenames)
+    
     param_str = (
         f"nVars={args.n_vars}_maxInDeg={args.max_in_degree}_"
         f"alpha={args.alpha}_smallData={args.small_data_size}_refData={args.ref_data_size}"
     )
 
-    # Output CSV and log file with embedded parameters
+    
     coverage_csv = f"coverage_{param_str}.csv"
     means_csv    = f"coverage_means_{param_str}.csv"
     log_file     = f"coverage_log_{param_str}.log"
 
     coverage_rows = []
     with open(log_file, "w") as lf:
-        lf.write(f"# Detailed coverage log\n")
-        lf.write(f"# Parameters: {param_str}\n\n")
+        lf.write(f"
+        lf.write(f"
 
         for r in range(args.M):
             logging.info(f"=== Replicate {r+1}/{args.M} ===")
 
-            # 1) Sample G*, cpts*
+            
             G_star = sample_dag_fair_prior(args.n_vars, args.max_in_degree)
             cpts_star = sample_cpts_for_dag(G_star, alpha=args.alpha, num_states=args.num_states)
             logging.debug(f"[main] Rep={r}, Sampled DAG (G_star) = {G_star}")
 
-            # 2) Generate small data => compute scores
+            
             data_small = generate_data_from_dag(G_star, cpts_star, args.small_data_size, args.num_states)
             scores_small = get_sumu_scores_for_small_data(data_small, replicate_idx=r)
             n = scores_small.n
 
-            # (We might also prepare sumu.Data or do other pre-processing for the heuristics)
+            
             import sumu
             mydata_small = sumu.Data(data_small)
 
-            # 3) Generate large data => run Gobnilp => best DAG (DAG_ref)
+            
             data_ref = generate_data_from_dag(G_star, cpts_star, args.ref_data_size, args.num_states)
             DAG_ref = find_best_dag_reference(data_ref, replicate_idx=r)
             logging.debug(f"[main] Rep={r}, DAG_ref => {DAG_ref}")
 
-            # 4) For each algorithm, compute coverage w.r.t. DAG_ref *and* w.r.t. G_star
+            
             from sumu.candidates import candidate_parent_algorithm as cpa
-            import heuristics  # your custom heuristics.py
+            import heuristics  
 
             candidate_algos = {
                 "opt":            (cpa["opt"],            {"scores": scores_small, "n": n}),
@@ -525,14 +525,14 @@ def main():
                 "back-forth":     (cpa["back-forth"],     {"scores": scores_small, "data": scores_small.data}),
                 "beam":           (heuristics.beam_bdeu,  {"scores": scores_small, "beam_size": 5}),
                 "marginal_bdeu_parents": (heuristics.marginal_bdeu_parents, {"scores": scores_small, "n": n}),
-                # "voting_bdeu_parents":   (heuristics.bdeu_score_based_voting, {"scores": scores_small}),
+                
                 "synergy":        (heuristics.synergy_based_parent_selection, {"scores": scores_small}),
                 "stability":      (heuristics.stability_bdeu, {"scores": scores_small, "data": mydata_small}),
                 "post":           (heuristics.maximize_true_graph_posterior, {"scores": scores_small}),
             }
 
             for algo_name, (algo_func, algo_kwargs) in candidate_algos.items():
-                # We'll vary K from 1..(n-1), or some range
+                
                 for K in range(1, n):
                     try:
                         tmp_res = algo_func(K, **algo_kwargs)
@@ -542,17 +542,17 @@ def main():
                             candidate_pars = tmp_res
                     except Exception as e:
                         logging.warning(f"[Rep={r}] algo={algo_name}, K={K} error: {e}")
-                        # If it fails, store coverage=0
+                        
                         coverage_rows.append((r, algo_name, K, 0, 0))
                         continue
 
                     cov_star = arcs_coverage(G_star, candidate_pars)
                     cov_ref  = arcs_coverage(DAG_ref, candidate_pars)
                    
-                    # We'll store both coverage values
+                    
                     coverage_rows.append((r, algo_name, K, cov_star, cov_ref))
                     
-                    # === HERE is the new logging block ===
+                    
                     lf.write("\n--------------------------------------------------\n")
                     lf.write(f"Rep={r}, ALGORITHM={algo_name}, K={K}\n\n")
                     lf.write(f"Candidate parents by heuristic:\n{candidate_pars}\n\n")
@@ -561,7 +561,7 @@ def main():
                     lf.write(f"Coverage with PRIOR = {cov_star}, Coverage with GOBNILP = {cov_ref}\n")
                     lf.write("--------------------------------------------------\n\n")
 
-    # Convert to DataFrame and summarize
+    
     df_out = pd.DataFrame(
         coverage_rows,
         columns=["replicate", "method", "K", "coverage_prior", "coverage_gobnilp"]
@@ -570,11 +570,11 @@ def main():
     df_out.to_csv(args.output_csv, index=False)
     logging.info(f"Saved raw results to {args.output_csv}")
 
-    # Show mean coverage across replicates
+    
     df_mean = df_out.groupby(["method", "K"], as_index=False)[["coverage_prior", "coverage_gobnilp"]].mean()
     logging.info("\nMean coverage across replicates:\n%s", df_mean)
     
-    # Write a second CSV that has the average coverage
+    
     df_mean.to_csv(means_csv, index=False)
     logging.info(f"Saved coverage means to {means_csv}")
 

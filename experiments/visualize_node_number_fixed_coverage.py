@@ -26,11 +26,11 @@ for alg in all_algorithms:
     for dataset_name, df in datasets.items():
         subset = df[df["Algorithm"] == alg]
         
-        # Group coverage by the "K" in the CSV...
+        
         coverage_by_k = subset.groupby("K")["CoverageFraction"].mean().sort_index()
         
-        # But we know "K" means "K+1" in reality, so shift x-values by +1
-        real_k = coverage_by_k.index   # <--- shift by 1
+        
+        real_k = coverage_by_k.index   
         coverage_values = coverage_by_k.values
         
         plt.plot(real_k, coverage_values, marker='o', label=dataset_name)
